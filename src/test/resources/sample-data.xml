@@ -92,7 +92,7 @@
     </table>
     
     <!--Company-START-->
-    <table name="Company">
+    <table name="COMPANY">
         <column>ID</column>
         <column>NAME</column>
     <row>
