@@ -52,7 +52,7 @@ public class Company {
 			nullable = false)
 	public String getName() {
 		return name;
-	}
+	} 
 
 	public void setName(String name) {
 		this.name = name;
@@ -60,6 +60,7 @@ public class Company {
 	
 	@OneToMany(fetch = FetchType.EAGER,
 			   cascade = CascadeType.ALL)
+	@JoinColumn(name = "COMPANY_FK")
 	public Set<Project> getProjects() {
 		return projects;
 	}
