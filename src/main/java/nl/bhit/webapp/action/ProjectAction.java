@@ -58,12 +58,7 @@ public class ProjectAction extends BaseAction implements Preparable {
     }
     
     public List getCompanyList(){
-    	 try {
-             companies = companyManager.search(query, Company.class);
-         } catch (SearchException se) {
-             addActionError(se.getMessage());
-             companies = companyManager.getAll();
-         }
+    	companies = companyManager.getAll();
     	return companies;
     }
 
