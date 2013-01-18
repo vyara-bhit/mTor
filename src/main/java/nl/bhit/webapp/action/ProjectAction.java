@@ -3,6 +3,7 @@ package nl.bhit.webapp.action;
 import com.opensymphony.xwork2.Preparable;
 import nl.bhit.service.GenericManager;
 import nl.bhit.dao.SearchException;
+import nl.bhit.model.Company;
 import nl.bhit.model.Project;
 import nl.bhit.webapp.action.BaseAction;
 
@@ -11,6 +12,7 @@ import java.util.List;
 public class ProjectAction extends BaseAction implements Preparable {
     private GenericManager<Project, Long> projectManager;
     private List projects;
+    private List companies;
     private Project project;
     private Long id;
     private String query;
@@ -48,6 +50,16 @@ public class ProjectAction extends BaseAction implements Preparable {
             projects = projectManager.getAll();
         }
         return SUCCESS;
+    }
+    
+    public String getCompanyList(){
+    	 try {
+             companies = projectManager.search(query, Company.class);
+         } catch (SearchException se) {
+             addActionError(se.getMessage());
+             companies = projectManager.getAll();
+         }
+    	return SUCCESS;
     }
 
     public void setId(Long id) {
