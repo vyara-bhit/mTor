@@ -959,6 +959,13 @@
                 <cargo.container.url>http://easynews.dl.sourceforge.net/sourceforge/jboss/jboss-4.0.5.GA.zip</cargo.container.url>
             </properties>
         </profile>
+        <!-- ================= Container Profiles ================= -->
+        <profile>
+            <id>tibi</id>
+            <properties>
+		        <jdbc.password></jdbc.password>
+            </properties>
+        </profile>
     </profiles>
 
     <properties>
