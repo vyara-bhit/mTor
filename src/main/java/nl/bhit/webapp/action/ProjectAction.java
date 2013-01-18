@@ -11,6 +11,7 @@ import java.util.List;
 
 public class ProjectAction extends BaseAction implements Preparable {
     private GenericManager<Project, Long> projectManager;
+    private GenericManager<Company, Long> companyManager;
     private List projects;
     private List companies;
     private Project project;
@@ -23,6 +24,10 @@ public class ProjectAction extends BaseAction implements Preparable {
 
     public List getProjects() {
         return projects;
+    }
+    
+    public void setCompanyManager(GenericManager<Company, Long> companyManager) {
+        this.companyManager = companyManager;
     }
 
     /**
@@ -52,14 +57,14 @@ public class ProjectAction extends BaseAction implements Preparable {
         return SUCCESS;
     }
     
-    public String getCompanyList(){
+    public List getCompanyList(){
     	 try {
-             companies = projectManager.search(query, Company.class);
+             companies = companyManager.search(query, Company.class);
          } catch (SearchException se) {
              addActionError(se.getMessage());
-             companies = projectManager.getAll();
+             companies = companyManager.getAll();
          }
-    	return SUCCESS;
+    	return companies;
     }
 
     public void setId(Long id) {
