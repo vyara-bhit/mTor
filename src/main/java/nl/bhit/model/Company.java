@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(
-		name = "Company")
+		name = "COMPANY")
 public class Company {
 	private Long id;
 	private String name;
