@@ -1,5 +1,5 @@
 <%@ include file="/common/taglibs.jsp"%>
-
+ 
 <head>
     <title><fmt:message key="projectList.title"/></title>
     <meta name="menu" content="ProjectMenu"/>
