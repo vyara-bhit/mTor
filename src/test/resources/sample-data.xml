@@ -110,29 +110,6 @@
     </table>
     <!--Company-END--> 
     
-    <!--Message-START-->
-    <table name="MESSAGE">
-        <column>ID</column>
-        <column>CONTENT</column>
-        <column>PROJECT_FK</column>
-    <row>
-        <value description="ID">-1</value>
-        <value description="CONTENT">KeGsStSdMpFgUfEeIjNiLhIrQkDxTvWhLyKoAaBmRcQwLlXeNeAtLiXqJgQoYdVlAdRnQzZuAqAiLjNsUwAmJmSdLsGsMgWiQhNsXzGmAaLbAmFsUdCyVmQnSyGdXxDpOvGfCzWwRmZzHdEgIaIyWqXoPzIaDmEcVbCfAuUiDjTjShDsLpVaSdHzAeHfNfXdAoBhUaTwTwWnAcHiJsLaSkQsMhLxNuHgViHeWaHtQcAmFlIxEiRsHsIxToBiHyU</value>
-        <value description="PROJECT_FK">-1</value>
-    </row>
-    <row>
-        <value description="ID">-2</value>
-        <value description="CONTENT">ZhYoLkHaGaJsSdRvRyOrXpCnXgIbXrLyXuDdYsTjZeUlRtUcSjRvRcQeMiMyOpIvDtNqWcVbImCpYkSrGbQiVoPjMgObIhJjUkOoQzEqZsQxBpYuOuKdUbHgLtTdAhSkXsToPdFgZsRxNoInTkGbLoYuVsOvNgYfOsHnGdKuSdAxVrGpDeJeNqTcFbIwWgGiEaPdQhJcNoUcCqVcRsToAcHrWdEdCiXmDnMvZsJpHvLtOcOtRnIeAoJiLwHiTzV</value>
-        <value description="PROJECT_FK">-2</value>
-    </row>
-    <row>
-        <value description="ID">-3</value>
-        <value description="CONTENT">XrNjPnNhDiPdZtPfCuMgZsOqXfWeJhMxUzXqLpImYnEgMmPxKgWsHpJxQbZmScWtZkSoUgHaCwQfRlXgFiJnPaXmNlSwJfOoDhUeHqXkWzBlAuEhSbQmIxUyYsTgIgBmVsBoAyJeUdFxPeYbCgTqCuBvTnKeOeVzElMjLpGaNiKjZwNrZrIvBdLyGxVlPxSpKpUnGsCxHvJmKiQxOpJvNtPtYxAfAuItBbDdAnSwIrUpYrRmNlYbZnFxWkNyXjT</value>
-        <value description="PROJECT_FK">-3</value>
-    </row>
-    </table>
-    <!--Message-END-->
-    
         <!--Project-START-->
     <table name="PROJECT">
         <column>ID</column>
