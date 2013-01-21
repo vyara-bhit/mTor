@@ -3,6 +3,7 @@ package nl.bhit.webapp.action;
 import com.opensymphony.xwork2.Preparable;
 import nl.bhit.service.GenericManager;
 import nl.bhit.dao.SearchException;
+import nl.bhit.model.Company;
 import nl.bhit.model.Message;
 import nl.bhit.model.Project;
 import nl.bhit.webapp.action.BaseAction;

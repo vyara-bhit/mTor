@@ -27,13 +27,15 @@ public class Message {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "PROJECT_FK")
-	public Project getProjectCompany() {
+	public Project getProject() {
 		return project;
 	}
 
 	public void setProject(Project project) {
 		this.project = project;
 	}
+	
+
 	
 	@Id
 	@GeneratedValue(
