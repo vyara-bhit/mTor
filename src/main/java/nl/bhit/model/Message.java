@@ -32,7 +32,7 @@ public class Message {
 			fetch = FetchType.EAGER)
 	@JoinColumn(
 			name = "PROJECT_FK")
-	public Project getProjectCompany() {
+	public Project getProject() {
 		return project;
 	}
 
