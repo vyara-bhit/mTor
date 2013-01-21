@@ -3,6 +3,7 @@ package nl.bhit.model;
 import java.util.Set;
 import java.util.TreeSet;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,16 +21,16 @@ import javax.persistence.Table;
 public class Project {
 	private Long id;
 	private String name;
-	private Set<String> messages;
+	private Set<Message> messages;
 	private Company company;
 
 	public Project(){
-		this.messages = new TreeSet<String>();
+		this.messages = new TreeSet<Message>();
 	}
 	
 	public Project(String name){
 		this.name = name;
-		this.messages = new TreeSet<String>();
+		this.messages = new TreeSet<Message>();
 	}
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -67,8 +69,19 @@ public class Project {
 	public void setName(String name) {
 		this.name = name;
 	}
-		
-	public void addMessage(String message){
+	
+	@OneToMany(fetch = FetchType.EAGER,
+			   cascade = CascadeType.ALL)
+	@JoinColumn(name = "PROJECT_FK")
+	public Set<Message> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(Set<Message> messages) {
+		this.messages = messages;
+	}
+	
+	public void addMessage(Message message){
 		messages.add(message);
 	}
 	

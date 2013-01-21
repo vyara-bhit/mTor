@@ -70,7 +70,7 @@ public class ProjectActionTest extends BaseActionTestCase {
 
         Project project = action.getProject();
         // update required fields
-        project.setName("KmTtVsOqHxQrMrYvLzOqMuYkQgNlQyMgLjVnPmTxTqYeZfExDeMxIrGbIoAgQwCiDbMpSxSuYnWjBfTbHtFxTuJsLpToAqRxDtJmNlXgIaJhQlCnMpXbWfMpWnKvEsDcRsZfXrDpWqYuXhYrUxNzCwZaRqKtXsOgUnAnDtNoNtIyXaMwXzYlKwBbGuJsXtEjClCkLjVwIbMeVpAwJjBkQaPuAqIaInOfQjIzFwXvLbQwFlVeBdJnHpJiDlUaAbE");
+        project.setName("VdHuDmErGkEnFdAvMnBoYmXkIbCqNnLoPlItWlCbOlYlUcWrOkAdXnDlQwMeQoIqKkLcSfHkSeMaNoZsNsWxYcXsIkHqRlTnCdRbErZnBiTsEiJnLePvUuIuTwSpYwGuTnOeWuXpEiHrHgBtApGvWoWkBuKxBeWaJmYjAkAsWcEhLvChJlPzXoJeXyPhMyDmVnEbTqTcBzCdYyQyXgPaLuGcUmHjEzKpDmKtWnMeDhSzIcIgAoRtQqBkLkUxMlM");
 
         action.setProject(project);
 

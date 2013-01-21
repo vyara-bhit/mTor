@@ -16,6 +16,10 @@
     <!--Company-START-->
     <menu:displayMenu name="CompanyMenu"/>
     <!--Company-END-->
+    
+    <!--Message-START-->
+    <menu:displayMenu name="MessageMenu"/>
+    <!--Message-END-->
     <!--Project-START-->
     <menu:displayMenu name="ProjectMenu"/>
     <!--Project-END-->
