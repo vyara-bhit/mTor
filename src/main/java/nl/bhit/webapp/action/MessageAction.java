@@ -28,7 +28,7 @@ public class MessageAction extends BaseAction implements Preparable {
     }
 
     public List getMessages() {
-        return messages;
+        return messages; 
     }
 
     /**

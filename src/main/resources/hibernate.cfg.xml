@@ -11,5 +11,9 @@
         <mapping class="nl.bhit.model.Project"/>
         <mapping class="nl.bhit.model.Company"/>
         <mapping class="nl.bhit.model.Message"/>
+<<<<<<< HEAD
     </session-factory>
+=======
+    </session-factory>
+>>>>>>> 6fb5e4faa1349c86a736e1913c5da73e95f62afd
 </hibernate-configuration>

@@ -28,13 +28,12 @@ public class Message {
 		this.content = content;
 	}
 
-	@ManyToOne(
-			fetch = FetchType.EAGER)
-	@JoinColumn(
-			name = "PROJECT_FK")
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "PROJECT_FK")
 	public Project getProject() {
 		return project;
 	}
+
 
 	public void setProject(Project project) {
 		this.project = project;
