@@ -2,7 +2,7 @@ package nl.bhit.webapp.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
-import nl.bhit.service.GenericManager;
+import nl.bhit.service.MessageManager;
 import nl.bhit.model.Message;
 import nl.bhit.webapp.action.BaseActionTestCase;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class MessageActionTest extends BaseActionTestCase {
         super.onSetUp();
 
         action = new MessageAction();
-        GenericManager messageManager = (GenericManager) applicationContext.getBean("messageManager");
+        MessageManager messageManager = (MessageManager) applicationContext.getBean("messageManager");
         action.setMessageManager(messageManager);
 
         // add a test message to the database
@@ -42,7 +42,7 @@ public class MessageActionTest extends BaseActionTestCase {
     @Test
     public void testSearch() throws Exception {
         // regenerate indexes
-        GenericManager<Message, Long> messageManager = (GenericManager<Message, Long>) applicationContext.getBean("messageManager");
+        MessageManager messageManager = (MessageManager) applicationContext.getBean("messageManager");
         messageManager.reindex();
 
         action.setQ("*");
@@ -70,7 +70,7 @@ public class MessageActionTest extends BaseActionTestCase {
 
         Message message = action.getMessage();
         // update required fields
-        message.setContent("HdGeZdIeOvTuHhWyCnTpHfPgHuZuBlNpOpLjSgVpIxUvSkVkNtNmDqLxDgMlNzTfNdZiVuGxOyZsOtUkSyPgXbMhIeGhSfTdDeWtNrCtDeKxAqDxTiLrUlTsDgEySqHwJeSlYgAaDlEeDtGrJbAzCgBeCgOhSiFxWyTkWwXcDhLlIbTeDyEfBsBvExOsPwSuGrFoCcKzDjXtGuWbWfZuMnXdFnObYpCxQrZjVtKbHvKrUyJqFpNnDuAwJqChIaJ");
+        message.setContent("WzMtCtVdDeXpJsHcAwKtPaHbChRiLrYcCwMqZaSxHfZkNuAfZgFyGuBnPaGfCqJoPaTjDlSiPpWmFiKlNySpQmHqFaQzOtCmOsTqRzCzDbJaVcNwNlExTwOxBmQsToAfThAnSsTsMqLzZcGwOtHoUwRrPuZvZhRpEsRtKcMfKsMrPlBuAcGqRlSlCcAmOuDhKpYmJrLvTeQuByNgAbWvMxFdZeAfRfWvOkGfOvBoKaSnUnXgEsHbMgLyPrEqLwB");
 
         action.setMessage(message);
 

@@ -1,16 +1,17 @@
 package nl.bhit.webapp.action;
 
-import com.opensymphony.xwork2.Preparable;
-import nl.bhit.service.GenericManager;
+import java.util.List;
+
 import nl.bhit.dao.SearchException;
 import nl.bhit.model.Message;
 import nl.bhit.model.Project;
-import nl.bhit.webapp.action.BaseAction;
+import nl.bhit.service.GenericManager;
+import nl.bhit.service.MessageManager;
 
-import java.util.List;
+import com.opensymphony.xwork2.Preparable;
 
 public class MessageAction extends BaseAction implements Preparable {
-    private GenericManager<Message, Long> messageManager;
+    private MessageManager messageManager;
     private GenericManager<Project, Long> projectManager;
     private List messages;
     private List projects;
@@ -18,7 +19,7 @@ public class MessageAction extends BaseAction implements Preparable {
     private Long id;
     private String query;
 
-    public void setMessageManager(GenericManager<Message, Long> messageManager) {
+    public void setMessageManager(MessageManager messageManager) {
         this.messageManager = messageManager;
     }
     
