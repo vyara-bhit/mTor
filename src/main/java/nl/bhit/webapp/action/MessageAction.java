@@ -3,31 +3,31 @@ package nl.bhit.webapp.action;
 import com.opensymphony.xwork2.Preparable;
 import nl.bhit.service.GenericManager;
 import nl.bhit.dao.SearchException;
-import nl.bhit.model.Company;
+import nl.bhit.model.Message;
 import nl.bhit.model.Project;
 import nl.bhit.webapp.action.BaseAction;
 
 import java.util.List;
 
-public class ProjectAction extends BaseAction implements Preparable {
+public class MessageAction extends BaseAction implements Preparable {
+    private GenericManager<Message, Long> messageManager;
     private GenericManager<Project, Long> projectManager;
-    private GenericManager<Company, Long> companyManager;
+    private List messages;
     private List projects;
-    private List companies;
-    private Project project;
+    private Message message;
     private Long id;
     private String query;
 
+    public void setMessageManager(GenericManager<Message, Long> messageManager) {
+        this.messageManager = messageManager;
+    }
+    
     public void setProjectManager(GenericManager<Project, Long> projectManager) {
         this.projectManager = projectManager;
     }
 
-    public void setCompanyManager(GenericManager<Company, Long> companyManager) {
-        this.companyManager = companyManager;
-    }
-    
-    public List getProjects() {
-        return projects;
+    public List getMessages() {
+        return messages;
     }
 
     /**
@@ -36,9 +36,9 @@ public class ProjectAction extends BaseAction implements Preparable {
     public void prepare() {
         if (getRequest().getMethod().equalsIgnoreCase("post")) {
             // prevent failures on new
-            String projectId = getRequest().getParameter("project.id");
-            if (projectId != null && !projectId.equals("")) {
-                project = projectManager.get(new Long(projectId));
+            String messageId = getRequest().getParameter("message.id");
+            if (messageId != null && !messageId.equals("")) {
+                message = messageManager.get(new Long(messageId));
             }
         }
     }
@@ -49,43 +49,43 @@ public class ProjectAction extends BaseAction implements Preparable {
 
     public String list() {
         try {
-            projects = projectManager.search(query, Project.class);
+            messages = messageManager.search(query, Message.class);
         } catch (SearchException se) {
             addActionError(se.getMessage());
-            projects = projectManager.getAll();
+            messages = messageManager.getAll();
         }
         return SUCCESS;
     }
     
-    public List getCompanyList(){
-    	companies = companyManager.getAll();
-    	return companies;
+    public List getProjectCompanyList(){
+    	projects = projectManager.getAll();
+    	return projects;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public Project getProject() {
-        return project;
+    public Message getMessage() {
+        return message;
     }
 
-    public void setProject(Project project) {
-        this.project = project;
+    public void setMessage(Message message) {
+        this.message = message;
     }
 
     public String delete() {
-        projectManager.remove(project.getId());
-        saveMessage(getText("project.deleted"));
+        messageManager.remove(message.getId());
+        saveMessage(getText("message.deleted"));
 
         return SUCCESS;
     }
 
     public String edit() {
         if (id != null) {
-            project = projectManager.get(id);
+            message = messageManager.get(id);
         } else {
-            project = new Project();
+            message = new Message();
         }
 
         return SUCCESS;
@@ -100,11 +100,11 @@ public class ProjectAction extends BaseAction implements Preparable {
             return delete();
         }
 
-        boolean isNew = (project.getId() == null);
+        boolean isNew = (message.getId() == null);
 
-        projectManager.save(project);
+        messageManager.save(message);
 
-        String key = (isNew) ? "project.added" : "project.updated";
+        String key = (isNew) ? "message.added" : "message.updated";
         saveMessage(getText(key));
 
         if (!isNew) {
