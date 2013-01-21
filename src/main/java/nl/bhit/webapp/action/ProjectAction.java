@@ -22,12 +22,12 @@ public class ProjectAction extends BaseAction implements Preparable {
         this.projectManager = projectManager;
     }
 
-    public List getProjects() {
-        return projects;
-    }
-    
     public void setCompanyManager(GenericManager<Company, Long> companyManager) {
         this.companyManager = companyManager;
+    }
+    
+    public List getProjects() {
+        return projects;
     }
 
     /**
