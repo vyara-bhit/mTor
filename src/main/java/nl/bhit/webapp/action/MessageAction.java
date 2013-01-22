@@ -66,10 +66,7 @@ public class MessageAction extends BaseAction implements Preparable {
     }
 
     public List getStatasList(){
-    	statas.add(Status.ERROR);
-    	statas.add(Status.WARN);
-    	statas.add(Status.INFO);
-    	return statas;
+    	return Status.getAsList();
     }
     public void setId(Long id) {
         this.id = id;
