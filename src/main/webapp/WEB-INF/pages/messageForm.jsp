@@ -30,7 +30,7 @@
             <c:if test="${not empty message.id}">
                 <s:submit type="button" cssClass="btn btn-warning" method="delete" key="button.delete"
                     onclick="return confirmMessage(msgDelConfirm)" theme="simple">
-                    <i class="icon-trash icon-white"></i> <fmt:message key="button.delete"/>
+                    <i class="icon-trash icon-white"></i> <fmt:message key="button.delete"/> 
                 </s:submit>
             </c:if>
             <s:submit type="button" cssClass="btn" method="cancel" key="button.cancel" theme="simple">
