@@ -89,4 +89,24 @@ public class Project {
 		messages.remove(message);
 	}
 	
+
+
+	public  Status statusOfProject() {
+		Set<Message> currentMessages= getMessages();
+		if(!currentMessages.isEmpty()){
+			for (Message message : currentMessages) { 
+				Status status = message.getStatas();
+				if(status.equals(Status.ERROR)){
+					return Status.ERROR;
+				} 
+			}
+			for (Message message : currentMessages) { 
+				Status status = message.getStatas();
+				if(status.equals(Status.WARN)){
+					return Status.WARN;						
+				} 
+			}						
+		}
+		return Status.INFO;
+	}	
 }

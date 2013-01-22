@@ -154,7 +154,7 @@
 
         <!--ProjectAction-START-->
         <action name="projects" class="nl.bhit.webapp.action.ProjectAction" method="list">
-            <result>/WEB-INF/pages/projectList.jsp</result>
+            <result>/WEB-INF/pages/colorProjectList.jsp</result>
         </action>
 
         <action name="editProject" class="nl.bhit.webapp.action.ProjectAction" method="edit">
