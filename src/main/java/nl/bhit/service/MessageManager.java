@@ -10,6 +10,7 @@ public interface MessageManager extends GenericManager<Message, Long> {
 
 	@WebMethod(
 			operationName = "test")
+	// @RolesAllowed("basicUser")
 	Message saveMessage(Message message);
 
 }
