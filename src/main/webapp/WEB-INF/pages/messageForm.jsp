@@ -18,8 +18,9 @@
 <div class="span7">
     <s:form id="messageForm" action="saveMessage" method="post" validate="true" cssClass="well form-horizontal">
             <s:hidden key="message.id"/>
-        <s:textfield key="message.content" required="true" maxlength="255" />
+        <s:textfield key="message.content" required="true" maxlength="255" />    
         <!-- todo: change this to read the identifier field from the other pojo -->
+        <s:select name="message.statas" list="statasList" listKey="statas" listValue="statas"></s:select>
         <s:select name="message.projectCompany.id" list="projectCompanyList" listKey="id" listValue="id"></s:select>
 
         <div id="actions" class="form-actions">

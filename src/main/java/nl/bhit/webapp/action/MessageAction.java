@@ -5,6 +5,7 @@ import java.util.List;
 import nl.bhit.dao.SearchException;
 import nl.bhit.model.Message;
 import nl.bhit.model.Project;
+import nl.bhit.model.Status;
 import nl.bhit.service.GenericManager;
 import nl.bhit.service.MessageManager;
 
@@ -15,7 +16,8 @@ public class MessageAction extends BaseAction implements Preparable {
     private GenericManager<Project, Long> projectManager;
     private List messages;
     private List projects;
-    private Message message;
+    private List statas;
+    private Message message;   
     private Long id;
     private String query;
 
@@ -25,7 +27,7 @@ public class MessageAction extends BaseAction implements Preparable {
     
     public void setProjectManager(GenericManager<Project, Long> projectManager) {
         this.projectManager = projectManager;
-    }
+    }    
 
     public List getMessages() {
         return messages; 
@@ -63,6 +65,12 @@ public class MessageAction extends BaseAction implements Preparable {
     	return projects;
     }
 
+    public List getStatasList(){
+    	statas.add(Status.ERROR);
+    	statas.add(Status.WARN);
+    	statas.add(Status.INFO);
+    	return statas;
+    }
     public void setId(Long id) {
         this.id = id;
     }

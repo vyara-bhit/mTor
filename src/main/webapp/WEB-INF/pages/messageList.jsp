@@ -34,6 +34,7 @@
             paramId="id" paramProperty="id" titleKey="message.id"/>
         <display:column property="id" media="csv excel xml pdf" titleKey="message.id"/>
         <display:column property="content" sortable="true" titleKey="message.content"/>
+        <display:column property="statas" sortable="true" title="Status"/>
 
         <display:setProperty name="paging.banner.item_name"><fmt:message key="messageList.message"/></display:setProperty>
         <display:setProperty name="paging.banner.items_name"><fmt:message key="messageList.messages"/></display:setProperty>
