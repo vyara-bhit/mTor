@@ -27,16 +27,6 @@
 
     
 
-    <!--MessageManager-START-->
-    <bean id="messageManager" class="nl.bhit.service.impl.GenericManagerImpl">
-        <constructor-arg>
-            <bean class="nl.bhit.dao.hibernate.GenericDaoHibernate">
-                <constructor-arg value="nl.bhit.model.Message"/>
-            </bean>
-        </constructor-arg>
-    </bean>
-    <!--MessageManager-END-->
-
     <!--ProjectManager-START-->
     <bean id="projectManager" class="nl.bhit.service.impl.GenericManagerImpl">
         <constructor-arg>
