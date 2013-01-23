@@ -16,7 +16,7 @@ public class MessageAction extends BaseAction implements Preparable {
     private GenericManager<Project, Long> projectManager;
     private List messages;
     private List projects;
-    private List statas;
+    private List status;
     private Message message;   
     private Long id;
     private String query;
@@ -65,7 +65,7 @@ public class MessageAction extends BaseAction implements Preparable {
     	return projects;
     }
 
-    public List getStatasList(){
+    public List getStatusList(){
     	return Status.getAsList();
     }
     public void setId(Long id) {
