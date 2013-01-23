@@ -1,5 +1,6 @@
 package nl.bhit.service.impl;
 
+import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 import nl.bhit.dao.MessageDao;
@@ -29,9 +30,21 @@ public class MessageManagerImpl extends GenericManagerImpl<Message, Long> implem
 	}
 
 	@Override
+	@WebMethod(
+			exclude = true)
 	public Message saveMessage(SoapMessage soapMessage) {
 		Message message = soapMessageToMessage(soapMessage);
 		return messageDao.save(message);
+	}
+
+	@Override
+	@WebMethod(
+			exclude = false,
+			operationName = "saveSoapMessage",
+			action = "saveSoapMessage")
+	// @RolesAllowed("basicUser")
+	public void saveSoapMessage(SoapMessage soapMessage) {
+		saveMessage(soapMessage);
 	}
 
 	protected Message soapMessageToMessage(SoapMessage soapMessage) {
