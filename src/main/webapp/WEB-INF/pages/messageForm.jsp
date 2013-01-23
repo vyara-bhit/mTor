@@ -20,7 +20,7 @@
             <s:hidden key="message.id"/>
         <s:textfield key="message.content" required="true" maxlength="255" />    
         <!-- todo: change this to read the identifier field from the other pojo -->
-        <s:select list="statasList" key="message.statas"></s:select>
+        <s:select list="statusList" key="message.status"></s:select>
         <s:select key="message.projectCompany.id" list="projectCompanyList" listKey="id" listValue="name"></s:select>
 
         <div id="actions" class="form-actions">

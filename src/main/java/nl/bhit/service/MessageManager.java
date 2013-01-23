@@ -4,13 +4,15 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 import nl.bhit.model.Message;
+import nl.bhit.model.soap.SoapMessage;
 
 @WebService
 public interface MessageManager extends GenericManager<Message, Long> {
 
 	@WebMethod(
-			operationName = "test")
+			operationName = "saveMessage",
+			action = "saveMessage")
 	// @RolesAllowed("basicUser")
-	Message saveMessage(Message message);
+	Message saveMessage(SoapMessage message);
 
 }

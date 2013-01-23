@@ -95,13 +95,13 @@ public class Project {
 		Set<Message> currentMessages= getMessages();
 		if(!currentMessages.isEmpty()){
 			for (Message message : currentMessages) { 
-				Status status = message.getStatas();
+				Status status = message.getStatus();
 				if(status.equals(Status.ERROR)){
 					return Status.ERROR;
 				} 
 			}
 			for (Message message : currentMessages) { 
-				Status status = message.getStatas();
+				Status status = message.getStatus();
 				if(status.equals(Status.WARN)){
 					return Status.WARN;						
 				} 
