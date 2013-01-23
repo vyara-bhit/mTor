@@ -18,7 +18,7 @@ import javax.persistence.Table;
 public class Message {
 	private Long id;
 	private String content;
-	private Status statas;
+	private Status status;
 	private Project project;
 
 	public Message() {
@@ -70,12 +70,12 @@ public class Message {
 			name = "STATUS",
 			length = 5)
 	@Enumerated(EnumType.STRING)
-	public Status getStatas() {
-		return statas;
+	public Status getStatus() {
+		return status;
 	}
 
-	public void setStatas(Status statas) {
-		this.statas = statas;
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 
 }
