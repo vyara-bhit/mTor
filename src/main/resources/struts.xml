@@ -152,6 +152,8 @@
         </action>
         <!--MessageAction-END-->
 
+        
+
         <!--ProjectAction-START-->
         <action name="projects" class="nl.bhit.webapp.action.ProjectAction" method="list">
             <result>/WEB-INF/pages/colorProjectList.jsp</result>

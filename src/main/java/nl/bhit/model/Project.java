@@ -89,24 +89,24 @@ public class Project {
 		messages.remove(message);
 	}
 	
+	
 
-
-	public  Status statusOfProject() {
+	public  String statusOfProject() {
 		Set<Message> currentMessages= getMessages();
 		if(!currentMessages.isEmpty()){
 			for (Message message : currentMessages) { 
 				Status status = message.getStatus();
 				if(status.equals(Status.ERROR)){
-					return Status.ERROR;
+					return Status.ERROR.toString();
 				} 
 			}
 			for (Message message : currentMessages) { 
 				Status status = message.getStatus();
 				if(status.equals(Status.WARN)){
-					return Status.WARN;						
+					return Status.WARN.toString();						
 				} 
 			}						
 		}
-		return Status.INFO;
+		return Status.INFO.toString();
 	}	
 }
