@@ -29,7 +29,9 @@
         </a>
     </div>
 
-    <display:table name="projects" class="table table-condensed table-striped table-hover" requestURI="" id="projectList" export="true" pagesize="25">
+  <div id="projectData" >
+	<s:url id="thisUrl"/>	
+    <display:table name="projects" class="table table-condensed table-striped table-hover" requestURI="${thisUrl}" id="projectList" export="true" pagesize="25" sort="list">
         <display:column property="id" sortable="true" href="editProject" media="html"
             paramId="id" paramProperty="id" titleKey="project.id"/>
         <display:column property="id" media="csv excel xml pdf" titleKey="project.id"/>
@@ -42,4 +44,48 @@
         <display:setProperty name="export.csv.filename"><fmt:message key="projectList.title"/>.csv</display:setProperty>
         <display:setProperty name="export.pdf.filename"><fmt:message key="projectList.title"/>.pdf</display:setProperty>
     </display:table>
+    
+    </div>
+    
 </div>
+
+
+<script type="text/javascript">
+
+  if (!com) var com = {};
+  com.mudrick = {
+
+    onProjectTableLoad: function() {
+
+      // Gets called when the data loads
+      $("table#projectList th.sortable").each(function() {
+        // Iterate over each column header containing the sortable class, so
+        // we can setup overriding click handlers to load via ajax, rather than
+        // allowing the browser to follow a normal link
+        $(this).click(function() {
+          // "this" is scoped as the sortable th element
+          var link = $(this).find("a").attr("href");
+          $("div#projectData").load(link, {}, com.mudrick.onProjectTableLoad);
+          // Stop event propagation, i.e. tell browser not to follow the clicked link
+          return false;
+        });
+      });
+
+      $("div#projectData .pagelinks a").each(function() {
+        // Iterate over the pagination-generated links to override also
+        $(this).click(function() {
+          var link = $(this).attr("href");
+          $("div#projectData").load(link, {}, com.mudrick.onProjectTableLoad);
+          return false;
+        });
+      });
+    }
+  };
+
+  $(document).ready(function() {
+    // Load the initial rendering when the dom is ready.  Assuming you are injecting into a div
+    // with id "projectData" that exists in the page.
+    $("div#projectData").load("/WEB-INF/pages/colorProjectList.jsp", {}, com.mudrick.onProjectTableLoad);
+  });
+
+</script>
