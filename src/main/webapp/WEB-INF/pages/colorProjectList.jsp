@@ -6,6 +6,7 @@
 </head>
 
 <div class="span10">
+<div id="projectData" >
     <h2>Project list with status</h2>
 
     <form method="get" action="${ctx}/projects" id="searchForm" class="form-search">
@@ -29,7 +30,7 @@
         </a>
     </div>
 
-  <div id="projectData" >
+  
 	<s:url id="thisUrl"/>	
     <display:table name="projects" class="table table-condensed table-striped table-hover" requestURI="${thisUrl}" id="projectList" export="true" pagesize="25" sort="list">
         <display:column property="id" sortable="true" href="editProject" media="html"
