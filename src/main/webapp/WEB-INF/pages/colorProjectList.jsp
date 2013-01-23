@@ -38,7 +38,7 @@
         <display:column property="id" media="csv excel xml pdf" titleKey="project.id"/>
         <display:column property="name" sortable="true" titleKey="project.name"/>
         <display:column title="Status" sortable="true" >
-        <s:property value="%{project.statusOfProject()}" />
+        <s:property value="%{statusOfProject()}" />
         </display:column>  
        
 
