@@ -36,6 +36,10 @@
             paramId="id" paramProperty="id" titleKey="project.id"/>
         <display:column property="id" media="csv excel xml pdf" titleKey="project.id"/>
         <display:column property="name" sortable="true" titleKey="project.name"/>
+        <display:column title="Status" sortable="true" >
+        <s:property value="%{project.statusOfProject()}" />
+        </display:column>  
+       
 
         <display:setProperty name="paging.banner.item_name"><fmt:message key="projectList.project"/></display:setProperty>
         <display:setProperty name="paging.banner.items_name"><fmt:message key="projectList.projects"/></display:setProperty>
@@ -56,6 +60,27 @@
   com.mudrick = {
 
     onProjectTableLoad: function() {
+      //color the table
+  	  var tableProjectList = document.getElementById('projectList');
+	  var trs = tableProjectList.getElementsByTagName("tr");
+	  for (var i in trs){
+		  	var status = '<s:property value="%{Project.statusOfProject()}" />';
+	   		if(status == "INFO") {
+	   			i.addClass( 'green' );
+				i.removeClass('red');
+				i.removeClass('yellow');
+	   		}
+	   		if(status == "WARN") {
+	   			i.addClass( 'yellow' );
+				i.removeClass('red');
+				i.removeClass('green');
+	   		}
+	   		if(status == "ERROR") {
+	   			i.addClass( 'red' );
+				i.removeClass('yellow');
+				i.removeClass('green');
+	   		}
+	  	}
 
       // Gets called when the data loads
       $("table#projectList th.sortable").each(function() {
