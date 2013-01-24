@@ -1,6 +1,7 @@
 package nl.bhit.service.impl;
 
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebService;
 
 import nl.bhit.dao.MessageDao;
@@ -43,7 +44,8 @@ public class MessageManagerImpl extends GenericManagerImpl<Message, Long> implem
 			operationName = "saveSoapMessage",
 			action = "saveSoapMessage")
 	// @RolesAllowed("basicUser")
-	public void saveSoapMessage(SoapMessage soapMessage) {
+	public void saveSoapMessage(@WebParam(
+			name = "soapMessage") SoapMessage soapMessage) {
 		saveMessage(soapMessage);
 	}
 
