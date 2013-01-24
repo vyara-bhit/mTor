@@ -48,7 +48,7 @@ public class Message {
 		this.id = id;
 	}
 
-	@Column(name = "CONTENT", unique = true, nullable = false)
+	@Column(name = "CONTENT", nullable = false)
 	public String getContent() {
 		return content;
 	}
