@@ -97,15 +97,15 @@
         <column>NAME</column>
     <row>
         <value description="ID">-1</value>
-        <value description="NAME">LsXdGcLcZdFlSjFyBsOgAsThVmXtVpAkXoJhHaEiAaUySkUoAcIoJzKoGqXkOgFiXsKyKyHiOnFeDlWlPxGwWqNrKnKdHgJcMzCqPqTwUzNhOtPjBuLtTtRcGwLaYrRpEnGdUmMgVwZoSgCxBhKeZxFdEgFlInNgFhElGmUdLnVaQdTfYbYoKzKsLqHeYnNkSxMkNuGuLjVaLlBwCfAtCbZyFyZtJvWtMrMfFgVcZcLlYdHdWxOjCuSjKaZdPfX</value>
+        <value description="NAME">testCompany1</value>
     </row>
     <row>
         <value description="ID">-2</value>
-        <value description="NAME">DtPiNjNhRiFzWaFyHjGiJfYqSzVbRuHtThEaOeXrFrYdBqGxIzMjYfCcZtVnCgGnEwYdRiAfBkHtWrBhZkEpLgUgPuThZoNnEsNcYnJlBnFwArSfQaCqVjQuWvOtJfDuGqXqBiCmRfIuQuSbZdVsGrBzVjMkRaSvXuWlUyMtLxQyLkMuRaCeVdVtBiMhXkJuWkXcCvZqLmPeYmBsBqAaQfIjCtDcTjHqMbYkBxCvEmMeYkCjNzUnFnQxTyIxRaE</value>
+        <value description="NAME">testCompany2</value>
     </row>
     <row>
         <value description="ID">-3</value>
-        <value description="NAME">RuUvOvPeKsZwMfGaPxRmPaOfMyToCiKbLhEtCsNrTcMoBvYoBbMhXjZoGrChMcGnRjNxTpFlZuZlByWmWvNtLhWiBeTvOfIzNyRqOvBlNtPbWtSkMfImNbQmBoLzHlUdGzVoMaUqBhBwFzQeUvLzQsObRhElXdBcXwPcYjTeJrSkWaMiUoEwUwGqZlSeCePeJlKiUwUsAoRaGbLrVjNbHsVpXuJcIlGlRqCtOhGdPxGiMxVjZqJoIoTjGhEyKmO</value>
+        <value description="NAME">testCompany3</value>
     </row>
     </table>
     <!--Company-END--> 
@@ -118,17 +118,17 @@
     <row>
         <value description="ID">-1</value>
         <value description="COMPANY_FK">-1</value>
-        <value description="NAME">EeYkFsVvUlGeBzZiUzHsAwCzVkGiMqVtTiNnQgPjZgBnOxOmTfCnCoIxHoHpEgUvFpXgZwVkMuVwMjNfUhDpTeXpRcTdMiNyXxPsMhQcJeQaXrVnVrKnRlWpLfTgLfUbVsJgTbEcQzHfLnPxLxMaRjBaPdQyKfQaDzBfZhQqOmVvBzKeAwNxFyYmApTbWkKtZvEfNpFrQhQsHlAuYkPnXhYoRmKoQvVkHhBpQoHfTaFoLaBjOdLzTfTdOuZcNcY</value>
+        <value description="NAME">testProject1</value>
     </row>
     <row>
         <value description="ID">-2</value>
         <value description="COMPANY_FK">-2</value>
-        <value description="NAME">EkEcUoAiYiOuSlEmIuTkCxQdHlSoVyXgZfNiNyCjJaFrZmLoXlCmKlUtIkHoPxFjRhWcQeAfTpEkWgPvJnEuIwAjBvVtZiFqJlDfSiLvOvRmDeAtNyOgTbLlLnYjElAeYpOdRcBsGaPaHeDyMhZlTkMpDiVsRnGfCqYrOgIwCkEfSmNoKcGuPjVsTsNuGyAlHvHlQbJvKeHdVqQwDfGyByMaBtSiMiDyDeEiAbMyUjKyLzMcGiPnWvIqPjRzEdO</value>
+        <value description="NAME">testProject2</value>
     </row>
     <row>
         <value description="ID">-3</value>
         <value description="COMPANY_FK">-3</value>
-        <value description="NAME">ZaKgHaGlZbJnDnGzSbAuWlKpDiRgSeHgKxRaKgGnVxHpDdJzPpUoJaExOuXoSoHwCnFqFoAeThAaGqPdVpPpSvOhRjBoDvHeVqMmAqIpNrElSdXlMgFhQoRsFvJvOpSmZtFhZmFgDuJwXdQrUuLyWgQsUcPbEiXjEuFgXgZiLlZwEpEiLkBcFcYcQfWfTkEmMkWoQrXgLxUfKyGrItHcYyAlYwLhOnByGeKhPbWlJaFtLrHaIaJbNrHdGrEiMdR</value>
+        <value description="NAME">testProject3</value>
     </row>
     </table>
     <!--Project-END-->
@@ -141,19 +141,19 @@
         <column>STATUS</column>
     <row>
         <value description="ID">-1</value>
-        <value description="CONTENT">test1</value>
+        <value description="CONTENT">testMessage1</value>
         <value description="PROJECT_FK">-1</value>
         <value description="STATUS">INFO</value>
     </row>
     <row>
         <value description="ID">-2</value>
-        <value description="CONTENT">test2</value>
+        <value description="CONTENT">testMessage2</value>
         <value description="PROJECT_FK">-2</value>
         <value description="STATUS">WARN</value>
     </row>
     <row>
         <value description="ID">-3</value>
-        <value description="CONTENT">test3</value>
+        <value description="CONTENT">testMessage3</value>
         <value description="PROJECT_FK">-3</value>
         <value description="STATUS">ERROR</value>
     </row>
