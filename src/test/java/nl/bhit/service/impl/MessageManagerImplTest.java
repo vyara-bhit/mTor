@@ -1,136 +1,94 @@
 package nl.bhit.service.impl;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import nl.bhit.dao.MessageDao;
 import nl.bhit.model.Message;
-import nl.bhit.model.Project;
-import nl.bhit.model.Status;
-import nl.bhit.model.soap.SoapMessage;
-import nl.bhit.service.GenericManager;
+import nl.bhit.service.impl.BaseManagerMockTestCase;
 
 import org.jmock.Expectations;
-import org.junit.After;
 import org.junit.Before;
+import org.junit.After;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import static org.junit.Assert.*;
 
-public class MessageManagerImplTest extends BaseManagerMockTestCase2 {
-	private MessageManagerImpl manager = null;
-	private MessageDao dao = null;
-	@Autowired
-	private GenericManager<Project, Long> projectManager;
+public class MessageManagerImplTest extends BaseManagerMockTestCase {
+    private MessageManagerImpl manager = null;
+    private MessageDao dao = null;
 
-	@Before
-	public void setUp() {
-		dao = context.mock(MessageDao.class);
-		manager = new MessageManagerImpl(dao);
-		manager.setProjectManager(projectManager);
-	}
+    @Before
+    public void setUp() {
+        dao = context.mock(MessageDao.class);
+        manager = new MessageManagerImpl(dao);
+    }
 
-	@After
-	public void tearDown() {
-		manager = null;
-	}
+    @After
+    public void tearDown() {
+        manager = null;
+    }
 
-	@Test
-	public void testGetMessage() {
-		log.debug("testing get...");
+    @Test
+    public void testGetMessage() {
+        log.debug("testing get...");
 
-		final Long id = 7L;
-		final Message message = new Message();
+        final Long id = 7L;
+        final Message message = new Message();
 
-		// set expected behavior on dao
-		context.checking(new Expectations() {
-			{
-				one(dao).get(with(equal(id)));
-				will(returnValue(message));
-			}
-		});
+        // set expected behavior on dao
+        context.checking(new Expectations() {{
+            one(dao).get(with(equal(id)));
+            will(returnValue(message));
+        }});
 
-		Message result = manager.get(id);
-		assertSame(message, result);
-	}
+        Message result = manager.get(id);
+        assertSame(message, result);
+    }
 
-	@Test
-	public void testAddSoapMessage() {
-		log.debug("testAddSoapMessage...");
-		SoapMessage soapMessage = new SoapMessage();
-		String content = "blablabla";
-		soapMessage.setContent(content);
-		soapMessage.setProjectId(-1L);
-		soapMessage.setStatus(Status.INFO);
-		final Message example = manager.soapMessageToMessage(soapMessage);
-		// set expected behavior on dao
-		context.checking(new Expectations() {
-			{
-				one(dao).save(with(equal(example)));
-				will(returnValue(example));
-			}
-		});
+    @Test
+    public void testGetMessages() {
+        log.debug("testing getAll...");
 
-		Message message = manager.saveMessage(soapMessage);
-		assertNotNull(message.getProject());
-		assertEquals(new Long(-1L), message.getProject().getId());
-		assertEquals(content, message.getContent());
-		assertEquals(Status.INFO, message.getStatus());
+        final List messages = new ArrayList();
 
-	}
+        // set expected behavior on dao
+        context.checking(new Expectations() {{
+            one(dao).getAll();
+            will(returnValue(messages));
+        }});
 
-	@Test
-	public void testGetMessages() {
-		log.debug("testing getAll...");
+        List result = manager.getAll();
+        assertSame(messages, result);
+    }
 
-		final List messages = new ArrayList();
+    @Test
+    public void testSaveMessage() {
+        log.debug("testing save...");
 
-		// set expected behavior on dao
-		context.checking(new Expectations() {
-			{
-				one(dao).getAll();
-				will(returnValue(messages));
-			}
-		});
+        final Message message = new Message();
+        // enter all required fields
+        message.setContent("IzCrGzWyVeZfKcOqPpEhIySiNdPxCzCfAqBgZlNiEsGsVgHlBaGdZqGdUxXtUoHjGdBhRxGnXsGzQmTpBzIrDaCrRmRgLaNnXpKeMqGoDjNnYmGkHaDvMuQaEiQkZeEgCyEzCmXsIxPzBmPxUnBlQjFcFsAwNdVpRvUeQsCaHuLoVuKxHtLbIcZbShKfVfGeBlRuAoGcSjDmVlAfMaRwVoKjDmLtTtYqCwBkOjTbNoBtCkJiUrZgSdWwFqEgYiP");
+        message.setTimestamp(new java.util.Date());
+        
+        // set expected behavior on dao
+        context.checking(new Expectations() {{
+            one(dao).save(with(same(message)));
+        }});
 
-		List result = manager.getAll();
-		assertSame(messages, result);
-	}
+        manager.save(message);
+    }
 
-	@Test
-	public void testSaveMessage() {
-		log.debug("testing save...");
+    @Test
+    public void testRemoveMessage() {
+        log.debug("testing remove...");
 
-		final Message message = new Message();
-		// enter all required fields
-		message.setContent("PeIjCqNwWhSwHnKrVgDiTrWvJmBuGhNfGcMqUsWfSrBcFvCcTfWfIaBeKcBvEpYwQcSlSgPmGsYoUbNzEzXhTcMpKxKoItUqOxVnKdLgOjClWcBkCiXcUmKzUxRiOqWjLlXuSkBxCjLaHmNnRoSnNwOwCnGvZxUwWbRoGvOyQgQqRwUaRhOtKwLqRjNlFbEyOfBbXfMcPyBbIaDvXvDfMfSwMgTjXgNqRmHdQhNiIfDwGrNaBsHaTfVdJnOpPkB");
+        final Long id = -11L;
 
-		// set expected behavior on dao
-		context.checking(new Expectations() {
-			{
-				one(dao).save(with(same(message)));
-			}
-		});
+        // set expected behavior on dao
+        context.checking(new Expectations() {{
+            one(dao).remove(with(equal(id)));
+        }});
 
-		manager.save(message);
-	}
-
-	@Test
-	public void testRemoveMessage() {
-		log.debug("testing remove...");
-
-		final Long id = -11L;
-
-		// set expected behavior on dao
-		context.checking(new Expectations() {
-			{
-				one(dao).remove(with(equal(id)));
-			}
-		});
-
-		manager.remove(id);
-	}
+        manager.remove(id);
+    }
 }

@@ -18,13 +18,17 @@
         <Menu name="CompanyMenu" title="companyList.title" page="/companies"/>
         <!--Company-END-->
         
-        <!--Message-START-->
-        <Menu name="MessageMenu" title="messageList.title" page="/messages"/>
-        <!--Message-END-->
+        
         <!--Project-START-->
         <Menu name="ProjectMenu" title="projectList.title" page="/projects"/>
         <!--Project-END-->
+        
+        <!--Message-START-->
+        <Menu name="MessageMenu" title="messageList.title" page="/messages"/>
+        <!--Message-END-->
     </Menus>
+
+
 
 
 

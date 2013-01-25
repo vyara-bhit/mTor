@@ -22,6 +22,7 @@
         <!-- todo: change this to read the identifier field from the other pojo -->
         <s:select list="statusList" key="message.status"></s:select>
         <s:select key="message.project.id" list="projectCompanyList" listKey="id" listValue="name"></s:select>
+        <s:textfield key="message.timestamp" required="true" maxlength="255" size="11" title="date" datepicker="true"/>
         <div id="actions" class="form-actions">
             <s:submit type="button" cssClass="btn btn-primary" method="save" key="button.save" theme="simple">
                 <i class="icon-ok icon-white"></i> <fmt:message key="button.save"/>
@@ -39,8 +40,14 @@
     </s:form>
 </div>
 
+<link rel="stylesheet" type="text/css" media="all" href="<c:url value='/scripts/datepicker/css/datepicker.css'/>" />
+<script type="text/javascript" src="<c:url value='/scripts/datepicker/js/bootstrap-datepicker.js'/>"></script>
+<c:if test="${pageContext.request.locale.language != 'en'}">
+<script type="text/javascript" src="<c:url value='/scripts/datepicker/js/locales/bootstrap-datepicker.${pageContext.request.locale.language}.js'/>"></script>
+</c:if>
 <script type="text/javascript">
     $(document).ready(function() {
         $("input[type='text']:visible:enabled:first", document.forms['messageForm']).focus();
+        $('.input-append.date').datepicker({format: "<fmt:message key='calendar.format'/>", weekStart: "<fmt:message key='calendar.weekstart'/>", language: '${pageContext.request.locale.language}'});
     });
 </script>

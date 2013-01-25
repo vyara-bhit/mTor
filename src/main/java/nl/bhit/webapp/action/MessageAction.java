@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.List;
 
+import nl.bhit.service.GenericManager;
+import nl.bhit.service.MessageManager;
 import nl.bhit.dao.SearchException;
 import nl.bhit.model.Message;
 import nl.bhit.model.Project;
@@ -24,18 +26,16 @@ public class MessageAction extends BaseAction implements Preparable {
     private Long id;
     private String query;
 
-
-    
     public void setMessageManager(MessageManager messageManager) {
         this.messageManager = messageManager;
     }
-    
+
     public void setProjectManager(GenericManager<Project, Long> projectManager) {
         this.projectManager = projectManager;
-    }    
-
+    }
+    
     public List getMessages() {
-        return messages; 
+        return messages;
     }
 
     /**
@@ -104,8 +104,6 @@ public class MessageAction extends BaseAction implements Preparable {
         return SUCCESS;
     }
 
-
-    
     public String save() throws Exception {
         if (cancel != null) {
             return "cancel";
