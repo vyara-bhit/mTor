@@ -3,10 +3,11 @@ package nl.bhit.model.soap;
 import nl.bhit.model.Status;
 
 /**
- * * this SoapMessage exposes the method of the Message which are needed in the
- * SOAP interface. * * @author tibi
+ * this SoapMessage exposes the method of the Message which are needed in the SOAP interface.
+ * 
+ * @author tibi
  */
-public class SoapMessage {
+public class SoapMessage { 
 	private String content;
 	private Status status;
 	private Long projectId;
@@ -23,7 +24,7 @@ public class SoapMessage {
 		return projectId;
 	}
 
-	public void setProjectId(Long projectId) {
+	public void setProjectId(Long projectId) { 
 		this.projectId = projectId;
 	}
 
@@ -34,4 +35,5 @@ public class SoapMessage {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
+
 }

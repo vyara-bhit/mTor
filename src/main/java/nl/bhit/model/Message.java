@@ -13,7 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "MESSAGE")
+@Table(
+		name = "MESSAGE")
 public class Message {
 	private Long id;
 	private String content;
@@ -27,8 +28,10 @@ public class Message {
 		this.content = content;
 	}
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "PROJECT_FK")
+	@ManyToOne(
+			fetch = FetchType.EAGER)
+	@JoinColumn( 
+			name = "PROJECT_FK")
 	public Project getProject() {
 		return project;
 	}
@@ -38,8 +41,12 @@ public class Message {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID", unique = true, nullable = false)
+	@GeneratedValue(
+			strategy = GenerationType.AUTO)
+	@Column(
+			name = "ID",
+			unique = true,
+			nullable = false)
 	public Long getId() {
 		return id;
 	}
@@ -48,7 +55,10 @@ public class Message {
 		this.id = id;
 	}
 
-	@Column(name = "CONTENT", nullable = false)
+	@Column(
+			name = "CONTENT",
+			unique = true,
+			nullable = false)
 	public String getContent() {
 		return content;
 	}
@@ -57,7 +67,9 @@ public class Message {
 		this.content = content;
 	}
 
-	@Column(name = "STATUS", length = 5)
+	@Column(
+			name = "STATUS",
+			length = 5)
 	@Enumerated(EnumType.STRING)
 	public Status getStatus() {
 		return status;
@@ -77,18 +89,14 @@ public class Message {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		if (this == obj) return true;
+		if (obj == null) return false;
+		if (getClass() != obj.getClass()) return false;
 		Message other = (Message) obj;
 		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
+			if (other.id != null) return false;
+		} else if (!id.equals(other.id)) return false;
 		return true;
 	}
+
 }

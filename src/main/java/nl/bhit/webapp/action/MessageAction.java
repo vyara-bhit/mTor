@@ -9,8 +9,6 @@ import nl.bhit.model.Status;
 import nl.bhit.service.GenericManager;
 import nl.bhit.service.MessageManager;
 
-
-
 import com.opensymphony.xwork2.Preparable;
 
 public class MessageAction extends BaseAction implements Preparable {
@@ -115,7 +113,6 @@ public class MessageAction extends BaseAction implements Preparable {
         boolean isNew = (message.getId() == null);
 
         messageManager.save(message);
-              
 
         String key = (isNew) ? "message.added" : "message.updated";
         saveMessage(getText(key));
@@ -126,6 +123,4 @@ public class MessageAction extends BaseAction implements Preparable {
             return SUCCESS;
         }
     }
-    
-    
 }
