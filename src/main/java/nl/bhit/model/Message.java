@@ -57,7 +57,6 @@ public class Message {
 
 	@Column(
 			name = "CONTENT",
-			unique = true,
 			nullable = false)
 	public String getContent() {
 		return content;
