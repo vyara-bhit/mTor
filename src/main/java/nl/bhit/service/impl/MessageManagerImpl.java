@@ -7,7 +7,8 @@ import javax.jws.WebService;
 import nl.bhit.dao.MessageDao;
 import nl.bhit.model.Message;
 import nl.bhit.model.Project;
-import nl.bhit.model.soap.SoapMessage; 
+import nl.bhit.model.soap.SoapMessage;
+import nl.bhit.service.GenericManager;
 import nl.bhit.service.MessageManager;
 
 import org.springframework.beans.BeanUtils;
