@@ -37,7 +37,7 @@
             paramId="id" paramProperty="id" titleKey="project.id"/>
         <display:column property="id" media="csv excel xml pdf" titleKey="project.id"/>
         <display:column property="name" sortable="true" titleKey="project.name"/>
-        <display:column title="Status" sortable="true" >
+        <display:column title="Status" sortable="true" class="thirdColumn">
         	${projectList.statusOfProject()}
         </display:column>  
        
@@ -62,25 +62,26 @@
 
     onProjectTableLoad: function() {
       //color the table
-  	  var tableProjectList = document.getElementById('projectList');
-	  var trs = tableProjectList.getElementsByTagName("tr");
-	  for (var i in trs){
-		  	var status = '<s:property value="%{Project.statusOfProject()}" />';
-	   		if(status == "INFO") {
-	   			i.addClass( 'green' );
-				i.removeClass('red');
-				i.removeClass('yellow');
-	   		}
-	   		if(status == "WARN") {
-	   			i.addClass( 'yellow' );
-				i.removeClass('red');
-				i.removeClass('green');
+  	  var rows = document.getElementsByClassName("thirdColumn");
+      var tableLength = rows.length;
+      
+	  for  (var i=1; i<tableLength+1; i++){
+		  	var status = $('#projectList tr:eq('+i+')').find("td:first").next().next().text();		  	
+	   		if(status == "INFO") {	   			
+	   			$('#projectList tr:eq('+i+')').addClass("green");
+	   			$('#projectList tr:eq('+i+')').removeClass("red");
+	   			$('#projectList tr:eq('+i+')').removeClass("yellow");
+	   		} 
+ 	   		if(status == "WARN") {
+	   			$('#projectList tr:eq('+i+')').addClass("yellow");
+	   			$('#projectList tr:eq('+i+')').removeClass("red");
+	   			$('#projectList tr:eq('+i+')').removeClass("green");
 	   		}
 	   		if(status == "ERROR") {
-	   			i.addClass( 'red' );
-				i.removeClass('yellow');
-				i.removeClass('green');
-	   		}
+	   			$('#projectList tr:eq('+i+')').addClass("red");
+	   			$('#projectList tr:eq('+i+')').removeClass("green");
+	   			$('#projectList tr:eq('+i+')').removeClass("yellow");
+	   		} 
 	  	}
 
       // Gets called when the data loads
