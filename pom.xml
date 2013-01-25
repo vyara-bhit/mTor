@@ -57,7 +57,7 @@
                 <executions>
                     <execution>
                         <goals>
-                            <goal>wsdl2code</goal>
+                           <!-- <goal>wsdl2code</goal> -->
                         </goals>
 
                     </execution>
