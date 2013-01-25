@@ -7,6 +7,9 @@ import nl.bhit.model.Company;
 import nl.bhit.model.Project;
 import nl.bhit.webapp.action.BaseAction;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 public class ProjectAction extends BaseAction implements Preparable {
@@ -50,6 +53,8 @@ public class ProjectAction extends BaseAction implements Preparable {
     public String list() {
         try {
             projects = projectManager.search(query, Project.class);
+            Collection projectsNew = new LinkedHashSet(projects);
+            projects = new ArrayList(projectsNew);
         } catch (SearchException se) {
             addActionError(se.getMessage());
             projects = projectManager.getAll();

@@ -1,5 +1,8 @@
 package nl.bhit.webapp.action;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 import nl.bhit.dao.SearchException;
@@ -64,6 +67,8 @@ public class MessageAction extends BaseAction implements Preparable {
     
     public List getProjectCompanyList(){
     	projects = projectManager.getAll();
+        Collection projectsNew = new LinkedHashSet(projects);
+        projects = new ArrayList(projectsNew);
     	return projects;
     }
 
