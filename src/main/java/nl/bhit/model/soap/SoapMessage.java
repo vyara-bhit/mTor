@@ -7,7 +7,7 @@ import nl.bhit.model.Status;
  * 
  * @author tibi
  */
-public class SoapMessage {
+public class SoapMessage { 
 	private String content;
 	private Status status;
 	private Long projectId;
@@ -24,7 +24,7 @@ public class SoapMessage {
 		return projectId;
 	}
 
-	public void setProjectId(Long projectId) {
+	public void setProjectId(Long projectId) { 
 		this.projectId = projectId;
 	}
 

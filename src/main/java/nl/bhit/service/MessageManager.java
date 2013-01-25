@@ -5,7 +5,7 @@ import javax.jws.WebService;
 
 import nl.bhit.model.Message;
 import nl.bhit.model.soap.SoapMessage;
-
+ 
 @WebService
 public interface MessageManager extends GenericManager<Message, Long> {
 	Message saveMessage(SoapMessage message);

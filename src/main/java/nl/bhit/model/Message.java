@@ -30,7 +30,7 @@ public class Message {
 
 	@ManyToOne(
 			fetch = FetchType.EAGER)
-	@JoinColumn(
+	@JoinColumn( 
 			name = "PROJECT_FK")
 	public Project getProject() {
 		return project;

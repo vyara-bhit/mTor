@@ -21,6 +21,8 @@ public class MessageAction extends BaseAction implements Preparable {
     private Long id;
     private String query;
 
+
+    
     public void setMessageManager(MessageManager messageManager) {
         this.messageManager = messageManager;
     }
@@ -97,6 +99,8 @@ public class MessageAction extends BaseAction implements Preparable {
         return SUCCESS;
     }
 
+
+    
     public String save() throws Exception {
         if (cancel != null) {
             return "cancel";
