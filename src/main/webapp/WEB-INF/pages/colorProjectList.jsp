@@ -1,4 +1,5 @@
 <%@ include file="/common/taglibs.jsp"%>
+<meta http-equiv="refresh" content="5" >
   
 <head>
     <title><fmt:message key="projectList.title"/></title>
