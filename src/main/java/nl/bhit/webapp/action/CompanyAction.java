@@ -6,6 +6,9 @@ import nl.bhit.dao.SearchException;
 import nl.bhit.model.Company;
 import nl.bhit.webapp.action.BaseAction;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 public class CompanyAction extends BaseAction implements Preparable {
@@ -43,6 +46,8 @@ public class CompanyAction extends BaseAction implements Preparable {
     public String list() {
         try {
             companies = companyManager.search(query, Company.class);
+            Collection companiesNew = new LinkedHashSet(companies);
+            companies = new ArrayList(companiesNew);
         } catch (SearchException se) {
             addActionError(se.getMessage());
             companies = companyManager.getAll();
