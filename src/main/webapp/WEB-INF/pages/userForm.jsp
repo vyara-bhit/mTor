@@ -51,7 +51,13 @@
         <s:textfield key="user.email" required="true"/>
         <s:textfield key="user.phoneNumber"/>
         <s:textfield key="user.website" required="true"/>
-
+		
+        <select id="userProjects" name="userProjects" multiple="true">
+            <c:forEach items="${projectList}" var="project">
+            <option value="${project.id}">${project.name}</option>
+            </c:forEach>
+        </select>
+		
         <fieldset>
             <legend class="accordion-heading">
                 <a data-toggle="collapse" href="#collapse-address"><fmt:message key="user.address.address"/></a>

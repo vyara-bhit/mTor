@@ -4,8 +4,10 @@ import com.opensymphony.xwork2.Preparable;
 import org.apache.struts2.ServletActionContext;
 import nl.bhit.Constants;
 import nl.bhit.dao.SearchException;
+import nl.bhit.model.Project;
 import nl.bhit.model.Role;
 import nl.bhit.model.User;
+import nl.bhit.service.GenericManager;
 import nl.bhit.service.UserExistsException;
 import nl.bhit.webapp.util.RequestUtil;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -30,10 +32,12 @@ import java.util.List;
  */
 public class UserAction extends BaseAction implements Preparable {
     private static final long serialVersionUID = 6776558938712115191L;
+    private GenericManager<Project, Long> projectManager;
     private List<User> users;
     private User user;
     private String id;
     private String query;
+    private List projects;
 
     /**
      * Grab the entity from the database before populating with request parameters
@@ -45,6 +49,9 @@ public class UserAction extends BaseAction implements Preparable {
         }
     }
 
+    public void setProjectManager(GenericManager<Project, Long> projectManager) {
+        this.projectManager = projectManager;
+    }
     /**
      * Holder for users to display on list screen
      *
@@ -248,6 +255,13 @@ public class UserAction extends BaseAction implements Preparable {
             users = userManager.getUsers();
         }
         return SUCCESS;
+    }
+    
+   public List getProjectList(){
+		projects = projectManager.getAll();
+	    Collection projectsNew = new LinkedHashSet(projects);
+	    projects = new ArrayList(projectsNew);
+		return projects;
     }
 
 }
