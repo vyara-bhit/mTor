@@ -1,5 +1,8 @@
 package nl.bhit.model;
 
+
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -20,9 +23,12 @@ public class Message {
 	private String content;
 	private Status status;
 	private Project project;
+	private Date timestamp;
 
 	public Message() {
 	}
+
+
 
 	public Message(String content) {
 		this.content = content;
@@ -57,7 +63,6 @@ public class Message {
 
 	@Column(
 			name = "CONTENT",
-			unique = true,
 			nullable = false)
 	public String getContent() {
 		return content;
@@ -78,6 +83,17 @@ public class Message {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
+	
+	@Column(
+			name = "TIMESTAMP",
+			nullable = false)
+	public Date getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(Date timestamp) {
+		this.timestamp = timestamp;
+	}	
 
 	@Override
 	public int hashCode() {
