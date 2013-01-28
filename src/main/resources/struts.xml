@@ -184,23 +184,7 @@
 
 		
 
-        <!--MessageAction-START-->
-        <action name="messages" class="nl.bhit.webapp.action.MessageAction" method="list">
-            <result>/WEB-INF/pages/messageList.jsp</result>
-        </action>
 
-        <action name="editMessage" class="nl.bhit.webapp.action.MessageAction" method="edit">
-            <result>/WEB-INF/pages/messageForm.jsp</result>
-            <result name="error">/WEB-INF/pages/messageList.jsp</result>
-        </action>
-
-        <action name="saveMessage" class="nl.bhit.webapp.action.MessageAction" method="save">
-            <result name="input">/WEB-INF/pages/messageForm.jsp</result>
-            <result name="cancel" type="redirectAction">messages</result>
-            <result name="delete" type="redirectAction">messages</result>
-            <result name="success" type="redirectAction">messages</result>
-        </action>
-        <!--MessageAction-END-->
 
         <!-- Add additional actions here -->
 	</package>

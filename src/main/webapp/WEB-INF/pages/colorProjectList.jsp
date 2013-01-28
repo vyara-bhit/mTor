@@ -4,6 +4,7 @@
 <head>
     <title><fmt:message key="projectList.title"/></title>
     <meta name="menu" content="ProjectMenu"/>
+    <meta http-equiv="refresh" content="5" >
 </head>
 
 <div class="span10">
@@ -41,7 +42,7 @@
         <display:column title="Status" sortable="true" class="thirdColumn">
         	${projectList.statusOfProject()}
         </display:column>  
-       
+       <display:column sortable="true" title="Users">${projectList.getUsers()} </display:column> 
 
         <display:setProperty name="paging.banner.item_name"><fmt:message key="projectList.project"/></display:setProperty>
         <display:setProperty name="paging.banner.items_name"><fmt:message key="projectList.projects"/></display:setProperty>

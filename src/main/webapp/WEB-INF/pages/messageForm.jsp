@@ -21,8 +21,7 @@
         <s:textfield key="message.content" required="true" maxlength="255" />    
         <!-- todo: change this to read the identifier field from the other pojo -->
         <s:select list="statusList" key="message.status"></s:select>
-        <s:select key="message.project.id" list="projectCompanyList" listKey="id" listValue="name"></s:select>
-        <s:textfield key="message.timestamp" required="true" maxlength="255" size="11" title="date" datepicker="true"/>
+        <s:select key="message.project.id" list="projectCompanyList" listKey="id" listValue="name"></s:select>        
         <div id="actions" class="form-actions">
             <s:submit type="button" cssClass="btn btn-primary" method="save" key="button.save" theme="simple">
                 <i class="icon-ok icon-white"></i> <fmt:message key="button.save"/>

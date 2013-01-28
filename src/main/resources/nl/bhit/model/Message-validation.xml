@@ -6,9 +6,4 @@
             <message key="errors.required"/>
         </field-validator>
     </field>
-    <field name="message.timestamp">
-        <field-validator type="required">
-            <message key="errors.required"/>
-        </field-validator>
-    </field>
 </validators> 

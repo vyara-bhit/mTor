@@ -133,9 +133,6 @@
     </table>
     <!--Project-END-->
     
-    
-
-    
     <!--Message-START-->
     <table name="MESSAGE">
         <column>ID</column>
@@ -166,6 +163,36 @@
     </row>
     </table>
     <!--Message-END-->
+    
+     <table name="app_user_project">
+        <column>app_user_id</column>
+        <column>projects_ID</column>
+    	<row>
+        	<value description="app_user_id">-1</value>
+        	<value description="projects_ID">-1</value>
+    	</row>
+    	<row>
+        	<value description="app_user_id">-2</value>
+        	<value description="projects_ID">-2</value>
+    	</row>
+	  </table>
+	  
+	  <table name="project_app_user">
+        <column>PROJECT_ID</column>
+        <column>users_id</column>
+    	<row>
+        	<value description="PROJECT_ID">-1</value>
+        	<value description="users_id">-1</value>
+    	</row>
+    	<row>
+        	<value description="PROJECT_ID">-2</value>
+        	<value description="users_id">-2</value>
+    	</row>
+    	<row>
+        	<value description="PROJECT_ID">-3</value>
+        	<value description="users_id">-2</value>
+    	</row>
+	  </table>
 </dataset>
 
 
