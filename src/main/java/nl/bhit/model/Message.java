@@ -1,6 +1,5 @@
 package nl.bhit.model;
 
-
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -26,9 +25,8 @@ public class Message {
 	private Date timestamp;
 
 	public Message() {
+		timestamp = new Date();
 	}
-
-
 
 	public Message(String content) {
 		this.content = content;
@@ -36,7 +34,7 @@ public class Message {
 
 	@ManyToOne(
 			fetch = FetchType.EAGER)
-	@JoinColumn( 
+	@JoinColumn(
 			name = "PROJECT_FK")
 	public Project getProject() {
 		return project;
@@ -83,7 +81,7 @@ public class Message {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-	
+
 	@Column(
 			name = "TIMESTAMP",
 			nullable = false)
@@ -93,7 +91,7 @@ public class Message {
 
 	public void setTimestamp(Date timestamp) {
 		this.timestamp = timestamp;
-	}	
+	}
 
 	@Override
 	public int hashCode() {

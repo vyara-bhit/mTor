@@ -1,4 +1,3 @@
-
 <!DOCTYPE project [
     <!ENTITY config SYSTEM "./config.xmlf">
     <!ENTITY login SYSTEM "./login.xmlf">

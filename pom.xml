@@ -215,6 +215,20 @@
                     </execution>
                 </executions>
             </plugin>
+
+<!-- Tomcat plugin to install -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>tomcat-maven-plugin</artifactId>
+                <configuration>
+                    <url>${tomcat.deploy.url}</url>
+                    <path>/mTor</path>
+                    <username>root</username>
+                    <password>${tomcat.deploy.password}</password>
+                </configuration>
+            </plugin>
+<!-- Tomcat plugin to install -->
+            
         </plugins>
         <resources>
             <resource>
@@ -1093,6 +1107,7 @@
         <struts.menu.version>2.4.3</struts.menu.version>
         <urlrewrite.version>3.1.0</urlrewrite.version>
         <velocity.version>1.4</velocity.version>
+        <tomcat.deploy.url>http://tomcat.bhit.nl:7070/manager/text</tomcat.deploy.url>
 
     </properties>
 </project>
