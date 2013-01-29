@@ -1,6 +1,8 @@
 package nl.bhit.mTor.client;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
+import java.util.Properties;
 
 import nl.bhit.mTor.client.wsdl.MessageServiceStub;
 import nl.bhit.mTor.client.wsdl.MessageServiceStub.SoapMessage;
@@ -13,12 +15,26 @@ import org.apache.commons.logging.LogFactory;
 public class MessageServiceClient {
 
 	protected final Log log = LogFactory.getLog(MessageServiceClient.class);
+	Properties properties;
+
+	public MessageServiceClient() {
+		properties = new Properties();
+		try {
+			properties.load(this.getClass().getResourceAsStream("/mTor.properties"));
+		} catch (IOException e) {
+			log.fatal("Can't start sending messages with this reader either, io exception", e);
+		}
+
+		log.trace("props loaded");
+	}
 
 	public void addMessage() {
 		log.debug("trying to add a message to the soap service");
 		MessageServiceStub stub = null;
 		try {
-			stub = new MessageServiceStub();
+			String connectionUrl = properties.getProperty("mTor.server.url");
+			log.debug("connecting to: " + connectionUrl);
+			stub = new MessageServiceStub(connectionUrl);
 		} catch (AxisFault e) {
 			log.fatal("could not create messageServiceStub to send message to mTor!", e);
 		}
