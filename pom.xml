@@ -1051,6 +1051,14 @@
 		        <jdbc.password></jdbc.password>
             </properties>
         </profile>
+        <profile>
+            <id>bhit</id>
+            <properties>
+		        <tomcat.deploy.url>http://tomcat.bhit.nl:7070/manager/text</tomcat.deploy.url>
+		        <jdbc.username>mTor</jdbc.username>
+		        <jdbc.password>SECRET</jdbc.password>
+            </properties>
+        </profile>
     </profiles>
 
     <properties>
