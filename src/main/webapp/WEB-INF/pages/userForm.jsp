@@ -54,7 +54,7 @@
 		
         <select id="userProjects" name="userProjects" multiple="true">
             <c:forEach items="${projectList}" var="project">
-            <option value="${project.id}">${project.name}</option>
+            <option value="${project.getId()}">${project.getName()}</option>
             </c:forEach>
         </select>
 		

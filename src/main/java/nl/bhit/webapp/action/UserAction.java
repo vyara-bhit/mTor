@@ -10,6 +10,8 @@ import nl.bhit.model.User;
 import nl.bhit.service.GenericManager;
 import nl.bhit.service.UserExistsException;
 import nl.bhit.webapp.util.RequestUtil;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.mail.MailException;
 import org.springframework.security.access.AccessDeniedException;
@@ -39,6 +41,10 @@ public class UserAction extends BaseAction implements Preparable {
     private String query;
     private List projects;
 
+    @Autowired
+    public void setProjectManager(GenericManager<Project, Long> projectManager) {
+        this.projectManager = projectManager;
+    }
     /**
      * Grab the entity from the database before populating with request parameters
      */
@@ -49,9 +55,7 @@ public class UserAction extends BaseAction implements Preparable {
         }
     }
 
-    public void setProjectManager(GenericManager<Project, Long> projectManager) {
-        this.projectManager = projectManager;
-    }
+
     /**
      * Holder for users to display on list screen
      *
