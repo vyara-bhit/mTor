@@ -22,7 +22,7 @@ public class MessageServiceClient {
 		try {
 			properties.load(this.getClass().getResourceAsStream("/mTor.properties"));
 		} catch (IOException e) {
-			log.fatal("Can't start sending messages with this reader either, io exception", e);
+			log.error("Can't start sending messages with this reader either, io exception", e);
 		}
 
 		log.trace("props loaded");
@@ -36,13 +36,13 @@ public class MessageServiceClient {
 			log.debug("connecting to: " + connectionUrl);
 			stub = new MessageServiceStub(connectionUrl);
 		} catch (AxisFault e) {
-			log.fatal("could not create messageServiceStub to send message to mTor!", e);
+			log.error("could not create messageServiceStub to send message to mTor!", e);
 		}
 		MessageServiceStub.SaveSoapMessageE req = new MessageServiceStub.SaveSoapMessageE();
 		MessageServiceStub.SaveSoapMessage req1 = new MessageServiceStub.SaveSoapMessage();
 		SoapMessage soapMessage = new SoapMessage();
-		soapMessage.setContent("test from soap client");
-		soapMessage.setProjectId(-1l);
+		soapMessage.setContent("i am alive signal");
+		soapMessage.setProjectId(getPorjectId());
 		soapMessage.setStatus(Status.INFO);
 		req1.setArg0(soapMessage);
 		req.setSaveSoapMessage(req1);
@@ -51,9 +51,21 @@ public class MessageServiceClient {
 		try {
 			result = stub.saveSoapMessage(req);
 		} catch (RemoteException e) {
-			log.fatal("could not send message to mTor!", e);
+			log.error("could not send message to mTor!", e);
 		}
 		log.trace("found content:" + result);
+	}
+
+	protected Long getPorjectId() {
+		Long projectId = null;
+		try {
+			String projectIdStr = properties.getProperty("mTor.project.id");
+			projectId = new Long(projectIdStr);
+		} catch (Exception e) {
+			log.error("could not read the projectId so message can not be send, no monitoring possible!", e);
+		}
+		log.debug("using projectId:" + projectId);
+		return projectId;
 	}
 
 }
