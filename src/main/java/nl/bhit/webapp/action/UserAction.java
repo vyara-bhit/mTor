@@ -123,6 +123,13 @@ public class UserAction extends BaseAction implements Preparable {
             user = new User();
             user.addRole(new Role(Constants.USER_ROLE));
         }
+        
+        String[] userProjects = getRequest().getParameterValues("projects");
+
+        for (int i = 0; userProjects != null && i < userProjects.length; i++) {
+            Long projectName = Long.parseLong(userProjects[i]);
+            user.addProject(projectManager.get(projectName));  
+        }
 
         if (user.getUsername() != null) {
             user.setConfirmPassword(user.getPassword());
@@ -193,6 +200,14 @@ public class UserAction extends BaseAction implements Preparable {
                 }
             }
         }
+        
+        String[] userProjects = getRequest().getParameterValues("projects");
+
+        for (int i = 0; userProjects != null && i < userProjects.length; i++) {
+            Long projectName = Long.parseLong(userProjects[i]);
+            user.addProject(projectManager.get(projectName));  
+        }
+   
 
         try {
             userManager.saveUser(user);

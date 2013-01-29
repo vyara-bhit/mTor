@@ -12,6 +12,8 @@ import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.List;
 
+import org.springframework.dao.DataIntegrityViolationException;
+
 public class ProjectAction extends BaseAction implements Preparable {
     private GenericManager<Project, Long> projectManager;
     private GenericManager<Company, Long> companyManager;
@@ -102,6 +104,13 @@ public class ProjectAction extends BaseAction implements Preparable {
         } else {
             project = new Project();
         }
+            String[] projectUsers = getRequest().getParameterValues("projectUsers");
+
+            for (int i = 0; projectUsers != null && i < projectUsers.length; i++) {
+                String userName = projectUsers[i];
+                project.addUser(userManager.getUser(userName));  
+            }
+       
 
         return SUCCESS;
     }
@@ -114,7 +123,14 @@ public class ProjectAction extends BaseAction implements Preparable {
         if (delete != null) {
             return delete();
         }
+        
+        String[] projectUsers = getRequest().getParameterValues("projectUsers");
 
+        for (int i = 0; projectUsers != null && i < projectUsers.length; i++) {
+            String userName = projectUsers[i];
+            project.addUser(userManager.getUser(userName));  
+        }
+        
         boolean isNew = (project.getId() == null);
 
         projectManager.save(project);

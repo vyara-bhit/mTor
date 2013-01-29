@@ -1,5 +1,6 @@
 package nl.bhit.model;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -130,4 +131,14 @@ public class Project {
 	public void setUsers(Set<User> users) {
 		this.users = users;
 	}
+	
+    public void addUser(User user) {
+    	if (getUsers()!=null) {
+        getUsers().add(user);
+    	} else {
+    		Set<User> setOfUsers = new HashSet<User>();
+    		setOfUsers.add(user);
+    		setUsers(setOfUsers);
+    	}
+    }
 }

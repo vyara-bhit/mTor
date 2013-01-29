@@ -197,6 +197,16 @@ public class User extends BaseObject implements Serializable, UserDetails {
     public void addRole(Role role) {
         getRoles().add(role);
     }
+    
+    public void addProject(Project project) {
+    	if (getProjects()!=null) {
+            getProjects().add(project);
+        	} else {
+        		Set<Project> setOfProjects = new HashSet<Project>();
+        		setOfProjects.add(project);
+        		setProjects(setOfProjects);
+        	}
+    }
 
     /**
      * @return GrantedAuthority[] an array of roles.
@@ -382,12 +392,12 @@ public class User extends BaseObject implements Serializable, UserDetails {
     }
     
 	@ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-	 @JoinTable(name = "app_user_project",
+	 @JoinTable(name = "project_app_user",
 	 joinColumns = {
-	 @JoinColumn(name="app_user_id") 
+	 @JoinColumn(name="users_id") 
 	 },
 	 inverseJoinColumns = {
-	 @JoinColumn(name="projects_ID")
+	 @JoinColumn(name="PROJECT_ID")
 	 }
 	 )
     public Set<Project> getProjects() {
