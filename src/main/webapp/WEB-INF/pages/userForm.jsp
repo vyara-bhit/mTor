@@ -52,9 +52,9 @@
         <s:textfield key="user.phoneNumber"/>
         <s:textfield key="user.website" required="true"/>
 		
-        <select id="userProjects" name="userProjects" multiple="true">
+        <select id="userProjects" name="userProjects" multiple="true" style="margin-left:180px;">
             <c:forEach items="${projectList}" var="project">
-            <option value="${project.getId()}">${project.getName()}</option>
+            <option value="${project.id}">${project.name}</option>
             </c:forEach>
         </select>
 		

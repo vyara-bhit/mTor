@@ -382,12 +382,12 @@ public class User extends BaseObject implements Serializable, UserDetails {
     }
     
 	@ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-	 @JoinTable(name = "project_app_user",
+	 @JoinTable(name = "app_user_project",
 	 joinColumns = {
-	 @JoinColumn(name="users_id") 
+	 @JoinColumn(name="app_user_id") 
 	 },
 	 inverseJoinColumns = {
-	 @JoinColumn(name="PROJECT_ID")
+	 @JoinColumn(name="projects_ID")
 	 }
 	 )
     public Set<Project> getProjects() {

@@ -17,6 +17,7 @@ public class ProjectAction extends BaseAction implements Preparable {
     private GenericManager<Company, Long> companyManager;
     private List projects;
     private List companies;
+    private List users;
     private Project project;
     private Long id;
     private String query;
@@ -67,6 +68,13 @@ public class ProjectAction extends BaseAction implements Preparable {
         Collection companiesNew = new LinkedHashSet(companies);
         companies = new ArrayList(companiesNew);
     	return companies;
+    }
+    
+    public List getUserList() {
+    	users = userManager.getUsers();
+        Collection usersNew = new LinkedHashSet(users);
+        users = new ArrayList(usersNew);
+        return users;
     }
 
     public void setId(Long id) {
