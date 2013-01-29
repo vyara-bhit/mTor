@@ -64,6 +64,8 @@ public class ProjectAction extends BaseAction implements Preparable {
     
     public List getCompanyList(){
     	companies = companyManager.getAll();
+        Collection companiesNew = new LinkedHashSet(companies);
+        companies = new ArrayList(companiesNew);
     	return companies;
     }
 
