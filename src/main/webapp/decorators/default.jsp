@@ -64,7 +64,7 @@
             </c:if>
         </span>
         <span class="right">
-            &copy; <fmt:message key="copyright.year"/> <a href="<fmt:message key="company.url"/>">Bhit</a>
+            &copy; 2013 <a href="<fmt:message key="company.url"/>">Bhit</a>
         </span>
     </div>
 <%= (request.getAttribute("scripts") != null) ?  request.getAttribute("scripts") : "" %>
