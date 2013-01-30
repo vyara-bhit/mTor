@@ -43,7 +43,7 @@
     </div>
 
     <div class="container-fluid">
-
+		<%@ include file="/common/messages.jsp" %>
         <div class="row-fluid">
             <decorator:body/>
 
