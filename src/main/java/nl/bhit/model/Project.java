@@ -127,6 +127,17 @@ public class Project {
 	public Set<User> getUsers() {
 		return users;
 	}
+	
+	public Set<String> userNames() {
+		Set<String> userNames = new HashSet<String>();
+		if (getUsers()!=null) {
+			Set<User> userList = getUsers();
+			 for (User user : userList) {
+				 userNames.add(user.getFullName());
+			 }
+		 } 
+		 return userNames;
+	}
 
 	public void setUsers(Set<User> users) {
 		this.users = users;

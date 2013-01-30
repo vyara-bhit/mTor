@@ -42,7 +42,7 @@
             <input type="checkbox" disabled="disabled" <c:if test="${users.enabled}">checked="checked"</c:if>/>
         </display:column>
         <display:column property="enabled" titleKey="user.enabled" media="csv xml excel pdf"/>
-		<display:column property="projects"  sortable="true" title="Projects"/>
+		<display:column sortable="true" title="Projects">${users.projectNames()} </display:column> 
                         
         <display:setProperty name="paging.banner.item_name"><fmt:message key="userList.user"/></display:setProperty>
         <display:setProperty name="paging.banner.items_name"><fmt:message key="userList.users"/></display:setProperty>

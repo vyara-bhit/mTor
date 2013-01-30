@@ -407,4 +407,15 @@ public class User extends BaseObject implements Serializable, UserDetails {
 	public void setProjects(Set<Project> projects) {
 		this.projects = projects;
 	}
+	
+	public Set<String> projectNames() {
+		Set<String> projectNames = new HashSet<String>();
+		if (getProjects()!=null) {
+			Set<Project> projectList = getProjects();
+			 for (Project project : projectList) {
+				 projectNames.add(project.getName());
+			 }
+		 } 
+		 return projectNames;
+	}
 }
