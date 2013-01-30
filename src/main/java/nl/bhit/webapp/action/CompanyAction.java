@@ -4,15 +4,20 @@ import com.opensymphony.xwork2.Preparable;
 import nl.bhit.service.GenericManager;
 import nl.bhit.dao.SearchException;
 import nl.bhit.model.Company;
+import nl.bhit.model.Project;
+import nl.bhit.model.User;
 import nl.bhit.webapp.action.BaseAction;
+import nl.bhit.webapp.util.UserManagementUtils;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CompanyAction extends BaseAction implements Preparable {
     private GenericManager<Company, Long> companyManager;
+    private GenericManager<Project, Long> projectManager;
     private List companies;
     private Company company;
     private Long id;
@@ -22,6 +27,10 @@ public class CompanyAction extends BaseAction implements Preparable {
         this.companyManager = companyManager;
     }
 
+    public void setProjectManager(GenericManager<Project, Long> projectManager) {
+        this.projectManager = projectManager;
+    }
+    
     public List getCompanies() {
         return companies;
     }
@@ -44,9 +53,24 @@ public class CompanyAction extends BaseAction implements Preparable {
     }
 
     public String list() {
-        try {
-            companies = companyManager.search(query, Company.class);
-            Collection companiesNew = new LinkedHashSet(companies);
+        try {            
+            Collection projectsNew = new LinkedHashSet(projectManager.getAll());
+            List<Project> tempProjects = new ArrayList(projectsNew);
+            String loggedInUser = UserManagementUtils.getAuthenticatedUser().getFullName();
+            List<Project> projects = new ArrayList();
+            for(Project tempProject : tempProjects){
+            	Set<User> projectUsers = tempProject.getUsers();
+            	for (User projectUser : projectUsers){
+            		if (projectUser.getFullName().equalsIgnoreCase(loggedInUser)){
+            			projects.add(tempProject);
+            		}
+            	}
+            }
+            List<Company> tempCompanies = new ArrayList();
+            for (Project project : projects){
+            	tempCompanies.add(project.getCompany());
+            }
+            Collection companiesNew = new LinkedHashSet(tempCompanies);
             companies = new ArrayList(companiesNew);
         } catch (SearchException se) {
             addActionError(se.getMessage());

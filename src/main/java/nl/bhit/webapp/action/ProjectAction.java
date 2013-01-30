@@ -79,8 +79,23 @@ public class ProjectAction extends BaseAction implements Preparable {
     }
     
     public List getCompanyList(){
-    	companies = companyManager.getAll();
-        Collection companiesNew = new LinkedHashSet(companies);
+        Collection projectsNew = new LinkedHashSet(projectManager.getAll());
+        List<Project> tempProjects = new ArrayList(projectsNew);
+        String loggedInUser = UserManagementUtils.getAuthenticatedUser().getFullName();
+        List<Project> projects = new ArrayList();
+        for(Project tempProject : tempProjects){
+        	Set<User> projectUsers = tempProject.getUsers();
+        	for (User projectUser : projectUsers){
+        		if (projectUser.getFullName().equalsIgnoreCase(loggedInUser)){
+        			projects.add(tempProject);
+        		}
+        	}
+        }
+        List<Company> tempCompanies = new ArrayList();
+        for (Project project : projects){
+        	tempCompanies.add(project.getCompany());
+        }
+        Collection companiesNew = new LinkedHashSet(tempCompanies);
         companies = new ArrayList(companiesNew);
     	return companies;
     }
