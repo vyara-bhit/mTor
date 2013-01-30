@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import nl.bhit.service.GenericManager;
 import nl.bhit.service.MessageManager;
@@ -11,8 +12,10 @@ import nl.bhit.dao.SearchException;
 import nl.bhit.model.Message;
 import nl.bhit.model.Project;
 import nl.bhit.model.Status;
+import nl.bhit.model.User;
 import nl.bhit.service.GenericManager;
 import nl.bhit.service.MessageManager;
+import nl.bhit.webapp.util.UserManagementUtils;
 
 import com.opensymphony.xwork2.Preparable;
 
@@ -66,9 +69,18 @@ public class MessageAction extends BaseAction implements Preparable {
     }
     
     public List getProjectCompanyList(){
-    	projects = projectManager.getAll();
-        Collection projectsNew = new LinkedHashSet(projects);
-        projects = new ArrayList(projectsNew);
+        Collection projectsNew = new LinkedHashSet(projectManager.getAll());
+        List<Project> tempProjects = new ArrayList(projectsNew);
+        String loggedInUser = UserManagementUtils.getAuthenticatedUser().getFullName();
+        projects = new ArrayList();
+        for(Project tempProject : tempProjects){
+        	Set<User> projectUsers = tempProject.getUsers();
+        	for (User projectUser : projectUsers){
+        		if (projectUser.getFullName().equalsIgnoreCase(loggedInUser)){
+        			projects.add(tempProject);
+        		}
+        	}
+        }
     	return projects;
     }
 
