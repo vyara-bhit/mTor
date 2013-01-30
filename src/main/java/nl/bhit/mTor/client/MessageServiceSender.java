@@ -79,7 +79,7 @@ public class MessageServiceSender {
 		} catch (RemoteException e) {
 			log.error("could not send message to mTor!", e);
 		}
-		log.trace("found content:" + result);
+		log.debug("result:" + result);
 	}
 
 	private static Status getStatus(nl.bhit.model.Status status) {
