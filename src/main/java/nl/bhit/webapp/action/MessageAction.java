@@ -60,7 +60,18 @@ public class MessageAction extends BaseAction implements Preparable {
 
     public String list() {
         try {
-            messages = messageManager.search(query, Message.class);
+            //messages = messageManager.search(query, Message.class);
+        	messages = new ArrayList();
+        	List<Message> tempMessages = messageManager.search(query, Message.class);
+        	List<Project> tempProjects = getProjectCompanyList();
+        	for (Message tempMessage : tempMessages){
+        		String messageProjectName = tempMessage.getProject().getName();
+        		for (Project tempProject : tempProjects){
+        			if (tempProject.getName().equalsIgnoreCase(messageProjectName)){
+        				messages.add(tempMessage);
+        			}
+        		}
+        	}
         } catch (SearchException se) {
             addActionError(se.getMessage());
             messages = messageManager.getAll();
