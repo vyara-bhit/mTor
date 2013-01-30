@@ -5,14 +5,18 @@ import nl.bhit.service.GenericManager;
 import nl.bhit.dao.SearchException;
 import nl.bhit.model.Company;
 import nl.bhit.model.Project;
+import nl.bhit.model.User;
 import nl.bhit.webapp.action.BaseAction;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.dao.DataIntegrityViolationException;
+
+import nl.bhit.webapp.util.UserManagementUtils;
 
 public class ProjectAction extends BaseAction implements Preparable {
     private GenericManager<Project, Long> projectManager;
@@ -55,9 +59,18 @@ public class ProjectAction extends BaseAction implements Preparable {
 
     public String list() {
         try {
-            projects = projectManager.search(query, Project.class);
-            Collection projectsNew = new LinkedHashSet(projects);
-            projects = new ArrayList(projectsNew);
+            Collection projectsNew = new LinkedHashSet(projectManager.search(query, Project.class));
+            List<Project> tempProjects = new ArrayList(projectsNew);
+            String loggedInUser = UserManagementUtils.getAuthenticatedUser().getFullName();
+            projects = new ArrayList();
+            for(Project tempProject : tempProjects){
+            	Set<User> projectUsers = tempProject.getUsers();
+            	for (User projectUser : projectUsers){
+            		if (projectUser.getFullName().equalsIgnoreCase(loggedInUser)){
+            			projects.add(tempProject);
+            		}
+            	}
+            }
         } catch (SearchException se) {
             addActionError(se.getMessage());
             projects = projectManager.getAll();
