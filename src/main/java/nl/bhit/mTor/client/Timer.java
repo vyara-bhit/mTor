@@ -14,6 +14,10 @@ public class Timer {
 	public void process() {
 		log.debug("starting up the timed processor.");
 		MessageServiceSender client = new MessageServiceSender();
-		client.addMessage();
+		try {
+			client.addMessage();
+		} catch (Exception e) {
+			log.error("exception occured: ", e);
+		}
 	}
 }

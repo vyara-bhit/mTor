@@ -9,7 +9,7 @@ import nl.bhit.model.soap.SoapMessage;
 public class DiskSpaceMTorMessageProvider {
 
 	@MTorMessage
-	public SoapMessage getDsikSpaceMessage() {
+	public static SoapMessage getDsikSpaceMessage() {
 		SoapMessage message = new SoapMessage();
 		// TODO(tibi) check the hard drive and deside if the message is needed, a warning or an error.
 		message.setContent("The hard drive is getting full!");

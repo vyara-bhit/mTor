@@ -6,7 +6,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
 
-public class MessageServiceClientTest extends TestCase {
+public class MessageServiceSenderTest extends TestCase {
 	/**
 	 * Log variable for all child classes. Uses LogFactory.getLog(getClass()) from Commons Logging
 	 */
