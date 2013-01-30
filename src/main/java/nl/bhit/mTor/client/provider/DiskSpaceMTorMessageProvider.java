@@ -1,4 +1,4 @@
-package nl.bhit.mTor.client;
+package nl.bhit.mTor.client.provider;
 
 import nl.bhit.mTor.client.annotation.MTorMessage;
 import nl.bhit.mTor.client.annotation.MTorMessageProvider;
