@@ -72,6 +72,8 @@ public class MessageAction extends BaseAction implements Preparable {
         			}
         		}
         	}
+            Collection messagesNew = new LinkedHashSet(messages);
+            messages = new ArrayList(messagesNew);
         } catch (SearchException se) {
             addActionError(se.getMessage());
             messages = messageManager.getAll();
