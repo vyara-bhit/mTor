@@ -12,20 +12,22 @@
             <Item name="ReloadContext" title="menu.admin.reload" page="/admin/reload"/>
             <Item name="FileUpload" title="menu.selectFile" page="/uploadFile"/>
         </Menu>
-        <Menu name="Logout" title="user.logout" page="/logout" roles="ROLE_ADMIN,ROLE_USER"/>
+        
         
         <!--Company-START-->
-        <Menu name="CompanyMenu" title="companyList.title" page="/companies"/>
+        <Menu name="CompanyMenu" title="companyList.title" page="/companies" roles="ROLE_ADMIN,ROLE_USER"/>
         <!--Company-END-->
         
         
         <!--Project-START-->
-        <Menu name="ProjectMenu" title="projectList.title" page="/projects"/>
+        <Menu name="ProjectMenu" title="projectList.title" page="/projects" roles="ROLE_ADMIN,ROLE_USER"/>
         <!--Project-END-->
         
         <!--Message-START-->
-        <Menu name="MessageMenu" title="messageList.title" page="/messages"/>
+        <Menu name="MessageMenu" title="messageList.title" page="/messages" roles="ROLE_ADMIN,ROLE_USER"/>
         <!--Message-END-->
+        
+        <Menu name="Logout" title="user.logout" page="/logout" roles="ROLE_ADMIN,ROLE_USER"/>
     </Menus>
 
 
