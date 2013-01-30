@@ -1,5 +1,6 @@
 package nl.bhit.model;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -11,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -23,6 +26,8 @@ public class Project {
 	private String name;
 	private Set<Message> messages;
 	private Company company;
+	private Set<User> users;
+
 
 	public Project(){
 		this.messages = new TreeSet<Message>();
@@ -108,5 +113,43 @@ public class Project {
 			}						
 		}
 		return Status.INFO.toString();
-	}	
+	}
+	
+	@ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+	 @JoinTable(name = "project_app_user",
+	 joinColumns = {
+	 @JoinColumn(name="PROJECT_ID") 
+	 },
+	 inverseJoinColumns = {
+	 @JoinColumn(name="users_id")
+	 }
+	 )
+	public Set<User> getUsers() {
+		return users;
+	}
+	
+	public Set<String> userNames() {
+		Set<String> userNames = new HashSet<String>();
+		if (getUsers()!=null) {
+			Set<User> userList = getUsers();
+			 for (User user : userList) {
+				 userNames.add(user.getFullName());
+			 }
+		 } 
+		 return userNames;
+	}
+
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
+	
+    public void addUser(User user) {
+    	if (getUsers()!=null) {
+        getUsers().add(user);
+    	} else {
+    		Set<User> setOfUsers = new HashSet<User>();
+    		setOfUsers.add(user);
+    		setUsers(setOfUsers);
+    	}
+    }
 }

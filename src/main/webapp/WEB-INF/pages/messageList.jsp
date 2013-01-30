@@ -34,7 +34,10 @@
             paramId="id" paramProperty="id" titleKey="message.id"/>
         <display:column property="id" media="csv excel xml pdf" titleKey="message.id"/>
         <display:column property="content" sortable="true" titleKey="message.content"/>
-        <display:column property="status" sortable="true" title="Status"/>
+        <display:column property="status" sortable="true" titleKey="message.status"/>
+        <display:column sortProperty="timestamp" sortable="true" titleKey="message.timestamp">
+             <fmt:formatDate value="${messageList.timestamp}"  type="both" timeStyle="long" dateStyle="long" />
+        </display:column>
 
         <display:setProperty name="paging.banner.item_name"><fmt:message key="messageList.message"/></display:setProperty>
         <display:setProperty name="paging.banner.items_name"><fmt:message key="messageList.messages"/></display:setProperty>

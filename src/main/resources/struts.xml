@@ -182,7 +182,11 @@
 			<result name="success" type="redirectAction">projects</result>
 		</action>        <!--ProjectAction-END -->
 
-		<!-- Add additional actions here -->
+		
+
+
+
+        <!-- Add additional actions here -->
 	</package>
 
 	<!-- Actions in this package will be prefixed with /admin/ -->

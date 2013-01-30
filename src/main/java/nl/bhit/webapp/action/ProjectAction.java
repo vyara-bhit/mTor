@@ -5,18 +5,25 @@ import nl.bhit.service.GenericManager;
 import nl.bhit.dao.SearchException;
 import nl.bhit.model.Company;
 import nl.bhit.model.Project;
+import nl.bhit.model.User;
 import nl.bhit.webapp.action.BaseAction;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
+
+import org.springframework.dao.DataIntegrityViolationException;
+
+import nl.bhit.webapp.util.UserManagementUtils;
 
 public class ProjectAction extends BaseAction implements Preparable {
     private GenericManager<Project, Long> projectManager;
     private GenericManager<Company, Long> companyManager;
     private List projects;
     private List companies;
+    private List users;
     private Project project;
     private Long id;
     private String query;
@@ -52,9 +59,18 @@ public class ProjectAction extends BaseAction implements Preparable {
 
     public String list() {
         try {
-            projects = projectManager.search(query, Project.class);
-            Collection projectsNew = new LinkedHashSet(projects);
-            projects = new ArrayList(projectsNew);
+            Collection projectsNew = new LinkedHashSet(projectManager.search(query, Project.class));
+            List<Project> tempProjects = new ArrayList(projectsNew);
+            String loggedInUser = UserManagementUtils.getAuthenticatedUser().getFullName();
+            projects = new ArrayList();
+            for(Project tempProject : tempProjects){
+            	Set<User> projectUsers = tempProject.getUsers();
+            	for (User projectUser : projectUsers){
+            		if (projectUser.getFullName().equalsIgnoreCase(loggedInUser)){
+            			projects.add(tempProject);
+            		}
+            	}
+            }
         } catch (SearchException se) {
             addActionError(se.getMessage());
             projects = projectManager.getAll();
@@ -63,8 +79,32 @@ public class ProjectAction extends BaseAction implements Preparable {
     }
     
     public List getCompanyList(){
-    	companies = companyManager.getAll();
+        Collection projectsNew = new LinkedHashSet(projectManager.getAll());
+        List<Project> tempProjects = new ArrayList(projectsNew);
+        String loggedInUser = UserManagementUtils.getAuthenticatedUser().getFullName();
+        List<Project> projects = new ArrayList();
+        for(Project tempProject : tempProjects){
+        	Set<User> projectUsers = tempProject.getUsers();
+        	for (User projectUser : projectUsers){
+        		if (projectUser.getFullName().equalsIgnoreCase(loggedInUser)){
+        			projects.add(tempProject);
+        		}
+        	}
+        }
+        List<Company> tempCompanies = new ArrayList();
+        for (Project project : projects){
+        	tempCompanies.add(project.getCompany());
+        }
+        Collection companiesNew = new LinkedHashSet(tempCompanies);
+        companies = new ArrayList(companiesNew);
     	return companies;
+    }
+    
+    public List getUserList() {
+    	users = userManager.getUsers();
+        Collection usersNew = new LinkedHashSet(users);
+        users = new ArrayList(usersNew);
+        return users;
     }
 
     public void setId(Long id) {
@@ -92,6 +132,13 @@ public class ProjectAction extends BaseAction implements Preparable {
         } else {
             project = new Project();
         }
+            String[] projectUsers = getRequest().getParameterValues("projectUsers");
+
+            for (int i = 0; projectUsers != null && i < projectUsers.length; i++) {
+                String userName = projectUsers[i];
+                project.addUser(userManager.getUser(userName));  
+            }
+       
 
         return SUCCESS;
     }
@@ -104,7 +151,14 @@ public class ProjectAction extends BaseAction implements Preparable {
         if (delete != null) {
             return delete();
         }
+        
+        String[] projectUsers = getRequest().getParameterValues("projectUsers");
 
+        for (int i = 0; projectUsers != null && i < projectUsers.length; i++) {
+            String userName = projectUsers[i];
+            project.addUser(userManager.getUser(userName));  
+        }
+        
         boolean isNew = (project.getId() == null);
 
         projectManager.save(project);

@@ -23,7 +23,8 @@ public class MessageDaoTest extends BaseDaoTestCase {
         Message message = new Message();
 
         // enter all required fields
-        message.setContent("YuVgOiFsEiUgJeCrLcYwIrAhHcIkGoIaMmJlMwLkEwNgLcInDdBiMvBoXfUaFlHrTtLkWmIyAeTpKpKiTcIzGgTiQoBjJfBcDjScHwMrHkWxBeSlYuBiQrGyBaIhTdYoDfGzLjGeSeAuEuKzVbFmLbLxRqVqQiVcSuZoGkGmJgJeQtUdWbLfDuBoMaMpEdAjWqXwMhLgCsIoWxYpEkYcCaFxGvTeLxVxRnCjPmAfEuZyJuQpXrZyUjAvUqTzPwY");
+        message.setContent("JcVhYnKfBkNeWbBvCjTlXpKsYaHiXpHnOdNzKoFdAjPbVcDmLvPrEuLfCnIeNtNyApAoGgXyNkXfJjJdCdUwSgOiWiRbXdVhQlPnSeLzClLhFbZvIvEkCvJoRdNqHtChPbMfTpXzEfAdDwFsTlSbPlImUfIsYsDvCoRwYlFjKcVzQxRiDfCdQiHwPiGsYzTiIrWyUnSmCpTsPzKtOvGyYfFhGjVaAbMcQpOtDyKfYmErJeRpTmHmFbNsOmYvTpA");
+        message.setTimestamp(new java.util.Date());
 
         log.debug("adding message...");
         message = messageDao.save(message);
