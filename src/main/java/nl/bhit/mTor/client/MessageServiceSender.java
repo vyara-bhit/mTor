@@ -12,12 +12,12 @@ import org.apache.axis2.AxisFault;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-public class MessageServiceClient {
+public class MessageServiceSender {
 
-	protected final Log log = LogFactory.getLog(MessageServiceClient.class);
+	protected final Log log = LogFactory.getLog(MessageServiceSender.class);
 	Properties properties;
 
-	public MessageServiceClient() {
+	public MessageServiceSender() {
 		properties = new Properties();
 		try {
 			properties.load(this.getClass().getResourceAsStream("/mTor.properties"));

@@ -15,7 +15,7 @@ public class MessageServiceClientTest extends TestCase {
 	@Test
 	public void testAddMessage() {
 		log.trace("start testAddMessage...");
-		MessageServiceClient client = new MessageServiceClient();
+		MessageServiceSender client = new MessageServiceSender();
 		try {
 			client.addMessage();
 			log.info("sending worked");

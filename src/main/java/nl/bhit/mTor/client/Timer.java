@@ -6,14 +6,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Timer {
-	protected final Log log = LogFactory.getLog(MessageServiceClient.class);
+	protected final Log log = LogFactory.getLog(MessageServiceSender.class);
 
 	/**
 	 * is called from the timer.
 	 */
 	public void process() {
 		log.debug("starting up the timed processor.");
-		MessageServiceClient client = new MessageServiceClient();
+		MessageServiceSender client = new MessageServiceSender();
 		client.addMessage();
 	}
 }
