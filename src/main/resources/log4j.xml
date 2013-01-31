@@ -62,7 +62,7 @@
     </logger>
    
     <logger name="nl.bhit">
-        <level value="DEBUG"/>
+        <level value="TRACE"/>
     </logger>
 
     <logger name="nl.bhit.tool">
