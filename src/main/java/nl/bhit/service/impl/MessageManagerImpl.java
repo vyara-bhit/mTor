@@ -5,7 +5,7 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 
 import nl.bhit.dao.MessageDao;
-import nl.bhit.model.Message;
+import nl.bhit.model.MTorMessage;
 import nl.bhit.model.Project;
 import nl.bhit.model.soap.SoapMessage;
 import nl.bhit.service.GenericManager;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 @WebService(
 		serviceName = "MessageService",
 		endpointInterface = "nl.bhit.service.MessageManager")
-public class MessageManagerImpl extends GenericManagerImpl<Message, Long> implements MessageManager {
+public class MessageManagerImpl extends GenericManagerImpl<MTorMessage, Long> implements MessageManager {
 	MessageDao messageDao;
 	@Autowired
 	private GenericManager<Project, Long> projectManager;
@@ -33,8 +33,8 @@ public class MessageManagerImpl extends GenericManagerImpl<Message, Long> implem
 	@Override
 	@WebMethod(
 			exclude = true)
-	public Message saveMessage(SoapMessage soapMessage) {
-		Message message = soapMessageToMessage(soapMessage);
+	public MTorMessage saveMessage(SoapMessage soapMessage) {
+		MTorMessage message = soapMessageToMessage(soapMessage);
 		return messageDao.save(message);
 	}
 
@@ -49,9 +49,9 @@ public class MessageManagerImpl extends GenericManagerImpl<Message, Long> implem
 		saveMessage(soapMessage);
 	}
 
-	protected Message soapMessageToMessage(SoapMessage soapMessage) {
+	protected MTorMessage soapMessageToMessage(SoapMessage soapMessage) {
 		Project project = projectManager.get(soapMessage.getProjectId());
-		Message message = new Message();
+		MTorMessage message = new MTorMessage();
 		BeanUtils.copyProperties(soapMessage, message);
 		message.setProject(project);
 		return message;

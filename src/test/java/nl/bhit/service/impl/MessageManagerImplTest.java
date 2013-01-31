@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nl.bhit.dao.MessageDao;
-import nl.bhit.model.Message;
+import nl.bhit.model.MTorMessage;
 import nl.bhit.service.impl.BaseManagerMockTestCase;
 
 import org.jmock.Expectations;
@@ -33,7 +33,7 @@ public class MessageManagerImplTest extends BaseManagerMockTestCase {
         log.debug("testing get...");
 
         final Long id = 7L;
-        final Message message = new Message();
+        final MTorMessage message = new MTorMessage();
 
         // set expected behavior on dao
         context.checking(new Expectations() {{
@@ -41,7 +41,7 @@ public class MessageManagerImplTest extends BaseManagerMockTestCase {
             will(returnValue(message));
         }});
 
-        Message result = manager.get(id);
+        MTorMessage result = manager.get(id);
         assertSame(message, result);
     }
 
@@ -65,7 +65,7 @@ public class MessageManagerImplTest extends BaseManagerMockTestCase {
     public void testSaveMessage() {
         log.debug("testing save...");
 
-        final Message message = new Message();
+        final MTorMessage message = new MTorMessage();
         // enter all required fields
         message.setContent("IzCrGzWyVeZfKcOqPpEhIySiNdPxCzCfAqBgZlNiEsGsVgHlBaGdZqGdUxXtUoHjGdBhRxGnXsGzQmTpBzIrDaCrRmRgLaNnXpKeMqGoDjNnYmGkHaDvMuQaEiQkZeEgCyEzCmXsIxPzBmPxUnBlQjFcFsAwNdVpRvUeQsCaHuLoVuKxHtLbIcZbShKfVfGeBlRuAoGcSjDmVlAfMaRwVoKjDmLtTtYqCwBkOjTbNoBtCkJiUrZgSdWwFqEgYiP");
         message.setTimestamp(new java.util.Date());

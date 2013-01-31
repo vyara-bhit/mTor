@@ -5,7 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import nl.bhit.model.Message;
+import nl.bhit.model.MTorMessage;
 import nl.bhit.service.MessageManager;
 
 import org.apache.struts2.ServletActionContext;
@@ -27,8 +27,8 @@ public class MessageActionTest extends BaseActionTestCase {
 		MessageManager messageManager = (MessageManager) applicationContext.getBean("messageManager");
 		action.setMessageManager(messageManager);
 
-		// add a test message to the database
-		Message message = new Message();
+        // add a test message to the database
+        MTorMessage message = new MTorMessage();
 
 		// enter all required fields
 		message.setContent("NuIiVuNwUzUwGySmEfAyHsZjCyYdFzEdXeChOlMkLrKeYdEqEnAwOyAsBtBeHlWuWvHbCyTeGtFhMkDsNqHuHkLuWcMgUrFpShFtUuSkJtZbZtKmXjQhUqCgEzQmThMyVvQwPmDiJjVhYqTrCiIbVqPgHfAqDhRlLpSoSpDgMlDdSaGsEyGhQdIpWkMuAjKhCuTmLcPvPlJxVsFfVcVkZyRzWmVyJkTjSgOoNwNhAbPzAzFjUoGlMsXtPpAkBdJ");
@@ -72,7 +72,7 @@ public class MessageActionTest extends BaseActionTestCase {
 		assertEquals("success", action.edit());
 		assertNotNull(action.getMessage());
 
-		Message message = action.getMessage();
+        MTorMessage message = action.getMessage();
 		// update required fields
 		message.setContent("DpHuGrOtKxArDaPiUvDhZfXuOfUwAvFwKeQqAbRaIsDlXxRuPsSyXpWuOcNuVvMsNjXzXnWfWwTfPvLpMlOpEkMoUaZgXfOxUuWgNqOuTwKpXmNvLaFhWdPgOaXuPcJhBrMhGgRlRnLoLiZtMdHlMrGrMaJbQqKxSrTtQgThZkJoExLiPfQkOcRhNgIfBnWsSbFbBkJxAqBcCfOfCsTwJrUmFeUpWpCnCfIwSqOyLxLqHqMrDwMzBkZhKsTqGsN");
 		message.setTimestamp(new java.util.Date());
@@ -90,7 +90,7 @@ public class MessageActionTest extends BaseActionTestCase {
 		MockHttpServletRequest request = new MockHttpServletRequest();
 		ServletActionContext.setRequest(request);
 		action.setDelete("");
-		Message message = new Message();
+        MTorMessage message = new MTorMessage();
 		message.setId(-2L);
 		action.setMessage(message);
 		assertEquals("success", action.delete());
