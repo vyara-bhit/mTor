@@ -24,9 +24,11 @@
     <fmt:message key="projectList.message"/>
 
     <div id="actions" class="form-actions">
-        <a class="btn btn-primary" href="<c:url value='/editProject'/>" >
-            <i class="icon-plus icon-white"></i> <fmt:message key="button.add"/>
-        </a>
+        <security:authorize ifAllGranted="ROLE_ADMIN"> 
+	        <a class="btn btn-primary" href="<c:url value='/editProject'/>" >
+	            <i class="icon-plus icon-white"></i> <fmt:message key="button.add"/>
+	        </a>
+        </security:authorize>
         <a class="btn" href="<c:url value="/mainMenu"/>" >
             <i class="icon-ok"></i> <fmt:message key="button.done"/>
         </a>
@@ -35,8 +37,14 @@
   
 	<s:url id="thisUrl"/>	
     <display:table name="projects" class="table table-condensed table-striped table-hover" requestURI="${thisUrl}" id="projectList" export="true" pagesize="25" sort="list">
-        <display:column property="id" sortable="true" href="editProject" media="html"
-            paramId="id" paramProperty="id" titleKey="project.id"/>
+         <security:authorize ifAllGranted="ROLE_ADMIN"> 
+	        <display:column property="id" sortable="true"  href="editProject" media="html"
+	            paramId="id" paramProperty="id" titleKey="project.id"/>
+         </security:authorize>
+         <security:authorize ifAllGranted="ROLE_USER"> 
+	        <display:column property="id" sortable="true" media="html"
+	            paramId="id" paramProperty="id" titleKey="project.id"/>
+         </security:authorize>
         <display:column property="id" media="csv excel xml pdf" titleKey="project.id"/>
         <display:column property="name" sortable="true" titleKey="project.name"/>
         <display:column title="Status" sortable="true" class="thirdColumn">

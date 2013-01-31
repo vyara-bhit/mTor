@@ -52,12 +52,12 @@
         <s:hidden key="user.website"/>
          
         <security:authorize ifAllGranted="ROLE_ADMIN">         
-		<label for="projects" class="control-label">Assign projects:</label>
-        <select id="projects" name="projects" multiple="true" style="margin-left:20px;">
-            <c:forEach items="${projectList}" var="project">
-            <option value="${project.id}"}>${project.name}</option>
-            </c:forEach>
-        </select>
+			<label for="projects" class="control-label">Assign projects:</label>
+	        <select id="projects" name="projects" multiple="true" style="margin-left:20px;">
+	            <c:forEach items="${projectList}" var="project">
+	            <option value="${project.id}"}>${project.name}</option>
+	            </c:forEach>
+	        </select>
 		</security:authorize>
 		
         <fieldset>
