@@ -54,8 +54,7 @@ public class CompanyAction extends BaseAction implements Preparable {
 
     public String list() {
         try {            
-            Collection projectsNew = new LinkedHashSet(projectManager.getAll());
-            List<Project> tempProjects = new ArrayList(projectsNew);
+            List<Project> tempProjects = projectManager.getAllDistinct();
             String loggedInUser = UserManagementUtils.getAuthenticatedUser().getFullName();
             List<Project> projects = new ArrayList();
             for(Project tempProject : tempProjects){
@@ -74,7 +73,7 @@ public class CompanyAction extends BaseAction implements Preparable {
             companies = new ArrayList(companiesNew);
         } catch (SearchException se) {
             addActionError(se.getMessage());
-            companies = companyManager.getAll();
+            companies = companyManager.getAllDistinct();
         }
         return SUCCESS;
     }
