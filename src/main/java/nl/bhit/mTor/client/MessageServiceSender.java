@@ -53,7 +53,7 @@ public class MessageServiceSender {
 	}
 
 	/**
-	 * will search for all @MTorMessageProvider classes and invoke the @MTorMessage methods for retrieval of the messages. These messages will be send via soap
+	 * Will search for all @MTorMessageProvider classes and invoke the @MTorMessage methods for retrieval of the messages. These messages will be send via soap
 	 * to the mTor server.
 	 * Possible errors will be logged but will not influence the project (will be kept quiet).
 	 */
