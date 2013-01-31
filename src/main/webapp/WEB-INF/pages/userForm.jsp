@@ -50,13 +50,15 @@
         <s:hidden key="user.email" />
         <s:hidden key="user.phoneNumber"/>
         <s:hidden key="user.website"/>
-		
+         
+        <security:authorize ifAllGranted="ROLE_ADMIN">         
 		<label for="projects" class="control-label">Assign projects:</label>
         <select id="projects" name="projects" multiple="true" style="margin-left:20px;">
             <c:forEach items="${projectList}" var="project">
             <option value="${project.id}"}>${project.name}</option>
             </c:forEach>
         </select>
+		</security:authorize>
 		
         <fieldset>
             <legend class="accordion-heading">
@@ -169,5 +171,5 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $("input[type='text']:visible:enabled:first", document.forms['userForm']).focus();
-    });
+    });      
 </script>
