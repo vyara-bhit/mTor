@@ -15,7 +15,7 @@ public class Timer {
 		log.debug("starting up the timed processor.");
 		MessageServiceSender client = new MessageServiceSender();
 		try {
-			client.addMessage();
+			client.sendMessages();
 		} catch (Exception e) {
 			log.error("exception occured: ", e);
 		}
