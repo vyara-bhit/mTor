@@ -43,6 +43,27 @@
     <build>
         <defaultGoal>install</defaultGoal>
         <plugins>
+
+        <!-- START generating WSDL code  
+            <plugin>
+                <groupId>org.apache.axis2</groupId>
+                <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
+                <version>1.6.2</version>
+                <configuration>
+                    <packageName>nl.bhit.mTor.client.wsdl</packageName>
+                    <wsdlFile>src/test/resources/wsdl/MessageService.wsdl</wsdlFile>
+                    <databindingName>adb</databindingName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                           <goal>wsdl2code</goal> 
+                        </goals>
+
+                    </execution>
+                </executions>
+            </plugin>
+         END generating WSDL code -->
         
             <plugin>
                 <groupId>org.appfuse.plugins</groupId>
@@ -713,16 +734,31 @@
           <artifactId>axis2</artifactId>
           <version>1.6.2</version>
     	</dependency>
+
         <dependency>
             <groupId>org.apache.axis2</groupId>
             <artifactId>axis2-transport-http</artifactId>
             <version>1.6.2</version>
-        </dependency>    	
-        <dependency>
+            <exclusions>
+		    	<exclusion>
+			       	<groupId>org.apache.ws.commons.schema</groupId>
+			       	<artifactId>XmlSchema</artifactId>
+			    </exclusion>
+		   </exclusions>
+        </dependency>   
+ 	
+       <dependency>
             <groupId>org.apache.axis2</groupId>
             <artifactId>axis2-transport-local</artifactId>
             <version>1.6.2</version>
+            <exclusions>
+		    	<exclusion>
+			       	<groupId>org.apache.ws.commons.schema</groupId>
+			       	<artifactId>XmlSchema</artifactId>
+			    </exclusion>
+		   </exclusions>
         </dependency>
+ 
         <dependency>
             <groupId>org.apache.ws.commons.axiom
             </groupId>
@@ -754,8 +790,8 @@
             <version>1.2.13</version>
             <type>pom</type>
         </dependency>
-        
         -->
+        
     </dependencies>
 
     <reporting>
@@ -1028,6 +1064,14 @@
             <id>tibi</id>
             <properties>
 		        <jdbc.password></jdbc.password>
+            </properties>
+        </profile>
+        <profile>
+            <id>bhit</id>
+            <properties>
+		        <tomcat.deploy.url>http://tomcat.bhit.nl:7070/manager/text</tomcat.deploy.url>
+		        <jdbc.username>mTor</jdbc.username>
+		        <jdbc.password>SECRET</jdbc.password>
             </properties>
         </profile>
     </profiles>

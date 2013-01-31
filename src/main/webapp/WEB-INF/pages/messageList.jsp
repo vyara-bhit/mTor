@@ -29,7 +29,7 @@
         </a>
     </div>
 
-    <display:table name="messages" class="table table-condensed table-striped table-hover" requestURI="" id="messageList" export="true" pagesize="25">
+    <display:table name="mTorMessages" class="table table-condensed table-striped table-hover" requestURI="" id="messageList" export="true" pagesize="25">
         <display:column property="id" sortable="true" href="editMessage" media="html"
             paramId="id" paramProperty="id" titleKey="message.id"/>
         <display:column property="id" media="csv excel xml pdf" titleKey="message.id"/>

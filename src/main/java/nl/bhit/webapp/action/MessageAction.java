@@ -22,7 +22,7 @@ import com.opensymphony.xwork2.Preparable;
 public class MessageAction extends BaseAction implements Preparable {
     private MessageManager messageManager;
     private GenericManager<Project, Long> projectManager;
-    private List messages;
+    private List mTorMessages;
     private List projects;
     private List status;
     private MTorMessage message;   
@@ -37,8 +37,8 @@ public class MessageAction extends BaseAction implements Preparable {
         this.projectManager = projectManager;
     }
     
-    public List getMessages() {
-        return messages;
+    public List getMTorMessages() {
+        return mTorMessages;
     }
 
     /**
@@ -61,22 +61,22 @@ public class MessageAction extends BaseAction implements Preparable {
     public String list() {
         try {
             //messages = messageManager.search(query, Message.class);
-        	messages = new ArrayList();
+        	mTorMessages = new ArrayList();
         	List<MTorMessage> tempMessages = messageManager.search(query, MTorMessage.class);
         	List<Project> tempProjects = getProjectCompanyList();
         	for (MTorMessage tempMessage : tempMessages){
         		String messageProjectName = tempMessage.getProject().getName();
         		for (Project tempProject : tempProjects){
         			if (tempProject.getName().equalsIgnoreCase(messageProjectName)){
-        				messages.add(tempMessage);
+        				mTorMessages.add(tempMessage);
         			}
         		}
         	}
-            Collection messagesNew = new LinkedHashSet(messages);
-            messages = new ArrayList(messagesNew);
+            Collection messagesNew = new LinkedHashSet(mTorMessages);
+            mTorMessages = new ArrayList(messagesNew);
         } catch (SearchException se) {
             addActionError(se.getMessage());
-            messages = messageManager.getAll();
+            mTorMessages = messageManager.getAll();
         }
         return SUCCESS;
     }
