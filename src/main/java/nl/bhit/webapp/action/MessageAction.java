@@ -6,8 +6,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import nl.bhit.service.GenericManager;
-import nl.bhit.service.MessageManager;
 import nl.bhit.dao.SearchException;
 import nl.bhit.model.Message;
 import nl.bhit.model.Project;
@@ -20,135 +18,137 @@ import nl.bhit.webapp.util.UserManagementUtils;
 import com.opensymphony.xwork2.Preparable;
 
 public class MessageAction extends BaseAction implements Preparable {
-    private MessageManager messageManager;
-    private GenericManager<Project, Long> projectManager;
-    private List messages;
-    private List projects;
-    private List status;
-    private Message message;   
-    private Long id;
-    private String query;
+	private MessageManager messageManager;
+	private GenericManager<Project, Long> projectManager;
+	private List mTorMessages;
+	private List projects;
+	private List status;
+	private Message message;
+	private Long id;
+	private String query;
 
-    public void setMessageManager(MessageManager messageManager) {
-        this.messageManager = messageManager;
-    }
+	public void setMessageManager(MessageManager messageManager) {
+		this.messageManager = messageManager;
+	}
 
-    public void setProjectManager(GenericManager<Project, Long> projectManager) {
-        this.projectManager = projectManager;
-    }
-    
-    public List getMessages() {
-        return messages;
-    }
+	public void setProjectManager(GenericManager<Project, Long> projectManager) {
+		this.projectManager = projectManager;
+	}
 
-    /**
-     * Grab the entity from the database before populating with request parameters
-     */
-    public void prepare() {
-        if (getRequest().getMethod().equalsIgnoreCase("post")) {
-            // prevent failures on new
-            String messageId = getRequest().getParameter("message.id");
-            if (messageId != null && !messageId.equals("")) {
-                message = messageManager.get(new Long(messageId));
-            }
-        }
-    }
+	public List getMTorMessages() {
+		return mTorMessages;
+	}
 
-    public void setQ(String q) {
-        this.query = q;
-    }
+	/**
+	 * Grab the entity from the database before populating with request parameters
+	 */
+	@Override
+	public void prepare() {
+		if (getRequest().getMethod().equalsIgnoreCase("post")) {
+			// prevent failures on new
+			String messageId = getRequest().getParameter("message.id");
+			if (messageId != null && !messageId.equals("")) {
+				message = messageManager.get(new Long(messageId));
+			}
+		}
+	}
 
-    public String list() {
-        try {
-            //messages = messageManager.search(query, Message.class);
-        	messages = new ArrayList();
-        	List<Message> tempMessages = messageManager.search(query, Message.class);
-        	List<Project> tempProjects = getProjectCompanyList();
-        	for (Message tempMessage : tempMessages){
-        		String messageProjectName = tempMessage.getProject().getName();
-        		for (Project tempProject : tempProjects){
-        			if (tempProject.getName().equalsIgnoreCase(messageProjectName)){
-        				messages.add(tempMessage);
-        			}
-        		}
-        	}
-            Collection messagesNew = new LinkedHashSet(messages);
-            messages = new ArrayList(messagesNew);
-        } catch (SearchException se) {
-            addActionError(se.getMessage());
-            messages = messageManager.getAll();
-        }
-        return SUCCESS;
-    }
-    
-    public List getProjectCompanyList(){
-        Collection projectsNew = new LinkedHashSet(projectManager.getAll());
-        List<Project> tempProjects = new ArrayList(projectsNew);
-        String loggedInUser = UserManagementUtils.getAuthenticatedUser().getFullName();
-        projects = new ArrayList();
-        for(Project tempProject : tempProjects){
-        	Set<User> projectUsers = tempProject.getUsers();
-        	for (User projectUser : projectUsers){
-        		if (projectUser.getFullName().equalsIgnoreCase(loggedInUser)){
-        			projects.add(tempProject);
-        		}
-        	}
-        }
-    	return projects;
-    }
+	public void setQ(String q) {
+		this.query = q;
+	}
 
-    public List getStatusList(){
-    	return Status.getAsList();
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public String list() {
+		try {
+			// messages = messageManager.search(query, Message.class);
+			mTorMessages = new ArrayList();
+			List<Message> tempMessages = messageManager.search(query, Message.class);
+			List<Project> tempProjects = getProjectCompanyList();
+			for (Message tempMessage : tempMessages) {
+				String messageProjectName = tempMessage.getProject().getName();
+				for (Project tempProject : tempProjects) {
+					if (tempProject.getName().equalsIgnoreCase(messageProjectName)) {
+						mTorMessages.add(tempMessage);
+					}
+				}
+			}
+			Collection messagesNew = new LinkedHashSet(mTorMessages);
+			mTorMessages = new ArrayList(messagesNew);
+		} catch (SearchException se) {
+			addActionError(se.getMessage());
+			mTorMessages = messageManager.getAll();
+		}
+		return SUCCESS;
+	}
 
-    public Message getMessage() {
-        return message;
-    }
+	public List getProjectCompanyList() {
+		Collection projectsNew = new LinkedHashSet(projectManager.getAll());
+		List<Project> tempProjects = new ArrayList(projectsNew);
+		String loggedInUser = UserManagementUtils.getAuthenticatedUser().getFullName();
+		projects = new ArrayList();
+		for (Project tempProject : tempProjects) {
+			Set<User> projectUsers = tempProject.getUsers();
+			for (User projectUser : projectUsers) {
+				if (projectUser.getFullName().equalsIgnoreCase(loggedInUser)) {
+					projects.add(tempProject);
+				}
+			}
+		}
+		return projects;
+	}
 
-    public void setMessage(Message message) {
-        this.message = message;
-    }
+	public List getStatusList() {
+		return Status.getAsList();
+	}
 
-    public String delete() {
-        messageManager.remove(message.getId());
-        saveMessage(getText("message.deleted"));
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-        return SUCCESS;
-    }
+	public Message getMessage() {
+		return message;
+	}
 
-    public String edit() {
-        if (id != null) {
-            message = messageManager.get(id);
-        } else {
-            message = new Message();
-        }
+	public void setMessage(Message message) {
+		this.message = message;
+	}
 
-        return SUCCESS;
-    }
+	public String delete() {
+		messageManager.remove(message.getId());
+		saveMessage(getText("message.deleted"));
 
-    public String save() throws Exception {
-        if (cancel != null) {
-            return "cancel";
-        }
+		return SUCCESS;
+	}
 
-        if (delete != null) {
-            return delete();
-        }
+	public String edit() {
+		if (id != null) {
+			message = messageManager.get(id);
+		} else {
+			message = new Message();
+		}
 
-        boolean isNew = (message.getId() == null);
+		return SUCCESS;
+	}
 
-        messageManager.save(message);
+	public String save() throws Exception {
+		if (cancel != null) {
+			return "cancel";
+		}
 
-        String key = (isNew) ? "message.added" : "message.updated";
-        saveMessage(getText(key));
+		if (delete != null) {
+			return delete();
+		}
 
-        if (!isNew) {
-            return INPUT;
-        } else {
-            return SUCCESS;
-        }
-    }
+		boolean isNew = (message.getId() == null);
+
+		messageManager.save(message);
+
+		String key = (isNew) ? "message.added" : "message.updated";
+		saveMessage(getText(key));
+
+		if (!isNew) {
+			return INPUT;
+		} else {
+			return SUCCESS;
+		}
+	}
 }

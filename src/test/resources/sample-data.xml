@@ -164,18 +164,6 @@
     </table>
     <!--Message-END-->
     
-     <table name="app_user_project">
-        <column>app_user_id</column>
-        <column>projects_ID</column>
-    	<row>
-        	<value description="app_user_id">-1</value>
-        	<value description="projects_ID">-1</value>
-    	</row>
-    	<row>
-        	<value description="app_user_id">-2</value>
-        	<value description="projects_ID">-2</value>
-    	</row>
-	  </table>
 	  
 	  <table name="project_app_user">
         <column>PROJECT_ID</column>
