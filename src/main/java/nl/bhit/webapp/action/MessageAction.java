@@ -9,7 +9,7 @@ import java.util.Set;
 import nl.bhit.service.GenericManager;
 import nl.bhit.service.MessageManager;
 import nl.bhit.dao.SearchException;
-import nl.bhit.model.Message;
+import nl.bhit.model.MTorMessage;
 import nl.bhit.model.Project;
 import nl.bhit.model.Status;
 import nl.bhit.model.User;
@@ -25,7 +25,7 @@ public class MessageAction extends BaseAction implements Preparable {
     private List messages;
     private List projects;
     private List status;
-    private Message message;   
+    private MTorMessage message;   
     private Long id;
     private String query;
 
@@ -62,9 +62,9 @@ public class MessageAction extends BaseAction implements Preparable {
         try {
             //messages = messageManager.search(query, Message.class);
         	messages = new ArrayList();
-        	List<Message> tempMessages = messageManager.search(query, Message.class);
+        	List<MTorMessage> tempMessages = messageManager.search(query, MTorMessage.class);
         	List<Project> tempProjects = getProjectCompanyList();
-        	for (Message tempMessage : tempMessages){
+        	for (MTorMessage tempMessage : tempMessages){
         		String messageProjectName = tempMessage.getProject().getName();
         		for (Project tempProject : tempProjects){
         			if (tempProject.getName().equalsIgnoreCase(messageProjectName)){
@@ -104,11 +104,11 @@ public class MessageAction extends BaseAction implements Preparable {
         this.id = id;
     }
 
-    public Message getMessage() {
+    public MTorMessage getMessage() {
         return message;
     }
 
-    public void setMessage(Message message) {
+    public void setMessage(MTorMessage message) {
         this.message = message;
     }
 
@@ -123,7 +123,7 @@ public class MessageAction extends BaseAction implements Preparable {
         if (id != null) {
             message = messageManager.get(id);
         } else {
-            message = new Message();
+            message = new MTorMessage();
         }
 
         return SUCCESS;

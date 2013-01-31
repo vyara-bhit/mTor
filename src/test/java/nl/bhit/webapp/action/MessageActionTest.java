@@ -3,7 +3,7 @@ package nl.bhit.webapp.action;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 import nl.bhit.service.MessageManager;
-import nl.bhit.model.Message;
+import nl.bhit.model.MTorMessage;
 import nl.bhit.webapp.action.BaseActionTestCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockHttpServletRequest;
@@ -25,7 +25,7 @@ public class MessageActionTest extends BaseActionTestCase {
         action.setMessageManager(messageManager);
 
         // add a test message to the database
-        Message message = new Message();
+        MTorMessage message = new MTorMessage();
 
         // enter all required fields
         message.setContent("NuIiVuNwUzUwGySmEfAyHsZjCyYdFzEdXeChOlMkLrKeYdEqEnAwOyAsBtBeHlWuWvHbCyTeGtFhMkDsNqHuHkLuWcMgUrFpShFtUuSkJtZbZtKmXjQhUqCgEzQmThMyVvQwPmDiJjVhYqTrCiIbVqPgHfAqDhRlLpSoSpDgMlDdSaGsEyGhQdIpWkMuAjKhCuTmLcPvPlJxVsFfVcVkZyRzWmVyJkTjSgOoNwNhAbPzAzFjUoGlMsXtPpAkBdJ");
@@ -69,7 +69,7 @@ public class MessageActionTest extends BaseActionTestCase {
         assertEquals("success", action.edit());
         assertNotNull(action.getMessage());
 
-        Message message = action.getMessage();
+        MTorMessage message = action.getMessage();
         // update required fields
         message.setContent("DpHuGrOtKxArDaPiUvDhZfXuOfUwAvFwKeQqAbRaIsDlXxRuPsSyXpWuOcNuVvMsNjXzXnWfWwTfPvLpMlOpEkMoUaZgXfOxUuWgNqOuTwKpXmNvLaFhWdPgOaXuPcJhBrMhGgRlRnLoLiZtMdHlMrGrMaJbQqKxSrTtQgThZkJoExLiPfQkOcRhNgIfBnWsSbFbBkJxAqBcCfOfCsTwJrUmFeUpWpCnCfIwSqOyLxLqHqMrDwMzBkZhKsTqGsN");
         message.setTimestamp(new java.util.Date());
@@ -87,7 +87,7 @@ public class MessageActionTest extends BaseActionTestCase {
         MockHttpServletRequest request = new MockHttpServletRequest();
         ServletActionContext.setRequest(request);
         action.setDelete("");
-        Message message = new Message();
+        MTorMessage message = new MTorMessage();
         message.setId(-2L);
         action.setMessage(message);
         assertEquals("success", action.delete());

@@ -24,18 +24,18 @@ import javax.persistence.Table;
 public class Project {
 	private Long id;
 	private String name;
-	private Set<Message> messages;
+	private Set<MTorMessage> messages;
 	private Company company;
 	private Set<User> users;
 
 
 	public Project(){
-		this.messages = new TreeSet<Message>();
+		this.messages = new TreeSet<MTorMessage>();
 	}
 	
 	public Project(String name){
 		this.name = name;
-		this.messages = new TreeSet<Message>();
+		this.messages = new TreeSet<MTorMessage>();
 	}
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -78,15 +78,15 @@ public class Project {
 	@OneToMany(fetch = FetchType.EAGER,
 			   cascade = CascadeType.ALL)
 	@JoinColumn(name = "PROJECT_FK")
-	public Set<Message> getMessages() {
+	public Set<MTorMessage> getMessages() {
 		return messages;
 	}
 
-	public void setMessages(Set<Message> messages) {
+	public void setMessages(Set<MTorMessage> messages) {
 		this.messages = messages;
 	}
 	
-	public void addMessage(Message message){
+	public void addMessage(MTorMessage message){
 		messages.add(message);
 	}
 	
@@ -97,15 +97,15 @@ public class Project {
 	
 
 	public  String statusOfProject() {
-		Set<Message> currentMessages= getMessages();
+		Set<MTorMessage> currentMessages= getMessages();
 		if(!currentMessages.isEmpty()){
-			for (Message message : currentMessages) { 
+			for (MTorMessage message : currentMessages) { 
 				Status status = message.getStatus();
 				if(status.equals(Status.ERROR)){
 					return Status.ERROR.toString();
 				} 
 			}
-			for (Message message : currentMessages) { 
+			for (MTorMessage message : currentMessages) { 
 				Status status = message.getStatus();
 				if(status.equals(Status.WARN)){
 					return Status.WARN.toString();						

@@ -1,7 +1,7 @@
 package nl.bhit.dao;
 
 import nl.bhit.dao.BaseDaoTestCase;
-import nl.bhit.model.Message;
+import nl.bhit.model.MTorMessage;
 import org.springframework.dao.DataAccessException;
 
 import static org.junit.Assert.*;
@@ -20,7 +20,7 @@ public class MessageDaoTest extends BaseDaoTestCase {
     @Test
     @ExpectedException(DataAccessException.class)
     public void testAddAndRemoveMessage() {
-        Message message = new Message();
+        MTorMessage message = new MTorMessage();
 
         // enter all required fields
         message.setContent("JcVhYnKfBkNeWbBvCjTlXpKsYaHiXpHnOdNzKoFdAjPbVcDmLvPrEuLfCnIeNtNyApAoGgXyNkXfJjJdCdUwSgOiWiRbXdVhQlPnSeLzClLhFbZvIvEkCvJoRdNqHtChPbMfTpXzEfAdDwFsTlSbPlImUfIsYsDvCoRwYlFjKcVzQxRiDfCdQiHwPiGsYzTiIrWyUnSmCpTsPzKtOvGyYfFhGjVaAbMcQpOtDyKfYmErJeRpTmHmFbNsOmYvTpA");

@@ -1,7 +1,7 @@
 package nl.bhit.service.impl;
 
 import nl.bhit.dao.MessageDao;
-import nl.bhit.model.Message;
+import nl.bhit.model.MTorMessage;
 import nl.bhit.service.MessageManager;
 import nl.bhit.service.impl.GenericManagerImpl;
 
@@ -13,7 +13,7 @@ import javax.jws.WebService;
 
 @Service("messageManager")
 @WebService(serviceName = "MessageService", endpointInterface = "nl.bhit.service.MessageManager")
-public class MessageManagerImpl extends GenericManagerImpl<Message, Long> implements MessageManager {
+public class MessageManagerImpl extends GenericManagerImpl<MTorMessage, Long> implements MessageManager {
     MessageDao messageDao;
 
     @Autowired
