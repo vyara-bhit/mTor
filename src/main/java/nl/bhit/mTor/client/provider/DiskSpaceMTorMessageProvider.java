@@ -7,6 +7,9 @@ import nl.bhit.mTor.client.annotation.MTorMessageProvider;
 import nl.bhit.model.Status;
 import nl.bhit.model.soap.SoapMessage;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 /**
  * This message provider has one method which will give a soapMessage about the diskSpace.
  * 
@@ -14,7 +17,7 @@ import nl.bhit.model.soap.SoapMessage;
  */
 @MTorMessageProvider
 public class DiskSpaceMTorMessageProvider {
-
+	private static final Log log = LogFactory.getLog(DiskSpaceMTorMessageProvider.class);
 	public static long ERROR_LIMIT = 1000000L;
 	public static long WARN_LIMIT = 10000000L;
 
@@ -24,20 +27,30 @@ public class DiskSpaceMTorMessageProvider {
 	 * @return
 	 */
 	@MTorMessage
-	public static SoapMessage getDsikSpaceMessage() {
+	public static SoapMessage getDiskSpaceMessage() {
 		SoapMessage message = new SoapMessage();
-		File tmp = new File("/");
-		long free = tmp.getFreeSpace();
+		long free = getFreeDiskSpace();
 		if (free < ERROR_LIMIT) {
-			message.setContent("The hard drive is almost full!");
-			message.setStatus(Status.ERROR);
-			return message;
+			return createMessage(message, "The hard drive is almost full!", Status.ERROR);
 		}
 		if (free < WARN_LIMIT) {
-			message.setContent("The hard drive is getting full!");
-			message.setStatus(Status.WARN);
-			return message;
+			return createMessage(message, "The hard drive is getting full!", Status.WARN);
 		}
 		return null;
 	}
+
+	protected static SoapMessage createMessage(SoapMessage message, String errorMessage, Status status) {
+		log.warn(errorMessage);
+		message.setContent(errorMessage);
+		message.setStatus(status);
+		return message;
+	}
+
+	protected static long getFreeDiskSpace() {
+		File tmp = new File("/");
+		long free = tmp.getFreeSpace();
+		log.trace("free disk space is: " + free);
+		return free;
+	}
+
 }
