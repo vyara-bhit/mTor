@@ -277,9 +277,7 @@ public class UserAction extends BaseAction implements Preparable {
     }
     
    public List getProjectList(){
-		projects = projectManager.getAll();
-	    Collection projectsNew = new LinkedHashSet(projects);
-	    projects = new ArrayList(projectsNew);
+		projects = projectManager.getAllDistinct();
 		return projects;
     }
 

@@ -76,14 +76,13 @@ public class MessageAction extends BaseAction implements Preparable {
             mTorMessages = new ArrayList(messagesNew);
         } catch (SearchException se) {
             addActionError(se.getMessage());
-            mTorMessages = messageManager.getAll();
+            mTorMessages = messageManager.getAllDistinct();
         }
         return SUCCESS;
     }
     
     public List getProjectCompanyList(){
-        Collection projectsNew = new LinkedHashSet(projectManager.getAll());
-        List<Project> tempProjects = new ArrayList(projectsNew);
+        List<Project> tempProjects = projectManager.getAllDistinct();
         String loggedInUser = UserManagementUtils.getAuthenticatedUser().getFullName();
         projects = new ArrayList();
         for(Project tempProject : tempProjects){

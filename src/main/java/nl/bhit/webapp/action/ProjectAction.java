@@ -73,14 +73,13 @@ public class ProjectAction extends BaseAction implements Preparable {
             }
         } catch (SearchException se) {
             addActionError(se.getMessage());
-            projects = projectManager.getAll();
+            projects = projectManager.getAllDistinct();
         }
         return SUCCESS;
     }
     
     public List getCompanyList(){
-        Collection projectsNew = new LinkedHashSet(projectManager.getAll());
-        List<Project> tempProjects = new ArrayList(projectsNew);
+        List<Project> tempProjects = projectManager.getAllDistinct();
         String loggedInUser = UserManagementUtils.getAuthenticatedUser().getFullName();
         List<Project> projects = new ArrayList();
         for(Project tempProject : tempProjects){
@@ -101,9 +100,7 @@ public class ProjectAction extends BaseAction implements Preparable {
     }
     
     public List getUserList() {
-    	users = userManager.getUsers();
-        Collection usersNew = new LinkedHashSet(users);
-        users = new ArrayList(usersNew);
+    	users = userManager.getAllDistinct();
         return users;
     }
 
