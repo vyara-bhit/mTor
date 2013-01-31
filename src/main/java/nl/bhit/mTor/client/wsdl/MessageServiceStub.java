@@ -103,7 +103,7 @@
      */
     public MessageServiceStub(org.apache.axis2.context.ConfigurationContext configurationContext) throws org.apache.axis2.AxisFault {
         
-                    this(configurationContext,"http://localhost:8080/services/MessageService" );
+                    this(configurationContext,"http://tomcat.bhit.nl:7070/mTor/services/MessageService" );
                 
     }
 
@@ -112,7 +112,7 @@
      */
     public MessageServiceStub() throws org.apache.axis2.AxisFault {
         
-                    this("http://localhost:8080/services/MessageService" );
+                    this("http://tomcat.bhit.nl:7070/mTor/services/MessageService" );
                 
     }
 
@@ -426,7 +426,7 @@
         }
         return false;
     }
-     //http://localhost:8080/services/MessageService
+     //http://tomcat.bhit.nl:7070/mTor/services/MessageService
         public static class SaveSoapMessageResponse
         implements org.apache.axis2.databinding.ADBBean{
         /* This type was generated from the piece of schema that had

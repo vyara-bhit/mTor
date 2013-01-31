@@ -56,6 +56,10 @@ public class MessageServiceSender {
 
 	protected void sendMessage(nl.bhit.model.soap.SoapMessage soapMessage) {
 		log.debug("trying to add a message to the soap service");
+		if (soapMessage == null) {
+			log.trace("no message provided");
+			return;
+		}
 		MessageServiceStub stub = null;
 		try {
 			String connectionUrl = properties.getProperty("mTor.server.url");

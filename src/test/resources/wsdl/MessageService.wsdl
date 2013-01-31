@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://impl.service.bhit.nl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://service.bhit.nl/" name="MessageService" targetNamespace="http://impl.service.bhit.nl/">
-  <wsdl:import location="http://localhost:8080/services/MessageService?wsdl=MessageManager.wsdl" namespace="http://service.bhit.nl/">
+  <wsdl:import location="http://tomcat.bhit.nl:7070/mTor/services/MessageService?wsdl=MessageManager.wsdl" namespace="http://service.bhit.nl/">
     </wsdl:import>
   <wsdl:binding name="MessageServiceSoapBinding" type="ns1:MessageManager">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
@@ -15,7 +15,7 @@
   </wsdl:binding>
   <wsdl:service name="MessageService">
     <wsdl:port binding="tns:MessageServiceSoapBinding" name="MessageManagerImplPort">
-      <soap:address location="http://localhost:8080/services/MessageService"/>
+      <soap:address location="http://tomcat.bhit.nl:7070/mTor/services/MessageService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
