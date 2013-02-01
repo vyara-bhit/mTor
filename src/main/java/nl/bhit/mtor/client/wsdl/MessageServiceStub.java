@@ -1,4 +1,3 @@
-
 /**
  * MessageServiceStub.java
  *
