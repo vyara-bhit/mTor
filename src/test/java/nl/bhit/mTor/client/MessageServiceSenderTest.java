@@ -17,7 +17,7 @@ public class MessageServiceSenderTest extends TestCase {
 		log.trace("start testAddMessage...");
 		MessageServiceSender client = new MessageServiceSender();
 		try {
-			client.addMessage();
+			client.sendMessages();
 			log.info("sending worked");
 		} catch (Exception e) {
 			log.info("sending failed. this test only works with active soap service");
