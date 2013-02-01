@@ -1,11 +1,10 @@
-
 /**
  * MessageServiceStub.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST)
  */
-        package nl.bhit.mTor.client.wsdl;
+        package nl.bhit.mtor.client.wsdl;
 
         
 
@@ -136,9 +135,9 @@
 
                     
 
-                            public  nl.bhit.mTor.client.wsdl.MessageServiceStub.SaveSoapMessageResponseE saveSoapMessage(
+                            public  nl.bhit.mtor.client.wsdl.MessageServiceStub.SaveSoapMessageResponseE saveSoapMessage(
 
-                            nl.bhit.mTor.client.wsdl.MessageServiceStub.SaveSoapMessageE saveSoapMessage0)
+                            nl.bhit.mtor.client.wsdl.MessageServiceStub.SaveSoapMessageE saveSoapMessage0)
                         
 
                     throws java.rmi.RemoteException
@@ -189,11 +188,11 @@
                 
                                 java.lang.Object object = fromOM(
                                              _returnEnv.getBody().getFirstElement() ,
-                                             nl.bhit.mTor.client.wsdl.MessageServiceStub.SaveSoapMessageResponseE.class,
+                                             nl.bhit.mtor.client.wsdl.MessageServiceStub.SaveSoapMessageResponseE.class,
                                               getEnvelopeNamespaces(_returnEnv));
 
                                
-                                        return (nl.bhit.mTor.client.wsdl.MessageServiceStub.SaveSoapMessageResponseE)object;
+                                        return (nl.bhit.mtor.client.wsdl.MessageServiceStub.SaveSoapMessageResponseE)object;
                                    
          }catch(org.apache.axis2.AxisFault f){
 
@@ -257,9 +256,9 @@
                 */
                 public  void startsaveSoapMessage(
 
-                 nl.bhit.mTor.client.wsdl.MessageServiceStub.SaveSoapMessageE saveSoapMessage0,
+                 nl.bhit.mtor.client.wsdl.MessageServiceStub.SaveSoapMessageE saveSoapMessage0,
 
-                  final nl.bhit.mTor.client.wsdl.MessageServiceCallbackHandler callback)
+                  final nl.bhit.mtor.client.wsdl.MessageServiceCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
@@ -303,10 +302,10 @@
                                 org.apache.axiom.soap.SOAPEnvelope resultEnv = resultContext.getEnvelope();
                                 
                                         java.lang.Object object = fromOM(resultEnv.getBody().getFirstElement(),
-                                                                         nl.bhit.mTor.client.wsdl.MessageServiceStub.SaveSoapMessageResponseE.class,
+                                                                         nl.bhit.mtor.client.wsdl.MessageServiceStub.SaveSoapMessageResponseE.class,
                                                                          getEnvelopeNamespaces(resultEnv));
                                         callback.receiveResultsaveSoapMessage(
-                                        (nl.bhit.mTor.client.wsdl.MessageServiceStub.SaveSoapMessageResponseE)object);
+                                        (nl.bhit.mtor.client.wsdl.MessageServiceStub.SaveSoapMessageResponseE)object);
                                         
                             } catch (org.apache.axis2.AxisFault e) {
                                 callback.receiveErrorsaveSoapMessage(e);
@@ -2980,12 +2979,12 @@
         }
            
     
-            private  org.apache.axiom.om.OMElement  toOM(nl.bhit.mTor.client.wsdl.MessageServiceStub.SaveSoapMessageE param, boolean optimizeContent)
+            private  org.apache.axiom.om.OMElement  toOM(nl.bhit.mtor.client.wsdl.MessageServiceStub.SaveSoapMessageE param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
             
                         try{
-                             return param.getOMElement(nl.bhit.mTor.client.wsdl.MessageServiceStub.SaveSoapMessageE.MY_QNAME,
+                             return param.getOMElement(nl.bhit.mtor.client.wsdl.MessageServiceStub.SaveSoapMessageE.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -2994,12 +2993,12 @@
 
             }
         
-            private  org.apache.axiom.om.OMElement  toOM(nl.bhit.mTor.client.wsdl.MessageServiceStub.SaveSoapMessageResponseE param, boolean optimizeContent)
+            private  org.apache.axiom.om.OMElement  toOM(nl.bhit.mtor.client.wsdl.MessageServiceStub.SaveSoapMessageResponseE param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
             
                         try{
-                             return param.getOMElement(nl.bhit.mTor.client.wsdl.MessageServiceStub.SaveSoapMessageResponseE.MY_QNAME,
+                             return param.getOMElement(nl.bhit.mtor.client.wsdl.MessageServiceStub.SaveSoapMessageResponseE.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -3009,14 +3008,14 @@
             }
         
                                     
-                                        private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, nl.bhit.mTor.client.wsdl.MessageServiceStub.SaveSoapMessageE param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
+                                        private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, nl.bhit.mtor.client.wsdl.MessageServiceStub.SaveSoapMessageE param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
                                         throws org.apache.axis2.AxisFault{
 
                                              
                                                     try{
 
                                                             org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
-                                                            emptyEnvelope.getBody().addChild(param.getOMElement(nl.bhit.mTor.client.wsdl.MessageServiceStub.SaveSoapMessageE.MY_QNAME,factory));
+                                                            emptyEnvelope.getBody().addChild(param.getOMElement(nl.bhit.mtor.client.wsdl.MessageServiceStub.SaveSoapMessageE.MY_QNAME,factory));
                                                             return emptyEnvelope;
                                                         } catch(org.apache.axis2.databinding.ADBException e){
                                                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -3046,16 +3045,16 @@
 
         try {
         
-                if (nl.bhit.mTor.client.wsdl.MessageServiceStub.SaveSoapMessageE.class.equals(type)){
+                if (nl.bhit.mtor.client.wsdl.MessageServiceStub.SaveSoapMessageE.class.equals(type)){
                 
-                           return nl.bhit.mTor.client.wsdl.MessageServiceStub.SaveSoapMessageE.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                           return nl.bhit.mtor.client.wsdl.MessageServiceStub.SaveSoapMessageE.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }
            
-                if (nl.bhit.mTor.client.wsdl.MessageServiceStub.SaveSoapMessageResponseE.class.equals(type)){
+                if (nl.bhit.mtor.client.wsdl.MessageServiceStub.SaveSoapMessageResponseE.class.equals(type)){
                 
-                           return nl.bhit.mTor.client.wsdl.MessageServiceStub.SaveSoapMessageResponseE.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                           return nl.bhit.mtor.client.wsdl.MessageServiceStub.SaveSoapMessageResponseE.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }

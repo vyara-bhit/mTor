@@ -1,4 +1,4 @@
-package nl.bhit.mTor.client.provider;
+package nl.bhit.mtor.client.provider;
 
 import java.io.File;
 

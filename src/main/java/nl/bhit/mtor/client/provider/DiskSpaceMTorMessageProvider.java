@@ -1,9 +1,9 @@
-package nl.bhit.mTor.client.provider;
+package nl.bhit.mtor.client.provider;
 
 import java.io.File;
 
-import nl.bhit.mTor.client.annotation.MTorMessage;
-import nl.bhit.mTor.client.annotation.MTorMessageProvider;
+import nl.bhit.mtor.client.annotation.MTorMessage;
+import nl.bhit.mtor.client.annotation.MTorMessageProvider;
 import nl.bhit.model.Status;
 import nl.bhit.model.soap.SoapMessage;
 

@@ -6,7 +6,7 @@
  * by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST)
  */
 
-    package nl.bhit.mTor.client.wsdl;
+    package nl.bhit.mtor.client.wsdl;
 
     /**
      *  MessageServiceCallbackHandler Callback class, Users can extend this class and implement
@@ -49,7 +49,7 @@
             * override this method for handling normal response from saveSoapMessage operation
             */
            public void receiveResultsaveSoapMessage(
-                    nl.bhit.mTor.client.wsdl.MessageServiceStub.SaveSoapMessageResponseE result
+                    nl.bhit.mtor.client.wsdl.MessageServiceStub.SaveSoapMessageResponseE result
                         ) {
            }
 
