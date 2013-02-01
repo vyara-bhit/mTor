@@ -1,4 +1,4 @@
-package nl.bhit.mTor.client;
+package nl.bhit.mtor.client;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

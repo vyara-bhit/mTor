@@ -1,6 +1,8 @@
-package nl.bhit.mTor.client;
+package nl.bhit.mtor.client;
 
 import junit.framework.TestCase;
+
+import nl.bhit.mtor.client.MessageServiceSender;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

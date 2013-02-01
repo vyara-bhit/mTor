@@ -1,4 +1,4 @@
-package nl.bhit.mTor.client;
+package nl.bhit.mtor.client;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -6,10 +6,10 @@ import java.rmi.RemoteException;
 import java.util.Properties;
 import java.util.Set;
 
-import nl.bhit.mTor.client.annotation.MTorMessage;
-import nl.bhit.mTor.client.annotation.MTorMessageProvider;
-import nl.bhit.mTor.client.wsdl.MessageServiceStub;
-import nl.bhit.mTor.client.wsdl.MessageServiceStub.Status;
+import nl.bhit.mtor.client.annotation.MTorMessage;
+import nl.bhit.mtor.client.annotation.MTorMessageProvider;
+import nl.bhit.mtor.client.wsdl.MessageServiceStub;
+import nl.bhit.mtor.client.wsdl.MessageServiceStub.Status;
 import nl.bhit.mtor.util.AnnotationUtil;
 
 import org.apache.axis2.AxisFault;
@@ -111,8 +111,8 @@ public class MessageServiceSender {
 		return req;
 	}
 
-	protected nl.bhit.mTor.client.wsdl.MessageServiceStub.SoapMessage createWsdlMessage(nl.bhit.model.soap.SoapMessage soapMessage) {
-		nl.bhit.mTor.client.wsdl.MessageServiceStub.SoapMessage wsdlMessage = new nl.bhit.mTor.client.wsdl.MessageServiceStub.SoapMessage();
+	protected nl.bhit.mtor.client.wsdl.MessageServiceStub.SoapMessage createWsdlMessage(nl.bhit.model.soap.SoapMessage soapMessage) {
+		nl.bhit.mtor.client.wsdl.MessageServiceStub.SoapMessage wsdlMessage = new nl.bhit.mtor.client.wsdl.MessageServiceStub.SoapMessage();
 		wsdlMessage.setContent(soapMessage.getContent());
 		wsdlMessage.setStatus(getStatus(soapMessage.getStatus()));
 		wsdlMessage.setProjectId(getPorjectId());

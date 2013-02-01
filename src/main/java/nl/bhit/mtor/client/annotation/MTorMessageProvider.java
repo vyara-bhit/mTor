@@ -1,4 +1,4 @@
-package nl.bhit.mTor.client.annotation;
+package nl.bhit.mtor.client.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
