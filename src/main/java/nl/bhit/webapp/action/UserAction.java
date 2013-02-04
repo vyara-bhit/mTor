@@ -207,7 +207,8 @@ public class UserAction extends BaseAction implements Preparable {
             Long projectName = Long.parseLong(userProjects[i]);
             user.addProject(projectManager.get(projectName));  
         }
-   
+        
+        user.setEmail(user.getUsername());
 
         try {
             userManager.saveUser(user);
