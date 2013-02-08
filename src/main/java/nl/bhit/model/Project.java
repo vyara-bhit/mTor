@@ -101,15 +101,21 @@ public class Project {
 		if(!currentMessages.isEmpty()){
 			for (MTorMessage message : currentMessages) { 
 				Status status = message.getStatus();
-				if(status.equals(Status.ERROR)){
-					return Status.ERROR.toString();
+				if(status.equals(Status.ERROR) && message.isResolved()){
+					return Status.INFO.toString();
 				} 
+				if(status.equals(Status.ERROR) && !message.isResolved()){
+					return Status.ERROR.toString();
+				}
 			}
 			for (MTorMessage message : currentMessages) { 
 				Status status = message.getStatus();
-				if(status.equals(Status.WARN)){
-					return Status.WARN.toString();						
+				if(status.equals(Status.WARN) && message.isResolved()){
+					return Status.INFO.toString();						
 				} 
+				if(status.equals(Status.WARN) && !message.isResolved()){
+					return Status.WARN.toString();
+				}
 			}						
 		}
 		return Status.INFO.toString();

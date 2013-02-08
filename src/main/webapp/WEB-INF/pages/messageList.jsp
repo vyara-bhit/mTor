@@ -28,7 +28,8 @@
             <i class="icon-ok"></i> <fmt:message key="button.done"/>
         </a>
     </div>
-
+    
+    
     <display:table name="mTorMessages" class="table table-condensed table-striped table-hover" requestURI="" id="messageList" export="true" pagesize="25">
         <display:column property="id" sortable="true" href="editMessage" media="html"
             paramId="id" paramProperty="id" titleKey="message.id"/>
@@ -38,6 +39,8 @@
         <display:column sortProperty="timestamp" sortable="true" titleKey="message.timestamp">
              <fmt:formatDate value="${messageList.timestamp}"  type="both" timeStyle="long" dateStyle="long" />
         </display:column>
+        <display:column property="resolved" sortable="true" titleKey="message.resolved"/>
+        
 
         <display:setProperty name="paging.banner.item_name"><fmt:message key="messageList.message"/></display:setProperty>
         <display:setProperty name="paging.banner.items_name"><fmt:message key="messageList.messages"/></display:setProperty>

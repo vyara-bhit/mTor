@@ -23,6 +23,8 @@ public class MTorMessage {
 	private Status status;
 	private Project project;
 	private Date timestamp;
+	private boolean resolved;
+
 
 	public MTorMessage() {
 		timestamp = new Date();
@@ -91,6 +93,17 @@ public class MTorMessage {
 
 	public void setTimestamp(Date timestamp) {
 		this.timestamp = timestamp;
+	}
+	
+	@Column(
+			name = "RESOLVED",
+			nullable = false)
+	public boolean isResolved() {
+		return resolved;
+	}
+
+	public void setResolved(boolean resolved) {
+		this.resolved = resolved;
 	}
 
 	@Override
