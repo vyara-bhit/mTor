@@ -21,9 +21,9 @@
     <fmt:message key="messageList.message"/>
 
     <div id="actions" class="form-actions">
-        <a class="btn btn-primary" href="<c:url value='/editMessage'/>" >
+<%--         <a class="btn btn-primary" href="<c:url value='/editMessage'/>" >
             <i class="icon-plus icon-white"></i> <fmt:message key="button.add"/>
-        </a>
+        </a> --%>
         <a class="btn" href="<c:url value="/mainMenu"/>" >
             <i class="icon-ok"></i> <fmt:message key="button.done"/>
         </a>
