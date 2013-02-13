@@ -1,5 +1,6 @@
 package nl.bhit.model;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
@@ -27,6 +28,7 @@ public class Project {
 	private Set<MTorMessage> messages;
 	private Company company;
 	private Set<User> users;
+	private long interval = 300000; //5 minutes in milliseconds
 
 
 	public Project(){
@@ -99,6 +101,18 @@ public class Project {
 	public  String statusOfProject() {
 		Set<MTorMessage> currentMessages= getMessages();
 		if(!currentMessages.isEmpty()){
+			boolean isAlive = false;
+			for (MTorMessage message : currentMessages) {
+				long timestamp = message.getTimestamp().getTime();
+				long currentTime = new Date().getTime();
+				long difference = currentTime - timestamp;
+				if (difference <= interval){
+					isAlive = true;
+				}
+			}
+			if (!isAlive){
+				return Status.ERROR.toString();
+			}
 			for (MTorMessage message : currentMessages) { 
 				Status status = message.getStatus();
 				if(status.equals(Status.ERROR) && message.isResolved()){
