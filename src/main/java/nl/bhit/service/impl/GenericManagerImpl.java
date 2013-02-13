@@ -3,6 +3,7 @@ package nl.bhit.service.impl;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import nl.bhit.dao.GenericDao;
+import nl.bhit.model.MTorMessage;
 import nl.bhit.service.GenericManager;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -140,4 +141,6 @@ public class GenericManagerImpl<T, PK extends Serializable> implements GenericMa
     public void reindexAll(boolean async) {
         dao.reindexAll(async);
     }
+    
+
 }
