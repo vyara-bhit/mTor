@@ -11,7 +11,7 @@ import nl.bhit.mtor.client.annotation.MTorMessageProvider;
  */
 
 @MTorMessageProvider
-public class IAmAliveMTorMessageProvider {
+public class HeartBeatMTorMessageProvider {
 	
 	@MTorMessage
 	public static SoapMessage sendIAmAliveMessage() {
