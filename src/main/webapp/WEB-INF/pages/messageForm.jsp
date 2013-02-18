@@ -18,11 +18,15 @@
 <div class="span7">
     <s:form id="messageForm" action="saveMessage" method="post" validate="true" cssClass="well form-horizontal">
             <s:hidden key="message.id"/>
-        <s:textfield key="message.content" required="true" maxlength="255" />    
+        <s:textfield key="message.content" required="true" maxlength="255" readonly="true"/>    
         <!-- todo: change this to read the identifier field from the other pojo -->
-        <s:select list="statusList" key="message.status"></s:select>
-        <s:select key="message.project.id" list="projectCompanyList" listKey="id" listValue="name"></s:select>        
-        <div id="actions" class="form-actions">
+        <s:select list="statusList" key="message.status" disabled="true"></s:select>
+        <s:select key="message.project.id" list="projectCompanyList" listKey="id" listValue="name" disabled="true"></s:select>        
+        <s:checkbox property="message.resolved" key="message.resolved"/>
+        <div id="actions" class="form-actions" style="padding:10px;">
+            <s:submit type="button" cssClass="btn btn-primary" method="resolve" key="button.resolve" theme="simple">
+                <i class="icon-ok icon-white"></i> <fmt:message key="button.resolve"/>
+            </s:submit>
             <s:submit type="button" cssClass="btn btn-primary" method="save" key="button.save" theme="simple">
                 <i class="icon-ok icon-white"></i> <fmt:message key="button.save"/>
             </s:submit>

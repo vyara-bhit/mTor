@@ -25,9 +25,9 @@
         <s:hidden key="user.website"/>
 
     <fieldset>
-        <legend class="accordion-heading">
+<%--         <legend class="accordion-heading">
             <a data-toggle="collapse" href="#collapse-address"><fmt:message key="user.address.address"/></a>
-        </legend>
+        </legend> --%>
         <div id="collapse-address" class="accordion-body collapse">
             <s:textfield key="user.address.address"/>
             <s:textfield key="user.address.city"/>

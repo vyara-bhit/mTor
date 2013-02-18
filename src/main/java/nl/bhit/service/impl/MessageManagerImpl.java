@@ -1,5 +1,7 @@
 package nl.bhit.service.impl;
 
+import java.util.List;
+
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
@@ -60,4 +62,9 @@ public class MessageManagerImpl extends GenericManagerImpl<MTorMessage, Long> im
 	public void setProjectManager(GenericManager<Project, Long> projectManager) {
 		this.projectManager = projectManager;
 	}
+	
+    @Override
+	public List<MTorMessage> getMessagesWithTimestamp(MTorMessage message) {
+    	return messageDao.getMessagesWithTimestamp(message);
+    }
 }

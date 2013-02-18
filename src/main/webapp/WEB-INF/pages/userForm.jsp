@@ -34,7 +34,7 @@
         <s:if test="user.version == null">
             <input type="hidden" name="encryptPass" value="true"/>
         </s:if>
-        <s:textfield key="user.username"  required="true"/>
+        <s:textfield key="user.username"  required="true" onchange="usernameChanged()"/>
 
         <c:if test="${cookieLogin != 'true'}">
             <s:password key="user.password" showPassword="true" required="true"
@@ -61,9 +61,9 @@
 		</security:authorize>
 		
         <fieldset>
-            <legend class="accordion-heading">
+<%--             <legend class="accordion-heading">
                 <a data-toggle="collapse" href="#collapse-address"><fmt:message key="user.address.address"/></a>
-            </legend>
+            </legend> --%>
             <div id="collapse-address" class="accordion-body collapse">
                 <s:textfield key="user.address.address"/>
                 <s:textfield key="user.address.city"/>
@@ -166,6 +166,12 @@
                     "true", passwordField.form);
         }
     }
+    
+    function usernameChanged(){
+    	 document.forms['userForm'].elements["user.password"].value = '';
+    	 document.forms['userForm'].elements["user.confirmPassword"].value = '';
+    }
+    
 </script>
 </c:set>
 <script type="text/javascript">

@@ -14,7 +14,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.search.annotations.Indexed;
+
 @Entity
+@Indexed 
 @Table(
 		name = "MESSAGE")
 public class MTorMessage {
@@ -23,6 +26,8 @@ public class MTorMessage {
 	private Status status;
 	private Project project;
 	private Date timestamp;
+	private boolean resolved;
+
 
 	public MTorMessage() {
 		timestamp = new Date();
@@ -91,6 +96,17 @@ public class MTorMessage {
 
 	public void setTimestamp(Date timestamp) {
 		this.timestamp = timestamp;
+	}
+	
+	@Column(
+			name = "RESOLVED",
+			nullable = false)
+	public boolean isResolved() {
+		return resolved;
+	}
+
+	public void setResolved(boolean resolved) {
+		this.resolved = resolved;
 	}
 
 	@Override

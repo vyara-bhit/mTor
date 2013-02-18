@@ -3,6 +3,7 @@ package nl.bhit.webapp.action;
 
 import org.apache.struts2.ServletActionContext;
 import nl.bhit.Constants;
+import nl.bhit.model.Role;
 import nl.bhit.model.User;
 import nl.bhit.service.UserExistsException;
 import nl.bhit.webapp.util.RequestUtil;
@@ -69,8 +70,14 @@ public class SignupAction extends BaseAction {
     public String save() throws Exception {
         user.setEnabled(true);
 
-        // Set the default user role on this new user
-        user.addRole(roleManager.getRole(Constants.USER_ROLE));
+        // Set the default anonymous role on this new user
+        //user.addRole(roleManager.getRole(Constants.USER_ROLE));
+        if (roleManager.getRole(Constants.ANONYMOUS_ROLE) == null) {
+        	roleManager.saveRole(new Role(Constants.ANONYMOUS_ROLE));
+        }        
+        user.addRole(roleManager.getRole(Constants.ANONYMOUS_ROLE));
+        
+        user.setEmail(user.getUsername());
 
         try {
             user = userManager.saveUser(user);
