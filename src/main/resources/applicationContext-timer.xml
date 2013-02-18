@@ -15,5 +15,6 @@
 
     <!-- Activates scanning of @Components-->
     <context:component-scan base-package="nl.bhit.mtor.client"/>
+    
 
 </beans>

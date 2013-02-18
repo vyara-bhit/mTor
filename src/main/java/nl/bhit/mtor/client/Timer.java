@@ -1,5 +1,7 @@
 package nl.bhit.mtor.client;
 
+import nl.bhit.mtor.MailTimer;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;
@@ -19,5 +21,7 @@ public class Timer {
 		} catch (Exception e) {
 			log.error("exception occured: ", e);
 		}
+		MailTimer timer = new MailTimer();
+		timer.process();
 	}
 }

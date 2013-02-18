@@ -1,9 +1,11 @@
 package nl.bhit.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
+
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -18,6 +20,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import nl.bhit.webapp.action.MailSendAction;
+
+
  
 @Entity
 @Table(
@@ -28,7 +34,7 @@ public class Project {
 	private Set<MTorMessage> messages;
 	private Company company;
 	private Set<User> users;
-	private long interval = 300000; //5 minutes in milliseconds
+	public long interval = 300000; //5 minutes in milliseconds
 
 
 	public Project(){
@@ -96,9 +102,15 @@ public class Project {
 		messages.remove(message);
 	}
 	
-	
 
-	public  String statusOfProject() {
+
+	public  String statusOfProject()  {
+		MailSendAction msa = new MailSendAction();		
+		ArrayList<String> emailsTo = new ArrayList<String>();
+		for (User user : getUsers()){
+			emailsTo.add(user.getEmail());
+		}
+		
 		Set<MTorMessage> currentMessages= getMessages();
 		if(!currentMessages.isEmpty()){
 			boolean isAlive = false;
@@ -106,7 +118,7 @@ public class Project {
 				long timestamp = message.getTimestamp().getTime();
 				long currentTime = new Date().getTime();
 				long difference = currentTime - timestamp;
-				if (difference <= interval){
+				if (difference <= interval && message.getContent().contains("alive")){
 					isAlive = true;
 				}
 			}
@@ -115,18 +127,12 @@ public class Project {
 			}
 			for (MTorMessage message : currentMessages) { 
 				Status status = message.getStatus();
-				if(status.equals(Status.ERROR) && message.isResolved()){
-					return Status.INFO.toString();
-				} 
 				if(status.equals(Status.ERROR) && !message.isResolved()){
 					return Status.ERROR.toString();
 				}
 			}
 			for (MTorMessage message : currentMessages) { 
 				Status status = message.getStatus();
-				if(status.equals(Status.WARN) && message.isResolved()){
-					return Status.INFO.toString();						
-				} 
 				if(status.equals(Status.WARN) && !message.isResolved()){
 					return Status.WARN.toString();
 				}
@@ -135,6 +141,8 @@ public class Project {
 		return Status.INFO.toString();
 	}
 	
+
+
 	@ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
 	 @JoinTable(name = "project_app_user",
 	 joinColumns = {
