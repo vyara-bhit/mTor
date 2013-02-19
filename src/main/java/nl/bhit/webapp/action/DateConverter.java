@@ -2,7 +2,8 @@ package nl.bhit.webapp.action;
 
 import com.opensymphony.xwork2.conversion.TypeConversionException;
 import org.apache.struts2.util.StrutsTypeConverter;
-import nl.bhit.util.DateUtil;
+
+import nl.bhit.mtor.util.DateUtil;
 
 import java.text.ParseException;
 import java.util.Date;

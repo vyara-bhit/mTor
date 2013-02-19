@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-import nl.bhit.util.ConvertUtil;
+import nl.bhit.mtor.util.ConvertUtil;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.logging.Log;

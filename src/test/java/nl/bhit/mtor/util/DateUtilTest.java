@@ -1,6 +1,8 @@
-package nl.bhit.util;
+package nl.bhit.mtor.util;
 
 import junit.framework.TestCase;
+import nl.bhit.mtor.util.DateUtil;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.i18n.LocaleContextHolder;

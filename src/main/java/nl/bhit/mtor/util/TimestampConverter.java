@@ -1,4 +1,4 @@
-package nl.bhit.util;
+package nl.bhit.mtor.util;
 
 import org.apache.commons.beanutils.ConversionException;
 import org.apache.commons.lang.StringUtils;
