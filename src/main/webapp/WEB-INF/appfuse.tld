@@ -10,8 +10,8 @@
     <uri>http://www.appfuse.org/tags/struts</uri>
     <tag>
         <name>constants</name>
-        <tag-class>nl.bhit.webapp.taglib.ConstantsTag</tag-class>
-        <tei-class>nl.bhit.webapp.taglib.ConstantsTei</tei-class>
+        <tag-class>nl.bhit.mtor.webapp.taglib.ConstantsTag</tag-class>
+        <tei-class>nl.bhit.mtor.webapp.taglib.ConstantsTei</tei-class>
         <body-content>empty</body-content>
         <attribute>
             <name>className</name>
@@ -25,7 +25,7 @@
     </tag>
     <tag>
         <name>country</name>
-        <tag-class>nl.bhit.webapp.taglib.CountryTag</tag-class>
+        <tag-class>nl.bhit.mtor.webapp.taglib.CountryTag</tag-class>
         <body-content>empty</body-content>
         <attribute>
             <name>name</name>
@@ -53,7 +53,7 @@
             Tag surrounds JSP code in which EL expressions should not be XML-escaped.
         </description>
         <name>out</name>
-        <tag-class>nl.bhit.webapp.taglib.OutTag</tag-class>
+        <tag-class>nl.bhit.mtor.webapp.taglib.OutTag</tag-class>
         <body-content>JSP</body-content>
         <attribute>
             <description>
