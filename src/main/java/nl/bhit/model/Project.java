@@ -104,13 +104,7 @@ public class Project {
 	
 
 
-	public  String statusOfProject()  {
-		MailSendAction msa = new MailSendAction();		
-		ArrayList<String> emailsTo = new ArrayList<String>();
-		for (User user : getUsers()){
-			emailsTo.add(user.getEmail());
-		}
-		
+	public  String statusOfProject()  {		
 		Set<MTorMessage> currentMessages= getMessages();
 		if(!currentMessages.isEmpty()){
 			boolean isAlive = false;
