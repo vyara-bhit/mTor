@@ -1,7 +1,8 @@
 package nl.bhit.dao;
 
 import nl.bhit.Constants;
-import nl.bhit.model.Role;
+import nl.bhit.mtor.model.Role;
+
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

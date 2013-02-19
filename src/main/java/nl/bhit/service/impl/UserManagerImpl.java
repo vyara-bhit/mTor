@@ -1,7 +1,7 @@
 package nl.bhit.service.impl;
 
 import nl.bhit.dao.UserDao;
-import nl.bhit.model.User;
+import nl.bhit.mtor.model.User;
 import nl.bhit.service.UserExistsException;
 import nl.bhit.service.UserManager;
 import nl.bhit.service.UserService;

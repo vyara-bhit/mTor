@@ -1,9 +1,10 @@
 package nl.bhit.dao;
 
 import nl.bhit.Constants;
-import nl.bhit.model.Address;
-import nl.bhit.model.Role;
-import nl.bhit.model.User;
+import nl.bhit.mtor.model.Address;
+import nl.bhit.mtor.model.Role;
+import nl.bhit.mtor.model.User;
+
 import java.util.List;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

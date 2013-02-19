@@ -1,6 +1,6 @@
 package nl.bhit.dao;
 
-import nl.bhit.model.Role;
+import nl.bhit.mtor.model.Role;
 
 import java.util.List;
 

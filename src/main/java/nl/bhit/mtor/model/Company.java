@@ -1,4 +1,4 @@
-package nl.bhit.model;
+package nl.bhit.mtor.model;
 
 import java.util.Set;
 import java.util.TreeSet;

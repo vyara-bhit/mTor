@@ -2,8 +2,9 @@ package nl.bhit.service.impl;
 
 import nl.bhit.Constants;
 import nl.bhit.dao.LookupDao;
-import nl.bhit.model.LabelValue;
-import nl.bhit.model.Role;
+import nl.bhit.mtor.model.LabelValue;
+import nl.bhit.mtor.model.Role;
+
 import org.jmock.Expectations;
 import org.junit.Before;
 import org.junit.Test;

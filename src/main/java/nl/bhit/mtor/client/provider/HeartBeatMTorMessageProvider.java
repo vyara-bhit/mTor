@@ -1,9 +1,9 @@
 package nl.bhit.mtor.client.provider;
 
-import nl.bhit.model.Status;
-import nl.bhit.model.soap.SoapMessage;
 import nl.bhit.mtor.client.annotation.MTorMessage;
 import nl.bhit.mtor.client.annotation.MTorMessageProvider;
+import nl.bhit.mtor.model.Status;
+import nl.bhit.mtor.model.soap.SoapMessage;
 
 /**
  * This message provider has one method which will send a message with status INFO and content 'i am alive'

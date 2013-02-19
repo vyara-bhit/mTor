@@ -4,8 +4,9 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import nl.bhit.Constants;
-import nl.bhit.model.Role;
-import nl.bhit.model.User;
+import nl.bhit.mtor.model.Role;
+import nl.bhit.mtor.model.User;
+
 import org.springframework.aop.AfterReturningAdvice;
 import org.springframework.aop.MethodBeforeAdvice;
 import org.springframework.security.access.AccessDeniedException;

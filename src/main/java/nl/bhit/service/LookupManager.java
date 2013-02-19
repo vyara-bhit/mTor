@@ -1,6 +1,6 @@
 package nl.bhit.service;
 
-import nl.bhit.model.LabelValue;
+import nl.bhit.mtor.model.LabelValue;
 
 import java.util.List;
 

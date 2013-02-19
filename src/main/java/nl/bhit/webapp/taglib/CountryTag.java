@@ -1,6 +1,7 @@
 package nl.bhit.webapp.taglib;
 
-import nl.bhit.model.LabelValue;
+import nl.bhit.mtor.model.LabelValue;
+
 import org.displaytag.tags.el.ExpressionEvaluator;
 
 import javax.servlet.jsp.JspException;

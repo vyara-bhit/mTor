@@ -1,4 +1,4 @@
-package nl.bhit.model;
+package nl.bhit.mtor.model;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;

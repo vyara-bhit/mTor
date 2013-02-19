@@ -6,7 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import java.util.Date;
 import java.util.List;
 
-import nl.bhit.model.MTorMessage;
+import nl.bhit.mtor.model.MTorMessage;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

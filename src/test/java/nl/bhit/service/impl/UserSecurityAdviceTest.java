@@ -2,8 +2,8 @@ package nl.bhit.service.impl;
 
 import nl.bhit.Constants;
 import nl.bhit.dao.UserDao;
-import nl.bhit.model.Role;
-import nl.bhit.model.User;
+import nl.bhit.mtor.model.Role;
+import nl.bhit.mtor.model.User;
 import nl.bhit.service.UserManager;
 import nl.bhit.service.UserSecurityAdvice;
 import org.jmock.Expectations;

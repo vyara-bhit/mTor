@@ -1,7 +1,8 @@
 package nl.bhit.dao.hibernate;
 
 import nl.bhit.dao.UserDao;
-import nl.bhit.model.User;
+import nl.bhit.mtor.model.User;
+
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;

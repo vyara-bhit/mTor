@@ -1,6 +1,6 @@
 package nl.bhit.service;
 
-import nl.bhit.model.User;
+import nl.bhit.mtor.model.User;
 
 import javax.jws.WebService;
 import javax.ws.rs.DELETE;

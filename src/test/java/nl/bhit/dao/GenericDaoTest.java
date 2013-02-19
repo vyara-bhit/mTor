@@ -3,7 +3,8 @@ package nl.bhit.dao;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import nl.bhit.dao.hibernate.GenericDaoHibernate;
-import nl.bhit.model.User;
+import nl.bhit.mtor.model.User;
+
 import org.hibernate.SessionFactory;
 import org.junit.Before;
 import org.junit.Test;

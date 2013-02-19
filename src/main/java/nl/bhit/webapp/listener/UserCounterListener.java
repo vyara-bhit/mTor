@@ -1,6 +1,7 @@
 package nl.bhit.webapp.listener;
 
-import nl.bhit.model.User;
+import nl.bhit.mtor.model.User;
+
 import org.springframework.security.authentication.AuthenticationTrustResolver;
 import org.springframework.security.authentication.AuthenticationTrustResolverImpl;
 import org.springframework.security.core.Authentication;

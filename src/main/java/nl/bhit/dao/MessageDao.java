@@ -4,7 +4,7 @@ import java.util.List;
 
 import nl.bhit.dao.GenericDao;
 
-import nl.bhit.model.MTorMessage;
+import nl.bhit.mtor.model.MTorMessage;
 
 /**
  * An interface that provides a data management interface to the Message table.

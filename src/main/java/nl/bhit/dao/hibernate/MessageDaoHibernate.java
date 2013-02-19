@@ -3,7 +3,7 @@ package nl.bhit.dao.hibernate;
 import java.util.List;
 
 import nl.bhit.dao.MessageDao;
-import nl.bhit.model.MTorMessage;
+import nl.bhit.mtor.model.MTorMessage;
 
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;

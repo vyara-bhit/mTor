@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.Set;
 
 import nl.bhit.dao.SearchException;
-import nl.bhit.model.MTorMessage;
-import nl.bhit.model.Project;
-import nl.bhit.model.Status;
-import nl.bhit.model.User;
+import nl.bhit.mtor.model.MTorMessage;
+import nl.bhit.mtor.model.Project;
+import nl.bhit.mtor.model.Status;
+import nl.bhit.mtor.model.User;
 import nl.bhit.service.GenericManager;
 import nl.bhit.service.MessageManager;
 import nl.bhit.webapp.util.UserManagementUtils;

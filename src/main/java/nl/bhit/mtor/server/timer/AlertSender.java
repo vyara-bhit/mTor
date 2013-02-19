@@ -2,9 +2,9 @@ package nl.bhit.mtor.server.timer;
 
 import java.util.List;
 
-import nl.bhit.model.Project;
-import nl.bhit.model.Status;
-import nl.bhit.model.User;
+import nl.bhit.mtor.model.Project;
+import nl.bhit.mtor.model.Status;
+import nl.bhit.mtor.model.User;
 import nl.bhit.service.GenericManager;
 import nl.bhit.service.MailEngine;
 

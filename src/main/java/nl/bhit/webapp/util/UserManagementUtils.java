@@ -1,6 +1,6 @@
 package nl.bhit.webapp.util;
 
-import nl.bhit.model.User;
+import nl.bhit.mtor.model.User;
 
 import org.apache.log4j.Logger;
 /*import org.springframework.security.Authentication;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nl.bhit.dao.MessageDao;
-import nl.bhit.model.MTorMessage;
+import nl.bhit.mtor.model.MTorMessage;
 import nl.bhit.service.impl.BaseManagerMockTestCase;
 
 import org.jmock.Expectations;

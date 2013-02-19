@@ -1,7 +1,8 @@
 package nl.bhit.webapp.action;
 
 import com.opensymphony.xwork2.Action;
-import nl.bhit.model.User;
+
+import nl.bhit.mtor.model.User;
 import nl.bhit.service.UserManager;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -78,7 +78,7 @@ public class MessageServiceSender {
 
 	protected void sendMessageForThisMehtod(Method method) throws IllegalAccessException, InvocationTargetException {
 		log.trace("will invoke method to retrieve a soapMessage: " + method);
-		nl.bhit.model.soap.SoapMessage soapMessage = (nl.bhit.model.soap.SoapMessage) method.invoke(null, (Object[]) null);
+		nl.bhit.mtor.model.soap.SoapMessage soapMessage = (nl.bhit.mtor.model.soap.SoapMessage) method.invoke(null, (Object[]) null);
 		if (soapMessage == null) {
 			log.trace("soapMessage result is null, no sending needed.");
 		} else {
@@ -86,7 +86,7 @@ public class MessageServiceSender {
 		}
 	}
 
-	protected void sendMessage(nl.bhit.model.soap.SoapMessage soapMessage) {
+	protected void sendMessage(nl.bhit.mtor.model.soap.SoapMessage soapMessage) {
 		log.debug("trying to add a message to the soap service: " + soapMessage);
 		MessageServiceStub stub = createMessageServiceStub();
 		MessageServiceStub.SaveSoapMessageE req = addSoapMessageToStub(soapMessage);
@@ -103,7 +103,7 @@ public class MessageServiceSender {
 		}
 	}
 
-	protected MessageServiceStub.SaveSoapMessageE addSoapMessageToStub(nl.bhit.model.soap.SoapMessage soapMessage) {
+	protected MessageServiceStub.SaveSoapMessageE addSoapMessageToStub(nl.bhit.mtor.model.soap.SoapMessage soapMessage) {
 		MessageServiceStub.SaveSoapMessageE req = new MessageServiceStub.SaveSoapMessageE();
 		MessageServiceStub.SaveSoapMessage req1 = new MessageServiceStub.SaveSoapMessage();
 		req1.setArg0(createWsdlMessage(soapMessage));
@@ -111,7 +111,7 @@ public class MessageServiceSender {
 		return req;
 	}
 
-	protected nl.bhit.mtor.client.wsdl.MessageServiceStub.SoapMessage createWsdlMessage(nl.bhit.model.soap.SoapMessage soapMessage) {
+	protected nl.bhit.mtor.client.wsdl.MessageServiceStub.SoapMessage createWsdlMessage(nl.bhit.mtor.model.soap.SoapMessage soapMessage) {
 		nl.bhit.mtor.client.wsdl.MessageServiceStub.SoapMessage wsdlMessage = new nl.bhit.mtor.client.wsdl.MessageServiceStub.SoapMessage();
 		wsdlMessage.setContent(soapMessage.getContent());
 		wsdlMessage.setStatus(getStatus(soapMessage.getStatus()));
@@ -135,9 +135,9 @@ public class MessageServiceSender {
 		return properties.getProperty(M_TOR_SERVER_URL);
 	}
 
-	private static Status getStatus(nl.bhit.model.Status status) {
-		if (status == nl.bhit.model.Status.INFO) return Status.INFO;
-		if (status == nl.bhit.model.Status.WARN) return Status.WARN;
+	private static Status getStatus(nl.bhit.mtor.model.Status status) {
+		if (status == nl.bhit.mtor.model.Status.INFO) return Status.INFO;
+		if (status == nl.bhit.mtor.model.Status.WARN) return Status.WARN;
 		return Status.ERROR;
 	}
 

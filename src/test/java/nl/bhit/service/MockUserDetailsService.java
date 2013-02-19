@@ -1,6 +1,7 @@
 package nl.bhit.service;
 
-import nl.bhit.model.User;
+import nl.bhit.mtor.model.User;
+
 import org.springframework.dao.DataAccessException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -3,7 +3,8 @@ package nl.bhit.util;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import nl.bhit.model.LabelValue;
+
+import nl.bhit.mtor.model.LabelValue;
 
 import java.util.Enumeration;
 import java.util.HashMap;

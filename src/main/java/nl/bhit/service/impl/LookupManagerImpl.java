@@ -1,8 +1,8 @@
 package nl.bhit.service.impl;
 
 import nl.bhit.dao.LookupDao;
-import nl.bhit.model.LabelValue;
-import nl.bhit.model.Role;
+import nl.bhit.mtor.model.LabelValue;
+import nl.bhit.mtor.model.Role;
 import nl.bhit.service.LookupManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -5,7 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import nl.bhit.model.MTorMessage;
+import nl.bhit.mtor.model.MTorMessage;
 import nl.bhit.service.MessageManager;
 
 import org.apache.struts2.ServletActionContext;

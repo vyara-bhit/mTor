@@ -3,7 +3,7 @@ package nl.bhit.webapp.action;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 import nl.bhit.service.GenericManager;
-import nl.bhit.model.Project;
+import nl.bhit.mtor.model.Project;
 import nl.bhit.webapp.action.BaseActionTestCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockHttpServletRequest;

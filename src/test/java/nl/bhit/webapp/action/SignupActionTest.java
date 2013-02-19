@@ -3,8 +3,9 @@ package nl.bhit.webapp.action;
 import com.opensymphony.xwork2.Action;
 import org.apache.struts2.ServletActionContext;
 import nl.bhit.Constants;
-import nl.bhit.model.Address;
-import nl.bhit.model.User;
+import nl.bhit.mtor.model.Address;
+import nl.bhit.mtor.model.User;
+
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockHttpServletRequest;

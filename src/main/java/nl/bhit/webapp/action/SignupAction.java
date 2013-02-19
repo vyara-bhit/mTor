@@ -3,8 +3,8 @@ package nl.bhit.webapp.action;
 
 import org.apache.struts2.ServletActionContext;
 import nl.bhit.Constants;
-import nl.bhit.model.Role;
-import nl.bhit.model.User;
+import nl.bhit.mtor.model.Role;
+import nl.bhit.mtor.model.User;
 import nl.bhit.service.UserExistsException;
 import nl.bhit.webapp.util.RequestUtil;
 import org.springframework.mail.MailException;

@@ -4,8 +4,8 @@ import java.io.File;
 
 import nl.bhit.mtor.client.annotation.MTorMessage;
 import nl.bhit.mtor.client.annotation.MTorMessageProvider;
-import nl.bhit.model.Status;
-import nl.bhit.model.soap.SoapMessage;
+import nl.bhit.mtor.model.Status;
+import nl.bhit.mtor.model.soap.SoapMessage;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

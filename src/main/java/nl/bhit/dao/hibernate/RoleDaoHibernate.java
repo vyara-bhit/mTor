@@ -1,7 +1,8 @@
 package nl.bhit.dao.hibernate;
 
 import nl.bhit.dao.RoleDao;
-import nl.bhit.model.Role;
+import nl.bhit.mtor.model.Role;
+
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;

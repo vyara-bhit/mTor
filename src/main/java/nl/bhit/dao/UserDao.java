@@ -1,6 +1,7 @@
 package nl.bhit.dao;
 
-import nl.bhit.model.User;
+import nl.bhit.mtor.model.User;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Propagation;

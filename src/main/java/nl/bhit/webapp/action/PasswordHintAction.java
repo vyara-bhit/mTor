@@ -1,6 +1,6 @@
 package nl.bhit.webapp.action;
 
-import nl.bhit.model.User;
+import nl.bhit.mtor.model.User;
 import nl.bhit.webapp.util.RequestUtil;
 import org.springframework.mail.MailException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

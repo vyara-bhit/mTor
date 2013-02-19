@@ -2,7 +2,9 @@ package nl.bhit.service;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import nl.bhit.model.User;
+
+import nl.bhit.mtor.model.User;
+
 import org.junit.Test;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

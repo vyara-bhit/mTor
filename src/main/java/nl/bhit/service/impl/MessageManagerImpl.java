@@ -7,9 +7,9 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 
 import nl.bhit.dao.MessageDao;
-import nl.bhit.model.MTorMessage;
-import nl.bhit.model.Project;
-import nl.bhit.model.soap.SoapMessage;
+import nl.bhit.mtor.model.MTorMessage;
+import nl.bhit.mtor.model.Project;
+import nl.bhit.mtor.model.soap.SoapMessage;
 import nl.bhit.service.GenericManager;
 import nl.bhit.service.MessageManager;
 

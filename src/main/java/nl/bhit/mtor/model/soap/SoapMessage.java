@@ -1,6 +1,6 @@
-package nl.bhit.model.soap;
+package nl.bhit.mtor.model.soap;
 
-import nl.bhit.model.Status;
+import nl.bhit.mtor.model.Status;
 
 /**
  * this SoapMessage exposes the method of the Message which are needed in the SOAP interface.
