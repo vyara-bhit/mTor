@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Timer {
-	protected final Log log = LogFactory.getLog(MessageServiceSender.class);
+	protected final Log log = LogFactory.getLog(Timer.class);
 
 	/**
 	 * is called from the timer.

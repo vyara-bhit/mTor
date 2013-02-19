@@ -13,5 +13,6 @@
 
     <!-- Activates scanning of @Components-->
     <context:component-scan base-package="nl.bhit.mtor.client"/>
+    <context:component-scan base-package="nl.bhit.mtor.server.timer"/>
 
 </beans>

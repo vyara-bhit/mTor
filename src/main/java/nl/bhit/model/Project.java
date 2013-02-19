@@ -28,7 +28,7 @@ public class Project {
 	private Set<MTorMessage> messages;
 	private Company company;
 	private Set<User> users;
-	private final long interval = 5 * 60 * 1000; // 5 minutes in milliseconds
+	public static final long INTERVAL = 5 * 60 * 1000; // 5 minutes in milliseconds
 
 	public Project() {
 		this.messages = new TreeSet<MTorMessage>();
@@ -103,23 +103,23 @@ public class Project {
 	 * @return will return ERROR if there is an error, WARN if there is a warning else INFO
 	 */
 	public String statusOfProject() {
-		Set<MTorMessage> currentMessages = getMessages();
-		if (!currentMessages.isEmpty()) {
-			if (!hasHeartBeat(currentMessages)) {
-				return Status.ERROR.toString();
-			}
-			if (hasStatus(currentMessages, Status.ERROR)) {
-				return Status.ERROR.toString();
-			}
-			if (hasStatus(currentMessages, Status.WARN)) {
-				return Status.WARN.toString();
-			}
+		if (!hasHeartBeat()) {
+			return Status.ERROR.toString();
+		}
+		if (hasStatus(Status.ERROR)) {
+			return Status.ERROR.toString();
+		}
+		if (hasStatus(Status.WARN)) {
+			return Status.WARN.toString();
 		}
 		return Status.INFO.toString();
 	}
 
-	protected boolean hasStatus(Set<MTorMessage> currentMessages, Status status) {
-		for (MTorMessage message : currentMessages) {
+	public boolean hasStatus(Status status) {
+		if (getMessages() == null) {
+			return false;
+		}
+		for (MTorMessage message : getMessages()) {
 			if (message.getStatus() == status && !message.isResolved()) {
 				return true;
 			}
@@ -127,14 +127,16 @@ public class Project {
 		return false;
 	}
 
-	protected boolean hasHeartBeat(Set<MTorMessage> currentMessages) {
+	public boolean hasHeartBeat() {
 		boolean isAlive = false;
-		for (MTorMessage message : currentMessages) {
-			long timestamp = message.getTimestamp().getTime();
-			long currentTime = new Date().getTime();
-			long difference = currentTime - timestamp;
-			if (difference <= interval) {
-				isAlive = true;
+		if (getMessages() != null) {
+			for (MTorMessage message : getMessages()) {
+				long timestamp = message.getTimestamp().getTime();
+				long currentTime = new Date().getTime();
+				long difference = currentTime - timestamp;
+				if (difference <= INTERVAL) {
+					isAlive = true;
+				}
 			}
 		}
 		return isAlive;
