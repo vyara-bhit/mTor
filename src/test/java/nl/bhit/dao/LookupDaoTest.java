@@ -1,5 +1,7 @@
 package nl.bhit.dao;
 
+import nl.bhit.mtor.dao.LookupDao;
+
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

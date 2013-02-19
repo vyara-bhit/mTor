@@ -2,7 +2,9 @@ package nl.bhit.dao;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import nl.bhit.dao.hibernate.GenericDaoHibernate;
+
+import nl.bhit.mtor.dao.GenericDao;
+import nl.bhit.mtor.dao.hibernate.GenericDaoHibernate;
 import nl.bhit.mtor.model.User;
 
 import org.hibernate.SessionFactory;

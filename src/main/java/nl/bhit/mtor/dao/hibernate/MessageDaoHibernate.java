@@ -1,8 +1,8 @@
-package nl.bhit.dao.hibernate;
+package nl.bhit.mtor.dao.hibernate;
 
 import java.util.List;
 
-import nl.bhit.dao.MessageDao;
+import nl.bhit.mtor.dao.MessageDao;
 import nl.bhit.mtor.model.MTorMessage;
 
 import org.hibernate.Query;

@@ -1,9 +1,9 @@
-package nl.bhit.dao;
+package nl.bhit.mtor.dao;
 
 import java.util.List;
 
-import nl.bhit.dao.GenericDao;
 
+import nl.bhit.mtor.dao.GenericDao;
 import nl.bhit.mtor.model.MTorMessage;
 
 /**

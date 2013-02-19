@@ -1,6 +1,6 @@
 package nl.bhit.service;
 
-import nl.bhit.dao.UserDao;
+import nl.bhit.mtor.dao.UserDao;
 import nl.bhit.mtor.model.User;
 
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

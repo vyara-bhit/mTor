@@ -1,8 +1,9 @@
-package nl.bhit.dao.hibernate;
+package nl.bhit.mtor.dao.hibernate;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import nl.bhit.dao.LookupDao;
+
+import nl.bhit.mtor.dao.LookupDao;
 import nl.bhit.mtor.model.Role;
 
 import org.hibernate.SessionFactory;

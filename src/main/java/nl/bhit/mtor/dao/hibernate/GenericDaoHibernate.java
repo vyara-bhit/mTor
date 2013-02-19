@@ -1,4 +1,4 @@
-package nl.bhit.dao.hibernate;
+package nl.bhit.mtor.dao.hibernate;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,8 +9,8 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import nl.bhit.dao.GenericDao;
-import nl.bhit.dao.SearchException;
+import nl.bhit.mtor.dao.GenericDao;
+import nl.bhit.mtor.dao.SearchException;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
