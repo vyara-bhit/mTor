@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-import nl.bhit.dao.BaseDaoTestCase;
+import nl.bhit.mtor.dao.BaseDaoTestCase;
 import nl.bhit.util.ConvertUtil;
 
 import org.apache.commons.beanutils.BeanUtils;

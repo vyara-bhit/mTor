@@ -1,4 +1,6 @@
-package nl.bhit.dao;
+package nl.bhit.mtor.dao;
+
+import nl.bhit.mtor.dao.LookupDao;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

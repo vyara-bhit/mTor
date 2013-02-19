@@ -1,6 +1,7 @@
-package nl.bhit.dao.hibernate;
+package nl.bhit.mtor.dao.hibernate;
 
-import nl.bhit.dao.BaseDaoTestCase;
+import nl.bhit.mtor.dao.BaseDaoTestCase;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

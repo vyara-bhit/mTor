@@ -3,7 +3,7 @@ package nl.bhit.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import nl.bhit.dao.MessageDao;
+import nl.bhit.mtor.dao.MessageDao;
 import nl.bhit.mtor.model.MTorMessage;
 import nl.bhit.service.impl.BaseManagerMockTestCase;
 

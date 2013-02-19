@@ -35,6 +35,6 @@
     <context:annotation-config/>
 
     <!-- Activates scanning of @Repository -->
-    <context:component-scan base-package="nl.bhit.dao"/>
+    <context:component-scan base-package="nl.bhit.mtor.dao"/>
 
 </beans>

@@ -1,6 +1,6 @@
-package nl.bhit.dao.hibernate;
+package nl.bhit.mtor.dao.hibernate;
 
-import nl.bhit.dao.RoleDao;
+import nl.bhit.mtor.dao.RoleDao;
 import nl.bhit.mtor.model.Role;
 
 import java.util.List;

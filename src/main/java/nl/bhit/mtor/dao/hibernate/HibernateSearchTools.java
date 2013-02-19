@@ -1,4 +1,4 @@
-package nl.bhit.dao.hibernate;
+package nl.bhit.mtor.dao.hibernate;
 
 import java.util.Collection;
 import org.apache.commons.logging.Log;

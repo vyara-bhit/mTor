@@ -1,4 +1,4 @@
-package nl.bhit.dao;
+package nl.bhit.mtor.dao;
 
 /**
  *

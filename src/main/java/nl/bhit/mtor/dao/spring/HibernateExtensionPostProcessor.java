@@ -1,4 +1,4 @@
-package nl.bhit.dao.spring;
+package nl.bhit.mtor.dao.spring;
 
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.PropertyValue;

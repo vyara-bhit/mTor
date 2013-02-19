@@ -1,6 +1,7 @@
-package nl.bhit.dao;
+package nl.bhit.mtor.dao;
 
 import nl.bhit.Constants;
+import nl.bhit.mtor.dao.RoleDao;
 import nl.bhit.mtor.model.Role;
 
 import org.junit.Test;

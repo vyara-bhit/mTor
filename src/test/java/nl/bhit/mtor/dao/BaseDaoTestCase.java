@@ -1,4 +1,4 @@
-package nl.bhit.dao;
+package nl.bhit.mtor.dao;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.logging.Log;

@@ -1,6 +1,6 @@
-package nl.bhit.dao.hibernate;
+package nl.bhit.mtor.dao.hibernate;
 
-import nl.bhit.dao.UserDao;
+import nl.bhit.mtor.dao.UserDao;
 import nl.bhit.mtor.model.User;
 
 import org.springframework.core.annotation.AnnotationUtils;

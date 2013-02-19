@@ -1,8 +1,8 @@
 package nl.bhit.service.impl;
 
 import nl.bhit.Constants;
-import nl.bhit.dao.RoleDao;
-import nl.bhit.dao.UserDao;
+import nl.bhit.mtor.dao.RoleDao;
+import nl.bhit.mtor.dao.UserDao;
 import nl.bhit.mtor.model.Role;
 import nl.bhit.mtor.model.User;
 import nl.bhit.service.UserExistsException;

@@ -1,6 +1,8 @@
-package nl.bhit.dao;
+package nl.bhit.mtor.dao;
 
 import nl.bhit.Constants;
+import nl.bhit.mtor.dao.RoleDao;
+import nl.bhit.mtor.dao.UserDao;
 import nl.bhit.mtor.model.Address;
 import nl.bhit.mtor.model.Role;
 import nl.bhit.mtor.model.User;

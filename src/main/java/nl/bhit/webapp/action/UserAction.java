@@ -3,7 +3,7 @@ package nl.bhit.webapp.action;
 import com.opensymphony.xwork2.Preparable;
 import org.apache.struts2.ServletActionContext;
 import nl.bhit.Constants;
-import nl.bhit.dao.SearchException;
+import nl.bhit.mtor.dao.SearchException;
 import nl.bhit.mtor.model.Project;
 import nl.bhit.mtor.model.Role;
 import nl.bhit.mtor.model.User;
