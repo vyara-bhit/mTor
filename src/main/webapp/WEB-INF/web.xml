@@ -67,7 +67,7 @@
     <!-- Use "org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter" if you're using JPA -->
     <filter>
         <filter-name>localeFilter</filter-name>
-        <filter-class>nl.bhit.mtor.webapp.filter.LocaleFilter</filter-class>
+        <filter-class>nl.bhit.mtor.server.webapp.filter.LocaleFilter</filter-class>
     </filter>
     <filter>
         <filter-name>rewriteFilter</filter-name>
@@ -104,7 +104,7 @@
         <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareFilter</filter-class>
         <init-param>
             <param-name>actionPackages</param-name>
-            <param-value>nl.bhit.mtor.webapp.action</param-value>
+            <param-value>nl.bhit.mtor.server.webapp.action</param-value>
         </init-param>
     </filter>
     <filter>
@@ -112,7 +112,7 @@
         <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsExecuteFilter</filter-class>
         <init-param>
             <param-name>actionPackages</param-name>
-            <param-value>nl.bhit.mtor.webapp.action</param-value>
+            <param-value>nl.bhit.mtor.server.webapp.action</param-value>
         </init-param>
     </filter>
 
@@ -181,13 +181,13 @@
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
     <listener>
-        <listener-class>nl.bhit.mtor.webapp.listener.StartupListener</listener-class>
+        <listener-class>nl.bhit.mtor.server.webapp.listener.StartupListener</listener-class>
     </listener>
     <listener>
-        <listener-class>nl.bhit.mtor.webapp.listener.UserCounterListener</listener-class>
+        <listener-class>nl.bhit.mtor.server.webapp.listener.UserCounterListener</listener-class>
     </listener>
     <listener>
-        <listener-class>nl.bhit.mtor.webapp.jsp.EscapeXmlELResolverListener</listener-class>
+        <listener-class>nl.bhit.mtor.server.webapp.jsp.EscapeXmlELResolverListener</listener-class>
     </listener>
     <listener>
         <listener-class>net.sf.navigator.menu.MenuContextListener</listener-class>

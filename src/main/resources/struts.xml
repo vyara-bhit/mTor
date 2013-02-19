@@ -104,7 +104,7 @@
 			<result name="success" type="redirectAction">admin/users</result>
 		</action>
 
-		<action name="uploadFile" class="nl.bhit.mtor.webapp.action.FileUploadAction">
+		<action name="uploadFile" class="nl.bhit.mtor.server.webapp.action.FileUploadAction">
 			<interceptor-ref name="fileUploadStack" />
 			<result name="input">/WEB-INF/pages/uploadForm.jsp</result>
 			<result name="success">/WEB-INF/pages/uploadDisplay.jsp</result>
@@ -119,18 +119,18 @@
 
 
 		<!--CompanyAction-START -->
-		<action name="companies" class="nl.bhit.mtor.webapp.action.CompanyAction"
+		<action name="companies" class="nl.bhit.mtor.server.webapp.action.CompanyAction"
 			method="list">
 			<result>/WEB-INF/pages/companyList.jsp</result>
 		</action>
 
-		<action name="editCompany" class="nl.bhit.mtor.webapp.action.CompanyAction"
+		<action name="editCompany" class="nl.bhit.mtor.server.webapp.action.CompanyAction"
 			method="edit">
 			<result>/WEB-INF/pages/companyForm.jsp</result>
 			<result name="error">/WEB-INF/pages/companyList.jsp</result>
 		</action>
 
-		<action name="saveCompany" class="nl.bhit.mtor.webapp.action.CompanyAction"
+		<action name="saveCompany" class="nl.bhit.mtor.server.webapp.action.CompanyAction"
 			method="save">
 			<result name="input">/WEB-INF/pages/companyForm.jsp</result>
 			<result name="cancel" type="redirectAction">companies</result>
@@ -142,18 +142,18 @@
 
 
 		<!--MessageAction-START -->
-		<action name="messages" class="nl.bhit.mtor.webapp.action.MessageAction"
+		<action name="messages" class="nl.bhit.mtor.server.webapp.action.MessageAction"
 			method="list">
 			<result>/WEB-INF/pages/messageList.jsp</result>
 		</action>
 
-		<action name="editMessage" class="nl.bhit.mtor.webapp.action.MessageAction"
+		<action name="editMessage" class="nl.bhit.mtor.server.webapp.action.MessageAction"
 			method="edit">
 			<result>/WEB-INF/pages/messageForm.jsp</result>
 			<result name="error">/WEB-INF/pages/messageList.jsp</result>
 		</action>
 
-		<action name="saveMessage" class="nl.bhit.mtor.webapp.action.MessageAction"
+		<action name="saveMessage" class="nl.bhit.mtor.server.webapp.action.MessageAction"
 			method="save">
 			<result name="input">/WEB-INF/pages/messageForm.jsp</result>
 			<result name="cancel" type="redirectAction">messages</result>
@@ -165,16 +165,16 @@
 
 
 		<!--ProjectAction-START -->
-		<action name="projects" class="nl.bhit.mtor.webapp.action.ProjectAction"
+		<action name="projects" class="nl.bhit.mtor.server.webapp.action.ProjectAction"
 			method="list">
 			<result>/WEB-INF/pages/colorProjectList.jsp</result>
 		</action>
-		<action name="editProject" class="nl.bhit.mtor.webapp.action.ProjectAction"
+		<action name="editProject" class="nl.bhit.mtor.server.webapp.action.ProjectAction"
 			method="edit">
 			<result>/WEB-INF/pages/projectForm.jsp</result>
 			<result name="error">/WEB-INF/pages/projectList.jsp</result>
 		</action>
-		<action name="saveProject" class="nl.bhit.mtor.webapp.action.ProjectAction"
+		<action name="saveProject" class="nl.bhit.mtor.server.webapp.action.ProjectAction"
 			method="save">
 			<result name="input">/WEB-INF/pages/projectForm.jsp</result>
 			<result name="cancel" type="redirectAction">projects</result>
@@ -195,7 +195,7 @@
 			<result name="success">/WEB-INF/pages/admin/activeUsers.jsp</result>
 		</action>
 
-		<action name="reload" class="nl.bhit.mtor.webapp.action.ReloadAction">
+		<action name="reload" class="nl.bhit.mtor.server.webapp.action.ReloadAction">
 			<interceptor-ref name="adminCheck" />
 			<!-- this should never be used, it's here to prevent warnings -->
 			<result name="success">/WEB-INF/pages/mainMenu.jsp</result>
