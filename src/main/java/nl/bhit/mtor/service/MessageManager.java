@@ -1,4 +1,4 @@
-package nl.bhit.service;
+package nl.bhit.mtor.service;
 
 import java.util.List;
 

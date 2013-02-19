@@ -1,11 +1,14 @@
-package nl.bhit.service.impl;
+package nl.bhit.mtor.service.impl;
 
 import nl.bhit.Constants;
 import nl.bhit.mtor.dao.RoleDao;
 import nl.bhit.mtor.dao.UserDao;
 import nl.bhit.mtor.model.Role;
 import nl.bhit.mtor.model.User;
-import nl.bhit.service.UserExistsException;
+import nl.bhit.mtor.service.UserExistsException;
+import nl.bhit.mtor.service.impl.RoleManagerImpl;
+import nl.bhit.mtor.service.impl.UserManagerImpl;
+
 import org.jmock.Expectations;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package nl.bhit.service;
+package nl.bhit.mtor.service;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.logging.Log;

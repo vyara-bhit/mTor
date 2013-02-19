@@ -6,35 +6,39 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import nl.bhit.mtor.model.MTorMessage;
-import nl.bhit.service.MessageManager;
+import nl.bhit.mtor.service.MessageManager;
 
 import org.apache.struts2.ServletActionContext;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 public class MessageActionTest extends BaseActionTestCase {
+	@Autowired
 	private MessageAction action;
+	@Autowired
+	private MessageManager messageManager;
 
 	@Override
 	@Before
 	public void onSetUp() {
 		super.onSetUp();
 
-		action = new MessageAction();
-		MessageManager messageManager = (MessageManager) applicationContext.getBean("messageManager");
-		action.setMessageManager(messageManager);
-
-        // add a test message to the database
-        MTorMessage message = new MTorMessage();
+		// action.setMessageManager(messageManager);
+		MTorMessage testMessage = messageManager.get(-1L);
+		// add a test message to the database
+		MTorMessage message = new MTorMessage();
 
 		// enter all required fields
 		message.setContent("NuIiVuNwUzUwGySmEfAyHsZjCyYdFzEdXeChOlMkLrKeYdEqEnAwOyAsBtBeHlWuWvHbCyTeGtFhMkDsNqHuHkLuWcMgUrFpShFtUuSkJtZbZtKmXjQhUqCgEzQmThMyVvQwPmDiJjVhYqTrCiIbVqPgHfAqDhRlLpSoSpDgMlDdSaGsEyGhQdIpWkMuAjKhCuTmLcPvPlJxVsFfVcVkZyRzWmVyJkTjSgOoNwNhAbPzAzFjUoGlMsXtPpAkBdJ");
 		message.setTimestamp(new java.util.Date());
-
+		message.setProject(testMessage.getProject());
 		messageManager.save(message);
+
+		logUserIntoSession(-1L);
 	}
 
 	@Test
@@ -51,7 +55,7 @@ public class MessageActionTest extends BaseActionTestCase {
 
 		action.setQ("*");
 		assertEquals(action.list(), ActionSupport.SUCCESS);
-		assertEquals(4, action.getMTorMessages().size());
+		assertEquals("retrive only messages which belong to the logged in user", 2, action.getMTorMessages().size());
 	}
 
 	@Test
@@ -72,7 +76,7 @@ public class MessageActionTest extends BaseActionTestCase {
 		assertEquals("success", action.edit());
 		assertNotNull(action.getMessage());
 
-        MTorMessage message = action.getMessage();
+		MTorMessage message = action.getMessage();
 		// update required fields
 		message.setContent("DpHuGrOtKxArDaPiUvDhZfXuOfUwAvFwKeQqAbRaIsDlXxRuPsSyXpWuOcNuVvMsNjXzXnWfWwTfPvLpMlOpEkMoUaZgXfOxUuWgNqOuTwKpXmNvLaFhWdPgOaXuPcJhBrMhGgRlRnLoLiZtMdHlMrGrMaJbQqKxSrTtQgThZkJoExLiPfQkOcRhNgIfBnWsSbFbBkJxAqBcCfOfCsTwJrUmFeUpWpCnCfIwSqOyLxLqHqMrDwMzBkZhKsTqGsN");
 		message.setTimestamp(new java.util.Date());
@@ -90,7 +94,7 @@ public class MessageActionTest extends BaseActionTestCase {
 		MockHttpServletRequest request = new MockHttpServletRequest();
 		ServletActionContext.setRequest(request);
 		action.setDelete("");
-        MTorMessage message = new MTorMessage();
+		MTorMessage message = new MTorMessage();
 		message.setId(-2L);
 		action.setMessage(message);
 		assertEquals("success", action.delete());

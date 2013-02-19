@@ -4,7 +4,7 @@
 <dwr>
     <allow>
         <create creator="spring" javascript="UserManager">
-            <param name="class" value="nl.bhit.service.UserManager"/>
+            <param name="class" value="nl.bhit.mtor.service.UserManager"/>
             <param name="beanName" value="userManager"/>
             <include method="getUsers"/>
         </create>

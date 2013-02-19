@@ -1,11 +1,12 @@
-package nl.bhit.service.impl;
+package nl.bhit.mtor.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import nl.bhit.mtor.dao.MessageDao;
 import nl.bhit.mtor.model.MTorMessage;
-import nl.bhit.service.impl.BaseManagerMockTestCase;
+import nl.bhit.mtor.service.impl.BaseManagerMockTestCase;
+import nl.bhit.mtor.service.impl.MessageManagerImpl;
 
 import org.jmock.Expectations;
 import org.junit.Before;

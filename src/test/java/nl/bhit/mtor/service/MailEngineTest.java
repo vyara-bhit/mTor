@@ -1,4 +1,6 @@
-package nl.bhit.service;
+package nl.bhit.mtor.service;
+
+import nl.bhit.mtor.service.MailEngine;
 
 import org.junit.After;
 import org.junit.Before;

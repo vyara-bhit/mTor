@@ -1,11 +1,11 @@
 package nl.bhit.webapp.action;
 
 import com.opensymphony.xwork2.Preparable;
-import nl.bhit.service.GenericManager;
 import nl.bhit.mtor.dao.SearchException;
 import nl.bhit.mtor.model.Company;
 import nl.bhit.mtor.model.Project;
 import nl.bhit.mtor.model.User;
+import nl.bhit.mtor.service.GenericManager;
 import nl.bhit.webapp.action.BaseAction;
 import nl.bhit.webapp.util.UserManagementUtils;
 

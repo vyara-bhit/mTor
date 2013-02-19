@@ -1,8 +1,9 @@
-package nl.bhit.service.impl;
+package nl.bhit.mtor.service.impl;
 
 import nl.bhit.mtor.dao.RoleDao;
 import nl.bhit.mtor.model.Role;
-import nl.bhit.service.RoleManager;
+import nl.bhit.mtor.service.RoleManager;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

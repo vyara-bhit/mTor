@@ -6,9 +6,10 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;
 import nl.bhit.Constants;
 import nl.bhit.mtor.model.User;
-import nl.bhit.service.MailEngine;
-import nl.bhit.service.RoleManager;
-import nl.bhit.service.UserManager;
+import nl.bhit.mtor.service.MailEngine;
+import nl.bhit.mtor.service.RoleManager;
+import nl.bhit.mtor.service.UserManager;
+
 import org.springframework.mail.SimpleMailMessage;
 
 import javax.servlet.http.HttpServletRequest;

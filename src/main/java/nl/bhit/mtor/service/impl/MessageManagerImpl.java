@@ -1,4 +1,4 @@
-package nl.bhit.service.impl;
+package nl.bhit.mtor.service.impl;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import nl.bhit.mtor.dao.MessageDao;
 import nl.bhit.mtor.model.MTorMessage;
 import nl.bhit.mtor.model.Project;
 import nl.bhit.mtor.model.soap.SoapMessage;
-import nl.bhit.service.GenericManager;
-import nl.bhit.service.MessageManager;
+import nl.bhit.mtor.service.GenericManager;
+import nl.bhit.mtor.service.MessageManager;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,11 +1,12 @@
-package nl.bhit.service.impl;
+package nl.bhit.mtor.service.impl;
 
 import nl.bhit.Constants;
 import nl.bhit.mtor.dao.UserDao;
 import nl.bhit.mtor.model.Role;
 import nl.bhit.mtor.model.User;
-import nl.bhit.service.UserManager;
-import nl.bhit.service.UserSecurityAdvice;
+import nl.bhit.mtor.service.UserManager;
+import nl.bhit.mtor.service.UserSecurityAdvice;
+
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.jmock.integration.junit4.JMock;

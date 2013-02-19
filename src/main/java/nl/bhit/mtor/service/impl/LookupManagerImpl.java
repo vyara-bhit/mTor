@@ -1,9 +1,10 @@
-package nl.bhit.service.impl;
+package nl.bhit.mtor.service.impl;
 
 import nl.bhit.mtor.dao.LookupDao;
 import nl.bhit.mtor.model.LabelValue;
 import nl.bhit.mtor.model.Role;
-import nl.bhit.service.LookupManager;
+import nl.bhit.mtor.service.LookupManager;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

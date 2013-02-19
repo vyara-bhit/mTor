@@ -1,11 +1,12 @@
-package nl.bhit.service.impl;
+package nl.bhit.mtor.service.impl;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import nl.bhit.mtor.dao.GenericDao;
 import nl.bhit.mtor.model.MTorMessage;
-import nl.bhit.service.GenericManager;
+import nl.bhit.mtor.service.GenericManager;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;

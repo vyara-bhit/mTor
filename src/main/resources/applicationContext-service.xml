@@ -28,7 +28,7 @@
     <context:annotation-config/>
 
     <!-- Activates scanning of @Service-->
-    <context:component-scan base-package="nl.bhit.service"/>
+    <context:component-scan base-package="nl.bhit.mtor.service"/>
 
     <tx:advice id="txAdvice">
         <tx:attributes>
@@ -45,12 +45,12 @@
         </tx:attributes>
     </tx:advice>
 
-    <bean id="userSecurityAdvice" class="nl.bhit.service.UserSecurityAdvice"/>
+    <bean id="userSecurityAdvice" class="nl.bhit.mtor.service.UserSecurityAdvice"/>
 
     <!-- =================================================================== -->
     <!-- Mail: Sender and Velocity configuration                             -->
     <!-- =================================================================== -->
-    <bean id="mailEngine" class="nl.bhit.service.MailEngine">
+    <bean id="mailEngine" class="nl.bhit.mtor.service.MailEngine">
         <property name="mailSender" ref="mailSender"/>
         <property name="velocityEngine" ref="velocityEngine"/>
         <property name="from" value="${mail.default.from}"/>

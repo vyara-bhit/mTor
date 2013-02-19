@@ -1,4 +1,4 @@
-package nl.bhit.service;
+package nl.bhit.mtor.service;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.logging.Log;

@@ -5,8 +5,8 @@ import java.util.List;
 import nl.bhit.mtor.model.Project;
 import nl.bhit.mtor.model.Status;
 import nl.bhit.mtor.model.User;
-import nl.bhit.service.GenericManager;
-import nl.bhit.service.MailEngine;
+import nl.bhit.mtor.service.GenericManager;
+import nl.bhit.mtor.service.MailEngine;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

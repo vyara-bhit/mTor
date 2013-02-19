@@ -3,7 +3,9 @@ package nl.bhit.webapp.listener;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import nl.bhit.Constants;
-import nl.bhit.service.LookupManager;
+import nl.bhit.mtor.service.GenericManager;
+import nl.bhit.mtor.service.LookupManager;
+
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -17,7 +19,6 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import java.util.HashMap;
 import java.util.Map;
-import nl.bhit.service.GenericManager;
 
 /**
  * <p>StartupListener class used to initialize and database settings

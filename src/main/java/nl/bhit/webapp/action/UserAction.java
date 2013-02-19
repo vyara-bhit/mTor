@@ -7,8 +7,8 @@ import nl.bhit.mtor.dao.SearchException;
 import nl.bhit.mtor.model.Project;
 import nl.bhit.mtor.model.Role;
 import nl.bhit.mtor.model.User;
-import nl.bhit.service.GenericManager;
-import nl.bhit.service.UserExistsException;
+import nl.bhit.mtor.service.GenericManager;
+import nl.bhit.mtor.service.UserExistsException;
 import nl.bhit.webapp.util.RequestUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;

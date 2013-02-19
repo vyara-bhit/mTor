@@ -11,14 +11,20 @@ import nl.bhit.mtor.model.MTorMessage;
 import nl.bhit.mtor.model.Project;
 import nl.bhit.mtor.model.Status;
 import nl.bhit.mtor.model.User;
-import nl.bhit.service.GenericManager;
-import nl.bhit.service.MessageManager;
+import nl.bhit.mtor.service.GenericManager;
+import nl.bhit.mtor.service.MessageManager;
 import nl.bhit.webapp.util.UserManagementUtils;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.opensymphony.xwork2.Preparable;
 
+@Component
 public class MessageAction extends BaseAction implements Preparable {
+	@Autowired
 	private MessageManager messageManager;
+	@Autowired
 	private GenericManager<Project, Long> projectManager;
 	private List mTorMessages;
 	private List projects;

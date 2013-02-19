@@ -1,29 +1,27 @@
-package nl.bhit.service.impl;
+package nl.bhit.mtor.service.impl;
 
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
+import nl.bhit.mtor.dao.BaseDaoTestCase;
 import nl.bhit.util.ConvertUtil;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.jmock.Mockery;
+import org.jmock.integration.junit4.JMock;
 import org.jmock.integration.junit4.JUnit4Mockery;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
+import org.junit.runner.RunWith;
 
 /**
  * A mock class for testing using JMock. This test class can be moved to the test tree.
  * 
  * @author mraible
  */
-@ContextConfiguration(
-		locations = { "classpath:/applicationContext-resources.xml", "classpath:/applicationContext-dao.xml", "classpath*:/applicationContext.xml",
-				"classpath:**/applicationContext*.xml" })
-// @RunWith(JMock.class)
-public abstract class BaseManagerMockTestCase2 extends AbstractTransactionalJUnit4SpringContextTests {
+@RunWith(JMock.class)
+public abstract class BaseManagerMockTestCase extends BaseDaoTestCase {
 	/**
 	 * A logger
 	 */
@@ -40,7 +38,7 @@ public abstract class BaseManagerMockTestCase2 extends AbstractTransactionalJUni
 	/**
 	 * Default constructor will set the ResourceBundle if needed.
 	 */
-	public BaseManagerMockTestCase2() {
+	public BaseManagerMockTestCase() {
 		// Since a ResourceBundle is not required for each class, just
 		// do a simple check to see if one exists
 		String className = this.getClass().getName();
@@ -62,6 +60,7 @@ public abstract class BaseManagerMockTestCase2 extends AbstractTransactionalJUni
 	 * @throws Exception
 	 *             if BeanUtils fails to copy properly
 	 */
+	@Override
 	protected Object populate(Object obj) throws Exception {
 		// loop through all the beans methods and set its properties from
 		// its .properties file

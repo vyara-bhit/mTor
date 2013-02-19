@@ -1,10 +1,11 @@
-package nl.bhit.service.impl;
+package nl.bhit.mtor.service.impl;
 
 import nl.bhit.mtor.dao.UserDao;
 import nl.bhit.mtor.model.User;
-import nl.bhit.service.UserExistsException;
-import nl.bhit.service.UserManager;
-import nl.bhit.service.UserService;
+import nl.bhit.mtor.service.UserExistsException;
+import nl.bhit.mtor.service.UserManager;
+import nl.bhit.mtor.service.UserService;
+
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;

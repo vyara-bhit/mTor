@@ -1,4 +1,4 @@
-package nl.bhit.service;
+package nl.bhit.mtor.service;
 
 import java.io.Serializable;
 import java.util.List;

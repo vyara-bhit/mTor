@@ -1,9 +1,11 @@
-package nl.bhit.service;
+package nl.bhit.mtor.service;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import nl.bhit.mtor.model.User;
+import nl.bhit.mtor.service.UserExistsException;
+import nl.bhit.mtor.service.UserManager;
 
 import org.junit.Test;
 import org.springframework.beans.BeanUtils;
