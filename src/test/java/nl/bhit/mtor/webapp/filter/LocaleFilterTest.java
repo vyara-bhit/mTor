@@ -1,7 +1,7 @@
 package nl.bhit.mtor.webapp.filter;
 
 import junit.framework.TestCase;
-import nl.bhit.Constants;
+import nl.bhit.mtor.Constants;
 import nl.bhit.mtor.webapp.filter.LocaleFilter;
 
 import org.springframework.context.i18n.LocaleContextHolder;

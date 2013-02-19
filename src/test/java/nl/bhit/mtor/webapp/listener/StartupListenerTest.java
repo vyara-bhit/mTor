@@ -1,7 +1,7 @@
 package nl.bhit.mtor.webapp.listener;
 
 import junit.framework.TestCase;
-import nl.bhit.Constants;
+import nl.bhit.mtor.Constants;
 import nl.bhit.mtor.webapp.listener.StartupListener;
 
 import org.springframework.mock.web.MockServletContext;

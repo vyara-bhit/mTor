@@ -2,7 +2,8 @@ package nl.bhit.mtor.service;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import nl.bhit.Constants;
+
+import nl.bhit.mtor.Constants;
 import nl.bhit.mtor.model.User;
 import nl.bhit.mtor.service.RoleManager;
 import nl.bhit.mtor.service.UserManager;

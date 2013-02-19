@@ -4,7 +4,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;
-import nl.bhit.Constants;
+
+import nl.bhit.mtor.Constants;
 import nl.bhit.mtor.model.User;
 import nl.bhit.mtor.service.MailEngine;
 import nl.bhit.mtor.service.RoleManager;

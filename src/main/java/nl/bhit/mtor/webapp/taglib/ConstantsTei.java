@@ -2,7 +2,8 @@ package nl.bhit.mtor.webapp.taglib;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import nl.bhit.Constants;
+
+import nl.bhit.mtor.Constants;
 
 import javax.servlet.jsp.tagext.TagData;
 import javax.servlet.jsp.tagext.TagExtraInfo;

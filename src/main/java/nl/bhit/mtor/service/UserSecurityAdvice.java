@@ -3,7 +3,8 @@ package nl.bhit.mtor.service;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import nl.bhit.Constants;
+
+import nl.bhit.mtor.Constants;
 import nl.bhit.mtor.model.Role;
 import nl.bhit.mtor.model.User;
 

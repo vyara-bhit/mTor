@@ -1,6 +1,7 @@
 package nl.bhit.mtor.webapp.filter;
 
-import nl.bhit.Constants;
+import nl.bhit.mtor.Constants;
+
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 

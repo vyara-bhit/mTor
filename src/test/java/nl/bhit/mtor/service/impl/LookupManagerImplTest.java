@@ -1,6 +1,6 @@
 package nl.bhit.mtor.service.impl;
 
-import nl.bhit.Constants;
+import nl.bhit.mtor.Constants;
 import nl.bhit.mtor.dao.LookupDao;
 import nl.bhit.mtor.model.LabelValue;
 import nl.bhit.mtor.model.Role;

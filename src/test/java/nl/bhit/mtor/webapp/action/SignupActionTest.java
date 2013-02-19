@@ -2,7 +2,8 @@ package nl.bhit.mtor.webapp.action;
 
 import com.opensymphony.xwork2.Action;
 import org.apache.struts2.ServletActionContext;
-import nl.bhit.Constants;
+
+import nl.bhit.mtor.Constants;
 import nl.bhit.mtor.model.Address;
 import nl.bhit.mtor.model.User;
 import nl.bhit.mtor.webapp.action.BaseAction;

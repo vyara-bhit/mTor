@@ -2,7 +2,8 @@ package nl.bhit.mtor.webapp.action;
 
 import com.opensymphony.xwork2.Preparable;
 import org.apache.struts2.ServletActionContext;
-import nl.bhit.Constants;
+
+import nl.bhit.mtor.Constants;
 import nl.bhit.mtor.dao.SearchException;
 import nl.bhit.mtor.model.Project;
 import nl.bhit.mtor.model.Role;

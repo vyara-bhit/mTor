@@ -2,7 +2,9 @@ package nl.bhit.mtor.util;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import nl.bhit.Constants;
+
+import nl.bhit.mtor.Constants;
+
 import org.springframework.context.i18n.LocaleContextHolder;
 
 import java.text.ParseException;

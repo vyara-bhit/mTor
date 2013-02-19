@@ -1,7 +1,8 @@
 package nl.bhit.mtor.webapp.action;
 
 import org.apache.struts2.ServletActionContext;
-import nl.bhit.Constants;
+
+import nl.bhit.mtor.Constants;
 
 import java.io.File;
 import java.io.FileInputStream;

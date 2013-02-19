@@ -2,7 +2,7 @@ package nl.bhit.mtor.webapp.action;
 
 import java.util.HashMap;
 
-import nl.bhit.Constants;
+import nl.bhit.mtor.Constants;
 import nl.bhit.mtor.model.User;
 import nl.bhit.mtor.service.UserManager;
 

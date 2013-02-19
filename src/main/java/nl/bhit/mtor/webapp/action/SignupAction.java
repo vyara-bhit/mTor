@@ -2,7 +2,8 @@ package nl.bhit.mtor.webapp.action;
 
 
 import org.apache.struts2.ServletActionContext;
-import nl.bhit.Constants;
+
+import nl.bhit.mtor.Constants;
 import nl.bhit.mtor.model.Role;
 import nl.bhit.mtor.model.User;
 import nl.bhit.mtor.service.UserExistsException;

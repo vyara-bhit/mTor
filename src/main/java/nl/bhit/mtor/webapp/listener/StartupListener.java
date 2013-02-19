@@ -2,7 +2,8 @@ package nl.bhit.mtor.webapp.listener;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import nl.bhit.Constants;
+
+import nl.bhit.mtor.Constants;
 import nl.bhit.mtor.service.GenericManager;
 import nl.bhit.mtor.service.LookupManager;
 
