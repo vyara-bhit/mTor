@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 @Service("messageManager")
 @WebService(
 		serviceName = "MessageService",
-		endpointInterface = "nl.bhit.service.MessageManager")
+		endpointInterface = "nl.bhit.mtor.service.MessageManager")
 public class MessageManagerImpl extends GenericManagerImpl<MTorMessage, Long> implements MessageManager {
 	MessageDao messageDao;
 	@Autowired
@@ -62,9 +62,9 @@ public class MessageManagerImpl extends GenericManagerImpl<MTorMessage, Long> im
 	public void setProjectManager(GenericManager<Project, Long> projectManager) {
 		this.projectManager = projectManager;
 	}
-	
-    @Override
+
+	@Override
 	public List<MTorMessage> getMessagesWithTimestamp(MTorMessage message) {
-    	return messageDao.getMessagesWithTimestamp(message);
-    }
+		return messageDao.getMessagesWithTimestamp(message);
+	}
 }
