@@ -20,6 +20,7 @@
     <bean id="userAction" class="nl.bhit.mtor.server.webapp.action.UserAction" scope="prototype">
         <property name="userManager" ref="userManager"/>
         <property name="roleManager" ref="roleManager"/>
+        <property name="projectManager" ref="projectManager"/>
         <property name="mailEngine" ref="mailEngine"/>
         <property name="mailMessage" ref="mailMessage"/>
         <property name="templateName" value="accountCreated.vm"/>

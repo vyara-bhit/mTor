@@ -5,8 +5,8 @@ import java.util.List;
 import nl.bhit.mtor.model.Project;
 import nl.bhit.mtor.model.Status;
 import nl.bhit.mtor.model.User;
-import nl.bhit.mtor.service.GenericManager;
 import nl.bhit.mtor.service.MailEngine;
+import nl.bhit.mtor.service.ProjectManager;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -17,8 +17,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class AlertSender {
-	@Autowired
-	private GenericManager<Project, Long> projectManager;
+	@Autowired(
+			required = false)
+	private ProjectManager projectManager;
 	@Autowired
 	MailSender mailSender;
 	@Autowired

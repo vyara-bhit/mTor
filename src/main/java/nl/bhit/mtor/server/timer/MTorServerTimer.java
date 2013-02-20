@@ -8,13 +8,14 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component(
+		value = "mTorServerTimer")
 public class MTorServerTimer {
 	protected final Log log = LogFactory.getLog(MessageServiceSender.class);
 
 	protected static String[] getConfigLocations() {
 		return new String[] { "classpath:/applicationContext-resources.xml", "classpath:/applicationContext-dao.xml",
-				"classpath:/applicationContext-service.xml", "classpath:/applicationContext-timer.xml", "classpath:/WEB-INF/applicationContext.xml" };
+				"classpath:/applicationContext-service.xml", "classpath:/applicationContext-timer.xml", "classpath:**/applicationContext*.xml" };
 	}
 
 	/**
