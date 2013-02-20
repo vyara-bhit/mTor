@@ -69,7 +69,6 @@ public class User extends BaseObject implements Serializable, UserDetails {
     private Set<Project> projects;
 
 
-
 	/**
      * Default constructor - creates a new instance with no values set.
      */
@@ -418,4 +417,6 @@ public class User extends BaseObject implements Serializable, UserDetails {
 		 } 
 		 return projectNames;
 	}
+	
+
 }

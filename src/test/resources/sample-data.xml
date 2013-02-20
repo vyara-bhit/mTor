@@ -19,7 +19,7 @@
         <column>account_enabled</column>
         <column>account_expired</column>
         <column>account_locked</column>
-        <column>credentials_expired</column>
+        <column>credentials_expired</column>        
         <row>
             <value description="id">-1</value>
             <value description="username">user</value>

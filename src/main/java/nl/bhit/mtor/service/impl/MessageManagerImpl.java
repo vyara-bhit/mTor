@@ -56,6 +56,7 @@ public class MessageManagerImpl extends GenericManagerImpl<MTorMessage, Long> im
 		MTorMessage message = new MTorMessage();
 		BeanUtils.copyProperties(soapMessage, message);
 		message.setProject(project);
+		message.setResolved(false);
 		return message;
 	}
 

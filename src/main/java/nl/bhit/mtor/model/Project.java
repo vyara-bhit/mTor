@@ -1,5 +1,6 @@
 package nl.bhit.mtor.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -22,7 +23,8 @@ import javax.persistence.Table;
 @Entity
 @Table(
 		name = "PROJECT")
-public class Project {
+public class Project extends BaseObject implements Serializable {
+	private static final long serialVersionUID = 5444456904374632294L;
 	private Long id;
 	private String name;
 	private Set<MTorMessage> messages;
@@ -178,5 +180,30 @@ public class Project {
 			setOfUsers.add(user);
 			setUsers(setOfUsers);
 		}
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (obj == null) return false;
+		if (getClass() != obj.getClass()) return false;
+		Project other = (Project) obj;
+		if (id == null) {
+			if (other.id != null) return false;
+		} else if (!id.equals(other.id)) return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Project [id=" + id + ", name=" + name + ", company=" + company + ", users=" + users + "]";
 	}
 }
