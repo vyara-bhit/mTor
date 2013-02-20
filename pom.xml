@@ -50,7 +50,7 @@
                 <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
                 <version>1.6.2</version>
                 <configuration>
-                    <packageName>nl.bhit.mTor.client.wsdl</packageName>
+                    <packageName>nl.bhit.mtor.client.wsdl</packageName>
                     <wsdlFile>src/test/resources/wsdl/MessageService.wsdl</wsdlFile>
                     <databindingName>adb</databindingName>
                 </configuration>
