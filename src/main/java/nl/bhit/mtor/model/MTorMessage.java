@@ -27,6 +27,7 @@ public class MTorMessage {
 	private Project project;
 	private Date timestamp;
 	private boolean resolved;
+	private boolean alertSent;
 
 
 	public MTorMessage() {
@@ -127,6 +128,17 @@ public class MTorMessage {
 			if (other.id != null) return false;
 		} else if (!id.equals(other.id)) return false;
 		return true;
+	}
+
+	@Column(
+			name = "ALERTSENT",
+			nullable = false)
+	public boolean isAlertSent() {
+		return alertSent;
+	}
+
+	public void setAlertSent(boolean alertSent) {
+		this.alertSent = alertSent;
 	}
 
 }

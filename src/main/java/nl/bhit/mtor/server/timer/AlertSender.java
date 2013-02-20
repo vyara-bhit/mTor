@@ -1,12 +1,15 @@
 package nl.bhit.mtor.server.timer;
 
 import java.util.List;
+import java.util.Set;
 
+import nl.bhit.mtor.model.MTorMessage;
 import nl.bhit.mtor.model.Project;
 import nl.bhit.mtor.model.Status;
 import nl.bhit.mtor.model.User;
 import nl.bhit.mtor.service.GenericManager;
 import nl.bhit.mtor.service.MailEngine;
+import nl.bhit.mtor.service.MessageManager;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -19,6 +22,8 @@ import org.springframework.stereotype.Component;
 public class AlertSender {
 	@Autowired
 	private GenericManager<Project, Long> projectManager;
+	@Autowired
+	private MessageManager messageManager;
 	@Autowired
 	MailSender mailSender;
 	@Autowired
@@ -35,8 +40,35 @@ public class AlertSender {
 			if (!project.hasHeartBeat()) {
 				sendMailToUsers(project);
 			}
-			if (!project.hasStatus(Status.ERROR)) {
+			/*if (!project.hasStatus(Status.ERROR)) {
 				sendMailToUsers(project);
+			}*/
+			Set<MTorMessage> currentMessages= project.getMessages();
+			if(!currentMessages.isEmpty()){
+				for (MTorMessage message : currentMessages) {
+					if(!message.isAlertSent()){
+						Status status = message.getStatus();
+						if(status.equals(Status.ERROR) && !message.isResolved()){
+							sendMessageAlert(project, 
+									"An error message has arrived",
+									message.getContent());
+							message.setAlertSent(true);
+							messageManager.save(message);
+						} else if(status.equals(Status.WARN) && !message.isResolved()){
+							sendMessageAlert(project, 
+									"A warning message has arrived",
+									message.getContent());
+							message.setAlertSent(true);
+							messageManager.save(message);
+						} else {
+							sendMessageAlert(project, 
+									"Info",
+									message.getContent());
+							message.setAlertSent(true);
+							messageManager.save(message);
+						}
+					}
+				}						
 			}
 		}
 	}
@@ -57,5 +89,20 @@ public class AlertSender {
 		mailMessage.setSubject("there is no heartBeat!");
 		mailMessage.setText("there is no heartBeat!");
 		mailEngine.send(mailMessage);
+	}
+	
+	private void sendMessageAlert(Project project, String subject, String content){
+		for (User user : project.getUsers()) {
+			String to = user.getEmail();
+			if (log.isDebugEnabled()) {
+				log.debug("sending e-mail to user [" + to + "]...");
+			}
+
+			mailMessage.setTo(to + "<" + to + ">");
+
+			mailMessage.setSubject(subject);
+			mailMessage.setText(content);
+			mailEngine.send(mailMessage);
+		}
 	}
 }
