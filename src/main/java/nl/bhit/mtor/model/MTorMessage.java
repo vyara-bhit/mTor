@@ -1,5 +1,6 @@
 package nl.bhit.mtor.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -20,7 +21,8 @@ import org.hibernate.search.annotations.Indexed;
 @Indexed
 @Table(
 		name = "MESSAGE")
-public class MTorMessage {
+public class MTorMessage extends BaseObject implements Serializable {
+	private static final long serialVersionUID = 1775343633035089024L;
 	private Long id;
 	private String content;
 	private Status status;
@@ -126,6 +128,12 @@ public class MTorMessage {
 			if (other.id != null) return false;
 		} else if (!id.equals(other.id)) return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "MTorMessage [id=" + id + ", content=" + content + ", status=" + status + ", project=" + project + ", timestamp=" + timestamp + ", resolved="
+				+ resolved + "]";
 	}
 
 }

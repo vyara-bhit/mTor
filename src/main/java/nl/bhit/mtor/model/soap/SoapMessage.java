@@ -1,5 +1,7 @@
 package nl.bhit.mtor.model.soap;
 
+import java.io.Serializable;
+
 import nl.bhit.mtor.model.Status;
 
 /**
@@ -7,7 +9,8 @@ import nl.bhit.mtor.model.Status;
  * 
  * @author tibi
  */
-public class SoapMessage { 
+public class SoapMessage implements Serializable {
+	private static final long serialVersionUID = -29873897872583055L;
 	private String content;
 	private Status status;
 	private Long projectId;
@@ -24,7 +27,7 @@ public class SoapMessage {
 		return projectId;
 	}
 
-	public void setProjectId(Long projectId) { 
+	public void setProjectId(Long projectId) {
 		this.projectId = projectId;
 	}
 
