@@ -6,9 +6,10 @@ import static org.junit.Assert.assertNotNull;
 import java.util.Date;
 import java.util.List;
 
-import nl.bhit.mtor.dao.MessageDao;
 import nl.bhit.mtor.model.MTorMessage;
+import nl.bhit.mtor.model.Project;
 
+import org.apache.commons.lang.time.DateUtils;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -17,6 +18,8 @@ import org.springframework.test.annotation.ExpectedException;
 public class MessageDaoTest extends BaseDaoTestCase {
 	@Autowired
 	private MessageDao messageDao;
+	@Autowired
+	private ProjectDao projectDao;
 
 	@Test
 	@ExpectedException(DataAccessException.class)
@@ -43,14 +46,43 @@ public class MessageDaoTest extends BaseDaoTestCase {
 	}
 
 	@Test
-	public void testGetMessagesWithTimestamp() {
+	public void testGetMessagesWithTimestampBase() {
 		log.debug("starting testGetMessagesWithTimestamp...");
-		MTorMessage message = new MTorMessage();
-		message.setTimestamp(new Date());
+		MTorMessage message = createMessage(new Date(), projectDao.get(-1L));
 		List<MTorMessage> messages = messageDao.getMessagesWithTimestamp(message);
+		assertEquals(1, messages.size());
+	}
 
-		assertEquals(3, messages.size());
+	@Test
+	public void testGetMessagesWithTimestampAddedNewerSameProject() {
+		MTorMessage message = createMessage(new Date(), projectDao.get(-1L));
+		messageDao.save(createMessage(DateUtils.addDays(new Date(), 1), projectDao.get(-1L)));
+		List<MTorMessage> messages = messageDao.getMessagesWithTimestamp(message);
+		assertEquals("message added which is newer, should have no effect", 1, messages.size());
+	}
 
+	@Test
+	public void testGetMessagesWithTimestampAddedOlderSameProject() {
+		MTorMessage message = createMessage(new Date(), projectDao.get(-1L));
+		messageDao.save(createMessage(DateUtils.addDays(new Date(), -1), projectDao.get(-1L)));
+		List<MTorMessage> messages = messageDao.getMessagesWithTimestamp(message);
+		assertEquals("older message added", 2, messages.size());
+	}
+
+	@Test
+	public void testGetMessagesWithTimestampAddedOlderDiffProject() {
+		MTorMessage message = createMessage(new Date(), projectDao.get(-1L));
+		messageDao.save(createMessage(DateUtils.addDays(new Date(), -1), projectDao.get(-2L)));
+		List<MTorMessage> messages = messageDao.getMessagesWithTimestamp(message);
+		assertEquals("older message added", 1, messages.size());
+	}
+
+	protected MTorMessage createMessage(Date date, Project project) {
+		MTorMessage message = new MTorMessage();
+		message.setTimestamp(date);
+		message.setProject(project);
+		message.setContent("test message from unit test MessageDaoTest");
+		return message;
 	}
 
 }
