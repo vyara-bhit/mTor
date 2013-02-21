@@ -1,6 +1,8 @@
 package nl.bhit.mtor.server.webapp.action;
 
 import com.opensymphony.xwork2.Preparable;
+
+import nl.bhit.mtor.Constants;
 import nl.bhit.mtor.dao.SearchException;
 import nl.bhit.mtor.model.Company;
 import nl.bhit.mtor.model.Project;
@@ -59,18 +61,22 @@ public class ProjectAction extends BaseAction implements Preparable {
 
     public String list() {
         try {
-            Collection projectsNew = new LinkedHashSet(projectManager.search(query, Project.class));
-            List<Project> tempProjects = new ArrayList(projectsNew);
-            String loggedInUser = UserManagementUtils.getAuthenticatedUser().getFullName();
-            projects = new ArrayList();
-            for(Project tempProject : tempProjects){
-            	Set<User> projectUsers = tempProject.getUsers();
-            	for (User projectUser : projectUsers){
-            		if (projectUser.getFullName().equalsIgnoreCase(loggedInUser)){
-            			projects.add(tempProject);
-            		}
-            	}
-            }
+        	if (!getRequest().isUserInRole(Constants.ADMIN_ROLE)) {
+	            Collection projectsNew = new LinkedHashSet(projectManager.search(query, Project.class));
+	            List<Project> tempProjects = new ArrayList(projectsNew);
+	            String loggedInUser = UserManagementUtils.getAuthenticatedUser().getFullName();
+	            projects = new ArrayList();
+	            for(Project tempProject : tempProjects){
+	            	Set<User> projectUsers = tempProject.getUsers();
+	            	for (User projectUser : projectUsers){
+	            		if (projectUser.getFullName().equalsIgnoreCase(loggedInUser)){
+	            			projects.add(tempProject);
+	            		}
+	            	}
+	            }
+        	} else {
+        		projects = projectManager.getAllDistinct();
+        	}
         } catch (SearchException se) {
             addActionError(se.getMessage());
             projects = projectManager.getAllDistinct();
