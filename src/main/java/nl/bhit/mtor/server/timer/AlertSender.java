@@ -38,39 +38,41 @@ private ProjectManager projectManager;
 		List<Project> projects = projectManager.getAllDistinct();
 
 		for (Project project : projects) {
-			if (!project.hasHeartBeat()) {
-				sendMailToUsers(project);
-			}
-			//TODO (tibi) rewrite code to make it more readable
-			/*if (!project.hasStatus(Status.ERROR)) {
-				sendMailToUsers(project);
-			}*/
-			Set<MTorMessage> currentMessages= project.getMessages();
-			if(!currentMessages.isEmpty()){
-				for (MTorMessage message : currentMessages) {
-					if(!message.isAlertSent()){
-						Status status = message.getStatus();
-						if(status.equals(Status.ERROR) && !message.isResolved()){
-							sendMessageAlert(project, 
-									"An error message has arrived",
-									message.getContent());
-							message.setAlertSent(true);
-							messageManager.save(message);
-						} else if(status.equals(Status.WARN) && !message.isResolved()){
-							sendMessageAlert(project, 
-									"A warning message has arrived",
-									message.getContent());
-							message.setAlertSent(true);
-							messageManager.save(message);
-						} else {
-							sendMessageAlert(project, 
-									"Info",
-									message.getContent());
-							message.setAlertSent(true);
-							messageManager.save(message);
+			if(!project.isStopmonitoring()){
+				if (!project.hasHeartBeat()) {
+					sendMailToUsers(project);
+				}
+				//TODO (tibi) rewrite code to make it more readable
+				/*if (!project.hasStatus(Status.ERROR)) {
+					sendMailToUsers(project);
+				}*/
+				Set<MTorMessage> currentMessages= project.getMessages();
+				if(!currentMessages.isEmpty()){
+					for (MTorMessage message : currentMessages) {
+						if(!message.isAlertSent()){
+							Status status = message.getStatus();
+							if(status.equals(Status.ERROR) && !message.isResolved()){
+								sendMessageAlert(project, 
+										"An error message has arrived",
+										message.getContent());
+								message.setAlertSent(true);
+								messageManager.save(message);
+							} else if(status.equals(Status.WARN) && !message.isResolved()){
+								sendMessageAlert(project, 
+										"A warning message has arrived",
+										message.getContent());
+								message.setAlertSent(true);
+								messageManager.save(message);
+							} else {
+								sendMessageAlert(project, 
+										"Info",
+										message.getContent());
+								message.setAlertSent(true);
+								messageManager.save(message);
+							}
 						}
-					}
-				}						
+					}						
+				}
 			}
 		}
 	}
