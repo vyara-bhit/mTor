@@ -18,10 +18,9 @@ public class MessageDaoHibernate extends GenericDaoHibernate<MTorMessage, Long> 
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<MTorMessage> getMessagesWithTimestamp(MTorMessage message) {
-		Query query = getSession().createQuery("from MTorMessage where timestamp <= :timeStamp");
+		Query query = getSession().createQuery("from MTorMessage where timestamp <= :timeStamp and project = :project");
 		query.setDate("timeStamp", message.getTimestamp());
-		//TODO add project fk to return only messages of the message project
-		
+		query.setLong("project", message.getProject().getId());
 		return query.list();
 	}
 }
