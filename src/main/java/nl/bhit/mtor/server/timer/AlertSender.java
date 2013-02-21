@@ -38,7 +38,7 @@ private ProjectManager projectManager;
 		List<Project> projects = projectManager.getAllDistinct();
 
 		for (Project project : projects) {
-			if(!project.isStopmonitoring()){
+			if(!project.isMonitoring()){
 				if (!project.hasHeartBeat()) {
 					sendMailToUsers(project);
 				}

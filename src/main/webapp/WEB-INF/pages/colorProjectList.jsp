@@ -51,7 +51,7 @@
         	${projectList.statusOfProject()}
         </display:column>  
        <display:column sortable="true" title="Users">${projectList.userNames()} </display:column> 
-       <display:column property="stopmonitoring" sortable="true" titleKey="project.stopmonitoring"/>
+       <display:column property="monitoring" sortable="true" titleKey="project.monitoring"/>
 
         <display:setProperty name="paging.banner.item_name"><fmt:message key="projectList.project"/></display:setProperty>
         <display:setProperty name="paging.banner.items_name"><fmt:message key="projectList.projects"/></display:setProperty>
