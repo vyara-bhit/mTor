@@ -72,12 +72,14 @@ public class SignupAction extends BaseAction {
     public String save() throws Exception {
         user.setEnabled(true);
 
-        // Set the default anonymous role on this new user
-        //user.addRole(roleManager.getRole(Constants.USER_ROLE));
-        if (roleManager.getRole(Constants.ANONYMOUS_ROLE) == null) {
-        	roleManager.saveRole(new Role(Constants.ANONYMOUS_ROLE));
-        }        
-        user.addRole(roleManager.getRole(Constants.ANONYMOUS_ROLE));
+        
+        user.addRole(roleManager.getRole(Constants.USER_ROLE));
+        //remove according new requirement for issue #30 signup role
+//        // Set the default anonymous role on this new user
+//        if (roleManager.getRole(Constants.ANONYMOUS_ROLE) == null) {
+//        	roleManager.saveRole(new Role(Constants.ANONYMOUS_ROLE));
+//        }        
+//        user.addRole(roleManager.getRole(Constants.ANONYMOUS_ROLE));
         
         user.setEmail(user.getUsername());
 

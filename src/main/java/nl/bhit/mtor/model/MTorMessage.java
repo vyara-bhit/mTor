@@ -29,6 +29,7 @@ public class MTorMessage extends BaseObject implements Serializable {
 	private Project project;
 	private Date timestamp;
 	private boolean resolved;
+	private boolean alertSent;	
 
 	public MTorMessage() {
 		timestamp = new Date();
@@ -134,6 +135,17 @@ public class MTorMessage extends BaseObject implements Serializable {
 	public String toString() {
 		return "MTorMessage [id=" + id + ", content=" + content + ", status=" + status + ", project=" + project + ", timestamp=" + timestamp + ", resolved="
 				+ resolved + "]";
+	}
+
+	@Column(
+			name = "ALERT_SENT",
+			nullable = false)
+	public boolean isAlertSent() {
+		return alertSent;
+	}
+
+	public void setAlertSent(boolean alertSent) {
+		this.alertSent = alertSent;
 	}
 
 }
