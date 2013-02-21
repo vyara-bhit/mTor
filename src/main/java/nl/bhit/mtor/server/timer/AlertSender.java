@@ -41,6 +41,7 @@ private ProjectManager projectManager;
 			if (!project.hasHeartBeat()) {
 				sendMailToUsers(project);
 			}
+			//TODO (tibi) rewrite code to make it more readable
 			/*if (!project.hasStatus(Status.ERROR)) {
 				sendMailToUsers(project);
 			}*/
