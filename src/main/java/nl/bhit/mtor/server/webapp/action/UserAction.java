@@ -202,6 +202,9 @@ public class UserAction extends BaseAction implements Preparable {
             }
         }
         
+        if (user.getProjects() != null) {
+        	user.getProjects().clear();
+        }
         String[] userProjects = getRequest().getParameterValues("projects");
 
         for (int i = 0; userProjects != null && i < userProjects.length; i++) {

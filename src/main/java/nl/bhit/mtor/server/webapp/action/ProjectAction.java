@@ -149,6 +149,9 @@ public class ProjectAction extends BaseAction implements Preparable {
             return delete();
         }
         
+        if (project.getUsers() != null){
+        	project.getUsers().clear();
+        }
         String[] projectUsers = getRequest().getParameterValues("projectUsers");
 
         for (int i = 0; projectUsers != null && i < projectUsers.length; i++) {
