@@ -110,10 +110,6 @@ public class MessageAction extends BaseAction implements Preparable {
 		return projects;
 	}
 
-	public List getStatusList() {
-		return Status.getAsList();
-	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
